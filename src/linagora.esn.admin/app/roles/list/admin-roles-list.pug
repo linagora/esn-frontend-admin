@@ -1,0 +1,12 @@
+.row
+  .col-md-7.col-xs-7.block-header
+    h2 {{ $ctrl.title }}
+  .col-md-4.col-xs-4.block-header.flex-horizontal-centered
+    h2 {{ 'Promoted' | translate }}
+  .col-md-1.col-xs-1.block-header.flex-horizontal-centered
+    h2 {{ 'Revoke' | translate }}
+    
+.card
+  .listview.lv-bordered.lv-lg
+    .lv-body
+      admin-roles-list-item.lv-item(ng-repeat="user in $ctrl.users", template="$ctrl.template", user="user")

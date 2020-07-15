@@ -1,0 +1,7 @@
+span {{ 'Used for:' | translate }}
+.oauth-usage-options
+  .option
+    label.checkbox.checkbox-inline
+      input(type="checkbox", ng-model="$ctrl.options.account")
+      i.input-helper
+      | {{ 'Link account' | translate }}

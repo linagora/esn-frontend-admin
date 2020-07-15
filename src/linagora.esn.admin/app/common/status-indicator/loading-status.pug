@@ -1,0 +1,12 @@
+div(ng-switch="$ctrl.status")
+
+  div(ng-switch-when="loaded")
+    ng-transclude
+
+  div(ng-switch-when="loading")
+    .text-center(openpaas-logo-spinner, spinner-start-active='1', spinner-size='0.5')
+
+  div(ng-switch-when="error")
+    admin-empty-message(
+      icon="mdi-alert-circle",
+      message="{{ 'A problem occurred while getting data, try refreshing this page!' | translate }}")

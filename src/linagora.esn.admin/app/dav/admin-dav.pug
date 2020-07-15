@@ -1,0 +1,13 @@
+sub-header
+  admin-dav-subheader(on-form-submit="$ctrl.save()", form="form")
+
+form(name="form", admin-loading-status)
+  .card
+    .card-body.card-padding
+      .row
+        .col-md-6
+          esn-form-group(label="{{ 'Backend' | translate }}", helper="{{ 'DAV server URL to be used in backend' | translate }}")
+            input.form-control(type="url", ng-model="$ctrl.config.backend.url", auto-focus, name="backend", required)
+        .col-md-6
+          esn-form-group(label="{{ 'Frontend' | translate }}", helper="{{ 'DAV server URL to be used in frontend' | translate }}")
+            input.form-control(type="url", ng-model="$ctrl.config.frontend.url", name="frontend", required)

@@ -1,0 +1,57 @@
+.admin-themes-preview-desktop(ng-style='{background: $ctrl.colors.bodyBgColor}')
+  #header.search-toggled(ng-style='{background: $ctrl.colors.primaryColor, color: $ctrl.colors.textPrimaryColor}')
+    div.header-inner.flex-vertical-centered.flex-space-between
+      ul.list-inline.all-centered
+        li.logo
+          a
+            img.openpaas-logo(ng-src="{{'/api/files/' + $ctrl.logos.logo}}", fallback-src='/images/white-logo.svg')
+
+      ul.list-inline.all-centered.header-actions
+        li
+          button.btn.btn-link.btn-icon.user-notification-toggler
+            i.mdi.mdi-bell
+            i.unread-count.important 2
+        li
+          button.btn.btn-link.btn-icon
+            i.mdi.mdi-apps
+        li
+          button.btn.btn-link.btn-icon
+            i.mdi.mdi-account-circle
+    #sub-header.module-subheader(ng-style='{background: $ctrl.colors.primaryColor, color: $ctrl.colors.textPrimaryColor}')
+      .flex-space-between.module-subheader-inner
+        .left-container.flex-vertical-centered
+          button.btn.btn-link.btn-icon
+            i.mdi.mdi-menu
+          span.title.ellipsis
+            |  #{('Themes Preview')}
+        .right-container.esn-flex-noshrink
+          button.btn.btn-link.save.hidden-xs.flex-vertical-centered
+            span #{('Save')}
+            i.mdi.mdi-check.mdi-margin-left
+          button.btn.btn-link.btn-icon.save.visible-xs
+            i.mdi.mdi-check
+
+  .admin-root.row.no-padding-xs.subheader-aware
+    .col-xs-4.col-xl-3.no-padding-xs
+      .admin-sidebar
+        ul.nav.nav-pills.nav-stacked
+        .listview
+          .lv-body
+            .lv-item.clickable.menu-heading(ng-style='{borderLeftColor: $ctrl.colors.primaryColor, color: $ctrl.colors.primaryColor}')
+              .title #{('My sidebar')}
+        .listview
+          a.lv-item.menu-item
+            i.mdi.mdi-settings
+            .menu-title #{('Item one')}
+          a.lv-item.menu-item
+            i.mdi.mdi-settings
+            .menu-title #{('Item two')}
+
+    .col-xs-8.col-xl-9
+      .card
+        .card-header
+          h4 #{('Desktop Title')}
+        .card-body.card-padding
+          p  #{('Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna.')}
+  button.btn.btn-float.btn-accent.waves-effect.waves-light(ng-style='{background: $ctrl.colors.accentColor, color: $ctrl.colors.textPrimaryColor}')
+    i.mdi.mdi-plus

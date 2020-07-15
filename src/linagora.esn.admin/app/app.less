@@ -1,0 +1,48 @@
+@import './sidebar/admin-sidebar';
+@import './dav/admin-dav';
+@import './domains/form/hostnames/admin-domains-form-hostnames';
+@import './ldap/admin-ldap';
+@import './mail/admin-mail';
+@import './modules/admin-modules';
+@import './oauth/admin-oauth';
+@import './resources/admin-resources';
+@import './roles/admin-roles';
+@import './users/admin-users';
+@import './jwt/admin-jwt';
+@import './common/form/admin-form-input-bytes';
+@import './common/form/admin-form-multi-input';
+@import './common/empty-message/admin-empty-message';
+@import './domains/admin-domains';
+@import './features/admin-features';
+@import './maintenance/maintenance';
+@import './maintenance/elasticsearch/admin-maintenance-elasticsearch.less';
+@import './login/admin-login';
+@import './themes/admin-themes';
+@import './themes/preview/admin-themes-preview';
+@import './themes/preview/desktop/admin-themes-preview-desktop';
+@import './themes/preview/mobile/admin-themes-preview-mobile';
+@import './technical-users/list/admin-technical-users-list';
+@import './technical-users/add/admin-technical-users-add';
+@import './technical-users/form/admin-technical-users-form';
+
+.admin-root {
+  & > .col-md-3, & > .col-md-8 {
+    margin-top: 20px;
+  }
+
+  form {
+    .group-name {
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+  }
+
+  .card-body > form, .card-body > ng-form {
+    display: block;
+    padding-top: 20px;
+  }
+
+  .pull-left {
+    padding-right: 16px;
+  }
+}

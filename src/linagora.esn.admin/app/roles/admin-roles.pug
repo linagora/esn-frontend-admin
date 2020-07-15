@@ -1,0 +1,6 @@
+sub-header
+  admin-roles-subheader
+
+admin-loading-status
+  admin-roles-list(data-title="{{ 'Administrators' | translate }}", users="$ctrl.administrators", template="admin-roles-administrator-list-item")
+  fab(icon="plus", ng-click="$ctrl.openAddForm()")

@@ -1,0 +1,22 @@
+sub-header
+  admin-users-subheader
+
+.card
+  .card-header
+    h2 {{ 'Users configuration' | translate }}
+  .card-body.card-padding
+    admin-users-configuration
+
+.card(ng-if="$ctrl.displayUserCreation")
+  .card-header
+    h2 {{ 'Quick user creation' | translate }}
+  .card-body.card-padding
+    admin-users-quick-form(domain-id="$ctrl.domainId")
+
+.card
+  .card-header
+    h2 {{ 'List of users' | translate }}
+  .card-body
+    .listview.lv-bordered.lv-lg
+      .lv-body
+        admin-users-list(domain-id="$ctrl.domainId")

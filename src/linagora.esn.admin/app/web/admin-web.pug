@@ -1,0 +1,10 @@
+sub-header
+  admin-web-subheader(on-form-submit="$ctrl.save()", form="form")
+
+form(name="form", admin-loading-status)
+  .card
+    .card-body.card-padding
+      .row
+        .col-xs-12.col-md-6
+          esn-form-group(label="{{ 'Base URL' | translate }}", helper="{{ 'The address where your website is served' | translate }}")
+            input.form-control(type="url", ng-model="$ctrl.config.base_url", name="base_url", required)

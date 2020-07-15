@@ -1,0 +1,34 @@
+sub-header
+  admin-themes-subheader(on-form-submit="$ctrl.save()", form="form", reset="$ctrl.reset()")
+
+form(name="form", admin-loading-status)
+  admin-themes-preview(colors="$ctrl.model.colors", logos="$ctrl.model.logos")
+
+  .admin-themes-form
+    .card
+      .card-header
+        h2 {{ 'Application colors' | translate }}
+      .card-body.card-padding
+        .row.button-row(ng-repeat='subgroup in $ctrl.adminThemesColorVariablesGroups.groups')
+          div(class="col-md-{{12 / $ctrl.adminThemesColorVariablesGroups.groupLength}}" ng-repeat='item in subgroup')
+            button.admin-themes-color-picker.btn.btn-primary.btn-block(
+              color-picker
+              color-picker-position="{{$index >= $ctrl.adminThemesColorVariablesGroups.groupLength - 1 ? 'left' : 'right'}}"
+              color-picker-model='$ctrl.model.colors[item.apiVariable]'
+              color-picker-show-cancel-button='true'
+              color-picker-cancel-button-class='btn btn-link color-default'
+              ng-style='{background: $ctrl.model.colors[item.apiVariable], color: $ctrl.computeTextColor($ctrl.model.colors[item.apiVariable])}'
+            )
+              | {{::item.displayText}}
+    .card
+      .card-header
+        h2 {{ 'Application logos' | translate }}
+      .card-body.card-padding
+        div(ng-repeat='subgroup in $ctrl.adminThemesLogoVariablesGroups.groups')
+          .row
+            div(class="col-md-{{12 / $ctrl.adminThemesLogoVariablesGroups.groupLength}}" ng-repeat='item in subgroup')
+              img.openpaas-logo(ng-src="{{'/api/files/' + $ctrl.model.logos[item.apiVariable]}}", fallback-src='{{item.default}}', ng-class="'admin-themes-logos-' + item.apiVariable", ng-style='{background: $ctrl.model.colors.primaryColor}')
+          .row.button-row
+            div(class="col-md-{{12 / $ctrl.adminThemesLogoVariablesGroups.groupLength}}" ng-repeat='item in subgroup')
+              button.admin-themes-color-picker.btn.btn-primary.btn-block(ng-disabled="$ctrl.uploadLock[item.apiVariable]" ng-file-select="$ctrl.onFileSelect($files, item.apiVariable)" accept="image/*"  data-multiple="false")
+                span {{ 'Upload' | translate }} {{::item.displayText}}

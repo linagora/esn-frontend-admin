@@ -1,0 +1,17 @@
+form(name="form", esn-autocomplete-off)
+  .row
+    .col-md-10
+      .row
+        .col-md-6
+          esn-form-group(label="{{ 'Email' | translate }}", async-validator-error-message="{{ 'The email is already used. Try another one.' | translate }}", async-validator="$ctrl.emailAvailabilityChecker")
+            input.form-control(type="email", ng-model="$ctrl.user.accounts[0].emails[0]", autocomplete="off", required, name="email", ng-model-options="{ debounce: {'default': 300} }")
+        .col-md-6
+          esn-form-group(label="{{ 'Password' | translate }}")
+            input.form-control(type="password", ng-model="$ctrl.user.password", autocomplete="new-password", required, name="password")
+    .col-md-2
+      button.btn.btn-primary(type="submit", esn-submit="$ctrl.save(form)", ng-disabled="form.$pristine || form.$invalid || form.$pending")
+        | {{ 'Add' | translate }}
+  .row
+    .col-md-6
+      a(href="", ui-sref="admin.domain.users.create({user: $ctrl.user})")
+        | {{ 'Advanced user creation' | translate }}

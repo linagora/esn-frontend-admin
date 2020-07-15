@@ -1,0 +1,17 @@
+sub-header
+  admin-session-subheader(on-form-submit="$ctrl.save()", form="form")
+
+form(name="form", admin-loading-status)
+  .card
+    .card-body.card-padding
+      .row
+        .col-xs-6
+          h5 {{ 'Secret' | translate }}
+          p.text-muted {{ 'The secret used to sign the session ID cookie, change this will log all users out' | translate }}
+          esn-form-group(label="{{ 'Secret' | translate }}")
+            input.form-control(type="text", aria-expanded="false", ng-model="$ctrl.config.secret", auto-focus, name="secret", required)
+        .col-xs-6
+          h5 {{ 'Time to live' | translate }}
+          p.text-muted {{ 'The number of milliseconds until the session ID cookie becomes invalid' | translate }}
+          esn-form-group(label="{{ 'Time to live' | translate }}")
+            input.form-control(type="number", ng-model="$ctrl.config.cookie.maxAge", name="time-to-live", required)

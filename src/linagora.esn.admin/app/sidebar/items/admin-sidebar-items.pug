@@ -1,0 +1,3 @@
+a.lv-item.menu-item(href="", ui-sref="admin.domain.{{item.id}}", ui-sref-active="selected", ng-repeat="item in $ctrl.items")
+  i.mdi(ng-class="item.icon")
+  .menu-title {{item.name | esnI18n}}

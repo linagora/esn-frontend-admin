@@ -1,0 +1,29 @@
+.admin-users-states-edit.modal.full-screen(ng-init='$ctrl.init()')
+  form(name="form", ng-submit="$ctrl.updateUserStates(); $hide()")
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type="button", data-dismiss="modal", aria-label="Close", ng-click="$hide()")
+            span(aria-hidden="true") &times;
+          h4.modal-title {{ 'Manage states of %s' | translate:$ctrl.username }}
+        .modal-body
+          .flex.flex-vertical-centered
+            .flex-grow
+              h5 {{ 'Actions' | translate }}
+          hr
+          .state-content
+            .flex.flex-vertical-centered(ng-repeat="state in $ctrl.states")
+              .flex-grow
+                span {{::state.label | esnI18n}}
+              .flex-grow.flex-end
+                span.state-disabled(ng-class="{'toggle-active': !state.value}") {{ 'Disabled' | translate }}
+                toggle-switch(
+                  ng-model="state.value",
+                  form="form"
+                )
+                span.state-enabled(ng-class="{'toggle-active': state.value}") {{ 'Enabled' | translate }}
+        .modal-footer
+          button.btn.btn-link(type="button", ng-click="$hide()")
+            | {{ 'Cancel' | translate }}
+          button.btn.btn-primary(type="submit", ng-disabled="form.$invalid || form.$pristine || form.$pending")
+            | {{ 'Save' | translate }}

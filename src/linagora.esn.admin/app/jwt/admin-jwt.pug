@@ -1,0 +1,27 @@
+sub-header
+  admin-jwt-subheader(on-form-submit="$ctrl.save()", form="form")
+
+form(name="form", admin-loading-status)
+  .card
+    .card-body.card-padding
+      .row
+        .col-md-6
+          esn-form-group(label="{{ 'Algorithm' | translate }}")
+            .select
+              select.form-control(ng-model="$ctrl.config.algorithm", name="algorithm", ng-options="algorithm.name as algorithm.description for algorithm in $ctrl.availableAlgorithms", required)
+      .row
+        .col-md-6
+          esn-form-group(label="{{ 'Public key' | translate }}")
+            a.save(href="", ng-click="$ctrl.downloadPublicKey()", ng-show="$ctrl.config.publicKey")
+              | {{ 'Download' | translate }}
+            textarea.form-control(rows="5", ng-model="$ctrl.config.publicKey", name="publicKey", required)
+        .col-md-6
+          esn-form-group(label="{{ 'Private key' | translate }}")
+            a.save(href="", ng-click="$ctrl.downloadPrivateKey()", ng-show="$ctrl.config.privateKey")
+              | {{ 'Download' | translate }}
+            textarea.form-control(rows="5", ng-model="$ctrl.config.privateKey", name="privateKey", required)
+      .row
+        .col-xs-12
+          button.btn.btn-primary.btn-sm.pull-right(type="button", esn-submit="$ctrl.generate(form)")
+            i.mdi.mdi-sync
+            | {{ 'Generate keys' | translate }}

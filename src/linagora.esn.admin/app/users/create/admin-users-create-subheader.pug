@@ -1,0 +1,8 @@
+extends /modules/subheader/responsive-subheader.pug
+
+block left
+  admin-subheader-close-button(back-state="^")
+  .title {{ 'Create a new user' | translate }}
+
+block right
+  esn-subheader-save-button(on-click="$ctrl.onFormSubmit()", form="$ctrl.form")

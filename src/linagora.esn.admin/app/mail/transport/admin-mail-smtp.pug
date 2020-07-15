@@ -1,0 +1,26 @@
+ng-form(name="form", esn-autocomplete-off)
+  .row
+    .col-xs-8
+      esn-form-group(label="{{ 'Host' | translate }}")
+        input.form-control.floating-label(type="text", ng-model="$ctrl.transportConfig.host", name="host", required)
+    .col-xs-4
+      esn-form-group(label="{{ 'Port' | translate }}")
+        input.form-control(type="number", ng-model="$ctrl.transportConfig.port", name="port", required)
+  .row
+    .col-xs-12
+      .form-group
+        label.checkbox.checkbox-inline
+          input(type="checkbox", ng-model="$ctrl.transportConfig.secure", name="secure")
+          i.input-helper
+          | {{ 'Secure' | translate }}
+        label.checkbox.checkbox-inline
+          input(type="checkbox", ng-model="$ctrl.transportConfig.tls.rejectUnauthorized", name="rejectUnauthorized")
+          i.input-helper
+          | {{ 'Reject Unauthorized' | translate }}
+  .row
+    .col-xs-6
+      esn-form-group(label="{{ 'Username' | translate }}")
+        input.form-control.floating-label(type="text", ng-model="$ctrl.transportConfig.auth.user", name="user", autocomplete="off")
+    .col-xs-6
+      esn-form-group(label="{{ 'Password' | translate }}")
+        input.form-control.floating-label(type="password", ng-model="$ctrl.transportConfig.auth.pass", name="pass", autocomplete="new-password")

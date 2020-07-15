@@ -1,0 +1,22 @@
+sub-header
+  admin-login-subheader(on-form-submit="$ctrl.save()", form="form")
+
+form(name="form", admin-loading-status)
+  .card
+    .card-header
+      h2 {{ 'Login' | translate }}
+    .card-body.card-padding
+      .row
+        .col-xs-12.col-md-6
+          esn-form-group(label="{{ 'Max login retries' | translate }}")
+            input.form-control(
+              type="number",
+              min="0",
+              ng-model="$ctrl.config.failure.size",
+              name="failureSize",
+              auto-focus,
+              required
+            )
+        .col-xs-12
+          .form-group
+            toggle-switch(ng-model='$ctrl.config.resetpassword', form="form", label="{{ 'Allow reset password' | translate }}")

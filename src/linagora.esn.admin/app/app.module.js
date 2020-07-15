@@ -1,0 +1,31 @@
+'use strict';
+
+angular.module('linagora.esn.admin', [
+  'restangular',
+  'colorpicker',
+  'esn.http',
+  'esn.router',
+  'esn.core',
+  'esn.session',
+  'op.dynamicDirective',
+  'esn.subheader',
+  'esn.sidebar',
+  'esn.async-action',
+  'esn.infinite-list',
+  'esn.domain',
+  'esn.scroll',
+  'esn.attendee',
+  'esn.user',
+  'esn.file-saver',
+  'esn.form.helper',
+  'esn.module-registry',
+  'esn.feature-registry',
+  'esn.i18n',
+  'esn.datetime',
+  'esn.home-page',
+  'esn.configuration',
+  'esn.availability',
+  'esn.themes',
+  'esn.technicaluser',
+  'linagora.esn.resource'
+]);

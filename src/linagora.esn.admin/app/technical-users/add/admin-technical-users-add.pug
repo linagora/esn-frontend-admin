@@ -1,0 +1,13 @@
+.modal.full-screen
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type="button", data-dismiss="modal", aria-label="Close", ng-click="$hide()")
+          span(aria-hidden="true") &times;
+        h4.modal-title {{ 'Add a technical user' | translate }}
+      .modal-body
+        form(name="form")
+          admin-technical-users-form(technical-user="$ctrl.technicalUser")
+      .modal-footer
+        button.btn.btn-link(ng-click="$hide()") {{ 'Close' | translate }}
+        button.btn.btn-primary(ng-click="$ctrl.onAddBtnClick(); $hide()", ng-disabled="form.$invalid") {{ 'Add' | translate }}

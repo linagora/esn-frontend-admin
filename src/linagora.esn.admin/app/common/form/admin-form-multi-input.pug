@@ -1,0 +1,30 @@
+ng-form(name="form")
+
+  .form-group(ng-repeat='field in $ctrl.requiredFields track by $index')
+    .row.field-option.flex-vertical-centered
+      .col-xs-5
+        esn-form-group(label="{{ 'Key' | translate }}")
+          input.form-control.multi-input-text(type="text" ng-model='field.type', disabled)
+      .col-xs-6
+        esn-form-group(label="{{ 'Value' | translate }}")
+          input.form-control.multi-input-text(type="text" ng-model='field.value', ng-change="$ctrl.onDataChange()", required)
+          
+  .form-group(ng-repeat='field in $ctrl.fields track by $index')
+    .row.field-option.flex-vertical-centered
+      .col-xs-5
+        esn-form-group(label="{{ 'Key' | translate }}")
+          .select
+            select.form-control.multi-input-type(ng-model="field.type", ng-change="$ctrl.onDataChange()")
+              option(ng-repeat="type in $ctrl.availableTypes", ng-selected="type === field.type", value="{{type}}", ng-disabled="type !== field.type && $ctrl.isTypeSelected(type)")
+                | {{type}}
+      .col-xs-6
+        esn-form-group(label="{{ 'Value' | translate }}")
+          input.form-control.multi-input-text(type="text" ng-model='field.value', ng-change="$ctrl.onDataChange()", required)
+      .col-xs-1.flex-end
+        btn.btn.btn-link(ng-click="$ctrl.deleteField(field, form)")
+          i.mdi.mdi-close-circle
+  .form-group
+    .flex-vertical-centered
+      .button.clickable(ng-show='$ctrl.showAddButton()', ng-click="$ctrl.addField()")
+        i.mdi.mdi-plus-circle.button-add.m-r-5
+        | {{ 'Add a new mapping' | translate }}

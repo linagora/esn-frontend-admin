@@ -1,0 +1,20 @@
+ng-form(name='form')
+  .card
+    .card-header
+      div
+        h2
+          i.mdi.mdi-twitter
+          | {{ 'Twitter' | translate }}
+        small(ng-if="$ctrl.isEnabled")
+          a.action-link(href="http://apps.twitter.com", target="_blank")
+            | {{ 'How to register a Twitter application?' | translate }}
+      toggle-switch(ng-model="$ctrl.isEnabled", form="form")
+    .card-body.card-padding(ng-if="$ctrl.isEnabled")
+      .row
+        .col-xs-12.col-md-4
+          esn-form-group(label="{{ 'API Key' | translate }}")
+            input.form-control(type="text", ng-model="$ctrl.config.consumer_key", autocomplete="off", name="consumer_key", required)
+        .col-xs-12.col-md-8
+          esn-form-group(label="{{ 'API Secret' | translate }}")
+            input.form-control(type="text", ng-model="$ctrl.config.consumer_secret", autocomplete="off", name="consumer_secret", required)
+      admin-oauth-usage-options(options="$ctrl.config.usage")

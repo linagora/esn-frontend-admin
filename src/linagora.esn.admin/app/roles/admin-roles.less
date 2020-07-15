@@ -1,0 +1,103 @@
+@adminRolesAutoCompleteMaxHeight: 105px;
+
+admin-roles admin-roles-list {
+
+  & > .row {
+    .block-header {
+      margin-top: 15px;
+    }
+
+    margin: 0 20px 0 10px;
+
+    @media (min-width: @screen-md-min) {
+
+      .col-md-7 h2 {
+        margin-left: -15px;
+      }
+    }
+
+    @media screen and (max-width: @screen-md-min) {
+      .col-xs-7 {
+        padding-left: 0;
+      }
+      .col-xs-1 {
+        padding-right: 0;
+      }
+    }
+  }
+
+  admin-roles-list-item {
+
+    .row {
+      .flex-vertical-centered;
+      .clickable;
+
+      h4 {
+        span {
+          .ellipsis;
+        }
+
+        font-weight: normal;
+
+        small {
+          margin-left: 5px;
+        }
+      }
+
+      a.revoke {
+        .flex-vertical-centered;
+
+        padding: 10px;
+        color: @secondaryTextColor;
+
+        &:hover {
+          color: @text-color;
+        }
+
+        .mdi {
+          font-size: 2em;
+        }
+      }
+
+      img {
+        .avatar(@searchAvatarSize);
+      }
+    }
+  }
+}
+
+admin-roles-auto-complete {
+  .host {
+    margin: 0;
+  }
+
+  .tags {
+    max-height: @adminRolesAutoCompleteMaxHeight; // ~3 lines of tags
+    .input {
+      width: auto;
+    }
+  }
+
+  .mdi {
+    font-size: 2.5em;
+  }
+}
+
+.admin-roles-add {
+  .body {
+    margin: 15px;
+    padding: 15px;
+  }
+
+  .title {
+    color: @text-color;
+  }
+
+  .footer {
+    text-align: right;
+
+    .btn {
+      font-size: 14px;
+    }
+  }
+}

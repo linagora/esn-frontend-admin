@@ -1,0 +1,31 @@
+ng-form(name="form")
+  .row.first-row
+    .col-xs-12
+      esn-form-group(label="{{ 'Name' | translate }}")
+        input.form-control(type="text", name="technicalUserName", ng-model="$ctrl.technicalUser.name", ng-change="$ctrl.showName()", auto-focus, required)
+  .row
+    .col-xs-12
+      esn-form-group(label="{{ 'Description' | translate }}")
+        input.form-control(rows="2", name="technicalUserDescription", ng-model="$ctrl.technicalUser.description")
+  .row
+    .col-xs-8
+      esn-form-group(label="{{ 'Type' | translate }}")
+        .select
+          select.form-control.multi-input-type(ng-model='$ctrl.technicalUser.type', required)
+            option(ng-value="type", ng-repeat="type in $ctrl.ADMIN_TECHNICAL_USER_TYPES") {{ type }}
+  .row
+    .col-xs-12
+      ng-form(name="dataForm")
+        label.m-b-20 {{ 'Data' | translate }}
+        .row(ng-repeat="pair in $ctrl.technicalUser.data track by $index")
+          .col-xs-5
+            esn-form-group(label="{{ 'Key' | translate }}")
+              input.form-control(name="dataKey", ng-model="$ctrl.technicalUser.data[$index].key", required)
+          .col-xs-5
+            esn-form-group(label="{{ 'Value' | translate }}")
+              input.form-control(name="dataValue", ng-model="$ctrl.technicalUser.data[$index].value", required)
+          .col-xs-2
+            i.mdi.mdi-delete(ng-click="$ctrl.onRemoveBtnClick($index)")
+        button.btn.btn-link.btn-add-data(icon="plus", ng-click="$ctrl.onAddBtnClick()", ng-disabled="dataForm.$invalid")
+          i.mdi.mdi-plus-circle 
+          span {{ 'Add a new data field' | translate }}

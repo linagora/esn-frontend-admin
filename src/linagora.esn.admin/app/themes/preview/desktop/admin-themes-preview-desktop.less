@@ -1,0 +1,61 @@
+@darkenPrimaryColor: inset 0 0 65px 0 rgba(0, 0, 0, .1);
+
+admin-themes-preview-desktop {
+
+  &:not(.header-actions) {
+    display: block;
+    background-color: @bodyBgColor;
+    color: @textColor;
+    min-height: 350px;
+  }
+
+  #header {
+    position: relative;
+    transform: none;
+    z-index: 2;
+
+    img.openpaas-logo {
+      border: none;
+    }
+
+    #sub-header {
+      box-shadow: @darkenPrimaryColor;
+    }
+
+    #sub-header:not(.popover) .btn-link, &:not(.popover) .btn-link, #aside-header:not(.popover) .btn-link {
+      color: inherit;
+    }
+  }
+
+  .admin-root {
+    padding-top: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 56px;
+
+    h6 {
+      font-weight: 400;
+    }
+
+    .card-header , .card-body{
+      padding: 13px 15px;
+    }
+  }
+
+  .admin-sidebar .listview .lv-item.menu-heading {
+    font-weight: 500;
+    font-size: 1.2em;
+    padding: 8px;
+  }
+
+  .admin-sidebar .listview .lv-item.menu-item {
+    font-size: 1.1em;
+    padding: 8px 0 8px 13px;
+  }
+
+  button.btn-float {
+    bottom: 24px;
+    right: 24px;
+    position: absolute;
+  }
+}

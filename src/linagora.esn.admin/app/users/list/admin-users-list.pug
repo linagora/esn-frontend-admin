@@ -1,0 +1,20 @@
+.lv-header
+  search-form
+admin-loading-status
+  infinite-list.lv-body(load-more-elements='$ctrl.loadMoreElements()')
+    .lv-item.lv-item-user(ng-repeat="member in $ctrl.members")
+      .media
+        .clickable(ui-sref="profile({user_id: member._id})")
+          .pull-left
+            esn-avatar(user-id="member._id")
+          .media-body
+            .lv-title {{::member.firstname}} {{::member.lastname}}
+            small.lv-small
+              a(ng-href='mailto:{{::member.emails[0]}}' op-inbox-compose, op-inbox-compose-users='[member]') {{::member.emails[0]}}
+      .lv-actions.actions
+        a(href="", data-toggle="dropdown", aria-expanded="false")
+          i.mdi.mdi-dots-vertical
+        ul.dropdown-menu.dropdown-menu-right
+          li
+            a(href="", ui-sref="profile({user_id: member._id})") {{ 'View profile' | translate }}
+          li(dynamic-directive="admin-user-list-menu-items")

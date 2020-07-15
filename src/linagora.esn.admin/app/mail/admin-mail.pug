@@ -1,0 +1,23 @@
+sub-header
+  admin-mail-subheader(on-form-submit="$ctrl.save()", form="form")
+
+form(name="form", admin-loading-status)
+  .card
+    .card-header
+      h2 {{ 'Mail server settings' | translate }}
+    .card-body.card-padding
+      .row
+        .config-content
+          esn-form-group(label="{{ 'Noreply email' | translate }}")
+            input.form-control.fg-input(type="email", ng-model="$ctrl.config.mail.noreply", name="noreply", autofocus=true, required)
+          esn-form-group(label="{{ 'Feedback email' | translate }}")
+            input.form-control.fg-input(type="email", ng-model="$ctrl.config.mail.feedback", name="feedback", required)
+          esn-form-group(label="{{ 'Transport type' | translate }}")
+            .select
+              select.form-control(ng-model="$ctrl.transportType", name="transportType", ng-options="transportType for (key, transportType) in $ctrl.transportTypes", required)
+          div(ng-switch="$ctrl.transportType")
+            admin-mail-local(ng-switch-when="Local" transport="$ctrl.config.transport")
+            admin-mail-smtp(ng-switch-when="SMTP", transport-config="$ctrl.config.transport.config")
+            admin-mail-gmail(ng-switch-when="Gmail", transport-config="$ctrl.config.transport.config")
+
+admin-mail-test(ng-if="$ctrl.config", is-mail-config-valid="form.$valid", config="$ctrl.config", transport-type="$ctrl.transportType")
