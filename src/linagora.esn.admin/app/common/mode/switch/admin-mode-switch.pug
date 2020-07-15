@@ -1,0 +1,9 @@
+.admin-mode-switch
+  md-select.md-no-underline(ng-model="$ctrl.selectedMode", ng-change="$ctrl.selectedChanged()", ng-disabled="!$ctrl.hasTwoAdminRoles", md-container-class="admin-mode-switch-select")
+    md-tooltip(md-direction="top", ng-if="$ctrl.hasTwoAdminRoles") {{ 'Switch mode between platform and domain administration' | translate }}
+    md-option.admin-mode-switch-item(ng-value="'platform'", ng-if="$ctrl.hasTwoAdminRoles", ng-selected="$ctrl.isPlatformMode()")
+      span {{ 'Platform administration' | translate }}
+      .description {{ 'Any change you make will affect the whole platform' | translate }}
+    md-option.admin-mode-switch-item(ng-value="'domain'", ng-selected="!$ctrl.isPlatformMode()")
+      span {{ '%s administration' | translate:$ctrl.currentDomain.name }}
+      .description {{ 'Any change you make will affect the whole domain' | translate }}

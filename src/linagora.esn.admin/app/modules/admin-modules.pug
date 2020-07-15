@@ -1,0 +1,10 @@
+sub-header
+  admin-modules-subheader
+
+admin-loading-status
+  admin-modules-displayer(
+    ng-if="module",
+    ng-repeat="module in $ctrl.modules | orderBy:'name'",
+    module="module",
+    on-module-enabled-state-change="$ctrl.saveModuleEnabledState(module, enabled)"
+  )

@@ -1,0 +1,100 @@
+admin-themes-preview-mobile {
+  display: block;
+  background-color: @bodyBgColor;
+  color: @textColor;
+  min-height: 350px;
+
+  #header {
+    position: relative;
+    height: 56px;
+    transition: none;
+    z-index: 2;
+
+    img.openpaas-logo {
+      border: none;
+    }
+
+    .header-inner {
+      display: none;
+    }
+
+    #sub-header {
+      height: 56px;
+
+      .module-subheader-inner {
+        padding: 0 5px;
+
+        .btn-icon {
+          width: 56px;
+          height: 56px;
+        }
+      }
+    }
+
+    #sub-header:not(.popover) .btn-link, &:not(.popover) .btn-link, #aside-header:not(.popover) .btn-link {
+      color: inherit;
+    }
+  }
+
+  .admin-root {
+    padding-top: 10px;
+    margin-left: 0;
+    margin-right: 0;
+
+    h6 {
+      font-weight: 400;
+    }
+
+    .card-header , .card-body{
+      padding: 13px 15px;
+    }
+  }
+
+  .admin-sidebar .listview .lv-item.menu-heading {
+    font-weight: 500;
+    font-size: 1.2em;
+    padding: 8px;
+  }
+
+  .admin-sidebar .listview .lv-item.menu-item {
+    font-size: 1.1em;
+    padding: 8px 0 8px 13px;
+  }
+
+  .aside {
+    position: absolute;
+    overflow: hidden;
+  }
+
+  #aside-header {
+    height: 56px;
+  }
+
+  .aside#contextual-sidebar {
+    width: ~"calc(100% - 80px)";
+    min-width: max-content;
+    max-width: 268px;
+    top: 0;
+    z-index: 4;
+  }
+
+  .aside-backdrop {
+    z-index: 3 !important; // Override default angularJs material z-index backdrop
+  }
+
+  #aside-header:not(.popover) .btn-link {
+    color: inherit;
+  }
+
+  button.btn-float {
+    bottom: 24px;
+    right: 24px;
+    position: absolute;
+  }
+
+  @media (min-width: @screen-md-min) {
+    .aside#contextual-sidebar {
+      top: 63px;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.flex-vertical-centered
+  .message(ng-switch="$ctrl.message.status")
+    i(ng-switch-when="testing")
+      | {{ 'Checking...' | translate }}
+    i.c-green(ng-switch-when="success")
+      | {{ 'Connected successfully to LDAP server' | translate }}
+    i.c-red(ng-switch-when="error")
+      | {{ 'Failed to connect to LDAP server: "%s"' | translate:$ctrl.message.msg }}
+  button.btn.btn-link.btn-default(esn-submit="$ctrl.test()", type="button", title="{{ 'Check connection to LDAP server' | translate }}", ng-disabled="$ctrl.disabled")
+    i.mdi.mdi-file-check

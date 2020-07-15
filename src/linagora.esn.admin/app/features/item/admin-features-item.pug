@@ -1,0 +1,10 @@
+.lv-item.media
+  .media-body
+    .lv-title {{$ctrl.feature.name | esnI18n}}
+    small {{$ctrl.feature.description | esnI18n}}
+    .lv-attrs
+      .lv-small {{ 'Display in:' | translate }}
+      label.checkbox.checkbox-inline(ng-repeat="configuration in $ctrl.feature.configurations")
+        input(type="checkbox", ng-model="configuration.value")
+        i.input-helper
+        | {{configuration.displayIn | esnI18n}}

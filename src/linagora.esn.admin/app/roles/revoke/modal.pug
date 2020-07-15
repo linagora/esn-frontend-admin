@@ -1,0 +1,11 @@
+.modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h4.modal-title {{ 'Revoke administrator?' | translate }}
+      .modal-body
+        span
+          | {{$ctrl.displayName}} {{ 'will become normal user after this action.' | translate }}
+      .modal-footer
+        button.btn.btn-link(type="button", ng-click="$hide()") {{ 'Cancel' | translate }}
+        button.btn.btn-danger(type="button", ng-click="$ctrl.revoke(); $hide()") {{ 'Revoke' | translate }}

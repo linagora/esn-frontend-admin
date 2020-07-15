@@ -1,0 +1,30 @@
+@import './usage-options/admin-oauth-usage-options';
+
+admin-oauth {
+  .card {
+    .card-header {
+      .flex-vertical-centered;
+      .flex-space-between;
+
+       h2 {
+        .flex-vertical-centered;
+
+        color: @text-color;
+
+        .mdi {
+          color: @secondaryTextColor;
+          font-size: 1.6em;
+          margin-right: 5px;
+        }
+      }
+
+      .toggle-switch > label{
+        margin-bottom: 0;
+      }
+    }
+
+    .card-body .form-group {
+      margin-bottom: 10px;
+    }
+  }
+}

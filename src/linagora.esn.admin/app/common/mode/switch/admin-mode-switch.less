@@ -1,0 +1,83 @@
+.admin-mode-switch {
+
+  md-select {
+    margin: 0;
+    padding: 8px 0 8px 8px;
+    .ellipsis;
+
+    &:not([disabled]):hover {
+      background-color: @black-alpha-10;
+      transition: @transition-btn-link;
+      border-radius: 2px;
+    }
+
+    &:not([disabled]):focus .md-select-value, .md-select-value.md-select-placeholder, &[disabled] .md-select-value {
+      color: @primaryColor;
+      background-image: none;
+    }
+
+    &[disabled] .md-select-icon {
+      display: none;
+    }
+
+    .md-select-value .md-select-icon {
+      width: 24px;
+      margin: 0 4px;
+      color: @primaryColor;
+
+      &:after {
+        font-size: 15px;
+      }
+    }
+  }
+
+  .md-select-value>span:not(.md-select-icon) {
+    font-size: .9em;
+
+    .description {
+      display: none;
+    }
+  }
+}
+
+.admin-mode-switch-select {
+  z-index: @aside-z-index + 1;
+
+  md-content md-option.admin-mode-switch-item .description {
+    display: block;
+  }
+
+  .admin-mode-switch-item {
+    .flex-column;
+
+    span {
+      font-weight: 500;
+      font-size: 1em;
+    }
+
+    .description {
+      font-size: 0.85em;
+      color: @secondaryTextColor;
+      display: none;
+      line-height: 16px;
+      white-space: pre-line;
+    }
+
+    .md-text {
+      font-size: 14px;
+    }
+  }
+
+  md-content md-option {
+    line-height: 22px;
+    min-height: 54px;
+    align-items: normal;
+  }
+}
+
+@media (min-width: @screen-md-min) {
+  .admin-mode-switch-select md-content md-option {
+    line-height: 22px;
+    min-height: 44px;
+  }
+}

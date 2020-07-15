@@ -1,0 +1,8 @@
+extends /modules/subheader/responsive-subheader.pug
+
+block left
+  admin-subheader-burger-button
+  span.title.ellipsis {{ 'Web server configuration' | translate }}
+
+block right
+  esn-subheader-save-button(on-click="$ctrl.onFormSubmit()", form="$ctrl.form")

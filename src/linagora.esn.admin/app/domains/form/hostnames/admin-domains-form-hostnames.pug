@@ -1,0 +1,11 @@
+.row
+  h5 {{ 'Hostnames' | translate }}
+  .m-t-20.col-md-6.col-xs-12(ng-repeat='hostname in $ctrl.hostnames')
+    .col-xs-10
+      esn-form-group(label="{{ 'Hostname' | translate }}", form='$ctrl.form', async-validator-error-message="{{ 'Hostname is already in use. Try another.' | translate }}", async-validator="$ctrl.ensureUniqueHostname")
+        input.form-control(type="text", ng-change="$ctrl.qualifyHostnames()", ng-model="hostname.name", ng-model-options="{ debounce: {'default': 300} }", name="hostname", required)
+    .col-xs-2
+      i.clickable.mdi.mdi-minus-circle-outline.button-remove(ng-click="$ctrl.deleteHostname($index); $ctrl.form.$setDirty()")
+.button.clickable(ng-click="$ctrl.addHostname()")
+  i.mdi.mdi-plus-circle.button-add
+  | {{ 'Add a new hostname' | translate }}

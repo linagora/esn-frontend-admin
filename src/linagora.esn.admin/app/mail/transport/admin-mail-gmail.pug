@@ -1,0 +1,9 @@
+ng-form(name="form", esn-autocomplete-off)
+  .row
+    .col-xs-12
+      esn-form-group(label="{{ 'Username' | translate }}")
+        input.form-control(type="text", ng-model="$ctrl.transportConfig.auth.user", name="user", autocomplete="off", required)
+  .row
+    .col-xs-12
+      esn-form-group(label="{{ 'Password' | translate }}")
+        input.form-control(type="password", ng-model="$ctrl.transportConfig.auth.pass", name="pass", autocomplete="new-password", required)

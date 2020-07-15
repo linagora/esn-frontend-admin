@@ -1,0 +1,60 @@
+.admin-themes-preview-favicon.aside-open.aside-with-am-fade-and-slide-left(ng-style='{background: $ctrl.colors.bodyBgColor}')
+  #header.search-toggled(ng-style='{background: $ctrl.colors.primaryColor, color: $ctrl.colors.textPrimaryColor}')
+    #sub-header.module-subheader(ng-style='{background: $ctrl.colors.primaryColor, color: $ctrl.colors.textPrimaryColor}')
+      .flex-space-between.module-subheader-inner
+        .left-container.flex-vertical-centered
+          button.btn.btn-link.btn-icon
+            i.mdi.mdi-menu
+          span.title.ellipsis
+            |  #{('Themes Preview')}
+        .right-container.esn-flex-noshrink
+          button.btn.btn-link.btn-icon.save
+            i.mdi.mdi-check
+
+  .admin-root.row.no-padding-xs
+    .col-xs-12.no-padding-xs
+      .card
+        .card-header
+          h4 #{('Desktop Title')}
+        .card-body.card-padding
+          p  #{('Sed eu est vulputate, fringilla ligula ac, maximus arcu. Donec sed felis vel magna mattis ornare ut non turpis. Sed id arcu elit. Sed nec sagittis tortor. Mauris ante urna.')}
+  .aside#contextual-sidebar(tabindex="-1", role="dialog")
+    .aside-dialog
+      .aside-content
+        #aside-header
+          div.header-inner.flex-vertical-centered.flex-space-between
+            ul.list-inline.all-centered
+              li.logo
+                a
+                  img.openpaas-logo(ng-src="{{'/api/files/' + $ctrl.logos.favicon}}", fallback-src='/images/logo-tiny.png')
+            ul.list-inline.all-centered.header-actions
+              li
+                button.btn.btn-link.btn-icon
+                  i.mdi.mdi-magnify(ng-style='{color: $ctrl.colors.primaryColor}')
+              li
+                button.btn.btn-link.btn-icon.user-notification-toggler
+                  i.mdi.mdi-bell(ng-style='{color: $ctrl.colors.primaryColor}')
+                  i.unread-count.important 2
+              li
+                button.btn.btn-link.btn-icon
+                  i.mdi.mdi-apps(ng-style='{color: $ctrl.colors.primaryColor}')
+              li
+                button.btn.btn-link.btn-icon
+                  i.mdi.mdi-account-circle(ng-style='{color: $ctrl.colors.primaryColor}')
+        .aside-body
+          .admin-sidebar
+            ul.nav.nav-pills.nav-stacked
+            .listview
+              .lv-body
+                .lv-item.clickable.menu-heading(ng-style='{borderLeftColor: $ctrl.colors.primaryColor, color: $ctrl.colors.primaryColor}')
+                  .title #{('My sidebar')}
+            .listview
+              a.lv-item.menu-item
+                i.mdi.mdi-settings
+                .menu-title #{('Item one')}
+              a.lv-item.menu-item
+                i.mdi.mdi-settings
+                .menu-title #{('Item two')}
+  button.btn.btn-float.btn-accent.waves-effect.waves-light(ng-style='{background: $ctrl.colors.accentColor, color: $ctrl.colors.textPrimaryColor}')
+    i.mdi.mdi-plus
+  .aside-backdrop.am-fade(style="position: absolute; top: 0px; left: 15px; bottom: 0px; right: 15px; z-index: 1040;")

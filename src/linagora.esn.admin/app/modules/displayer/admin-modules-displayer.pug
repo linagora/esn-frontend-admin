@@ -1,0 +1,23 @@
+form(name="form")
+  .card(ng-init="expanded=false", ng-class="{clickable: $ctrl.configurations}")
+    .card-header(ng-click="expanded=!expanded")
+      .card-header-container
+        .icon(ng-if="$ctrl.module.isSVG" , ng-include="$ctrl.module.icon")
+        img(ng-if="!$ctrl.module.isSVG" , ng-src="{{$ctrl.module.icon}}")
+        h2.module-name(ng-class="form.$pristine ? '': 'unsaved-changes'", title="{{::$ctrl.module.title | esnI18n}}")
+          span {{::$ctrl.module.title | esnI18n}}
+
+      .module-toolbar
+        .admin-modules-features(ng-show="$ctrl.configurations", title="{{ 'Features' | translate }}")
+          i.mdi(ng-class="expanded ? 'mdi-chevron-up' : 'mdi-chevron-down'")
+        .admin-modules-disable(ng-if="$ctrl.module.disableable")
+          toggle-switch(ng-model="$ctrl.module.enabled", onchange="$ctrl.switchEnabledState()", title="{{ 'Enable the module' | translate }}")
+        .admin-modules-disable(ng-if="!$ctrl.module.disableable")
+          toggle-switch(ng-disabled="!$ctrl.module.disableable", title="{{ 'Not available for this module' | translate }}")
+    .card-body
+      .form(ng-if="$ctrl.configurations", ng-show="expanded")
+        admin-modules-form(template="$ctrl.module.config.template", configurations="$ctrl.configurations", mode="{{$ctrl.mode}}", available-modes="$ctrl.availableModes")
+        .flex-end.admin-form-bottom
+          a.text-uppercase.flex-vertical-centered(href="", ng-click="$ctrl.reset()")
+            |  {{ 'Cancel' | translate }}
+          admin-modules-save-button(form="form", on-form-submit="$ctrl.save()")

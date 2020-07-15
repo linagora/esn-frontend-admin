@@ -1,0 +1,55 @@
+.card-body.card-padding
+  ng-form(name="form")
+    .remove-btn.flex-end
+      button.btn.btn-link.btn-default(ng-click="$ctrl.onRemoveBtnClick(form)", type="button", title="{{ 'Delete' | translate }}")
+        i.mdi.mdi-delete
+    .row
+      .col-xs-12
+        p {{ 'IMAP' | translate }}
+        .row
+          .col-xs-6
+            esn-form-group(label="{{ 'Display name' | translate }}")
+              input.form-control(type="text", ng-model="$ctrl.account.imap.prettyName", disabled)
+          .col-xs-6
+            esn-form-group(label="{{ 'Username' | translate }}")
+              input.form-control(type="text", ng-model="$ctrl.account.imap.username", disabled)
+        .row
+          .col-xs-6
+            esn-form-group(label="{{ 'Server hostname' | translate }}")
+              input.form-control(type="text", ng-model="$ctrl.account.imap.hostName", name="imapHostName", required)
+          .col-xs-6
+            esn-form-group(label="{{ 'Port' | translate }}")
+              input.form-control(type="number", ng-model="$ctrl.account.imap.port", name="imapPort", required)
+        .row
+          .col-xs-6
+            esn-form-group(label="{{ 'Connection security' | translate }}")
+              .select
+                select.form-control(ng-model="$ctrl.account.imap.socketType", required)
+                  option(value="1") {{ 'None' | translate }}
+                  option(value="2") {{ 'STARTTLS' | translate }}
+                  option(value="3") {{ 'SSL' | translate }}
+    .row
+      .col-xs-12
+        p {{ 'SMTP' | translate }}
+        .row
+          .col-xs-6
+            esn-form-group(label="{{ 'Description' | translate }}")
+              input.form-control(type="text", ng-model="$ctrl.account.smtp.description", disabled)
+          .col-xs-6
+            esn-form-group(label="{{ 'Username' | translate }}")
+              input.form-control(type="text", ng-model="$ctrl.account.smtp.username", disabled)
+        .row
+          .col-xs-6
+            esn-form-group(label="{{ 'Server hostname' | translate }}")
+              input.form-control(type="text", ng-model="$ctrl.account.smtp.hostname", name="smtpHostName", required)
+          .col-xs-6
+            esn-form-group(label="{{ 'Port' | translate }}")
+              input.form-control(type="number", ng-model="$ctrl.account.smtp.port", name="smtpPort", required)
+        .row
+          .col-xs-6
+            esn-form-group(label="{{ 'Connection security' | translate }}")
+              .select
+                select.form-control(ng-model="$ctrl.account.smtp.socketType", required)
+                  option(value="1") {{ 'None' | translate }}
+                  option(value="2") {{ 'STARTTLS' | translate }}
+                  option(value="3") {{ 'SSL' | translate }}

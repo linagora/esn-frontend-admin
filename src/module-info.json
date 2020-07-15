@@ -1,0 +1,23 @@
+{
+  "coreModules": [],
+  "dependenceModules": [
+    {
+      "name": "linagora.esn.admin",
+      "angularModuleName": "linagora.esn.admin",
+      "shortName": "admin",
+      "frontendRoot": "frontend/app",
+      "cssRoot": "frontend/app/app.less",
+      "pugGlob": [
+        "/app/**/*.pug"
+      ],
+      "pugOptions": {
+        "basedir": "./node_modules/esn-frontend-common-libs/src/frontend/views"
+      },
+      "fileRoot": "frontend/app",
+      "filesGlob": [
+        "**/*.module.js",
+        "**/!(*spec).js"
+      ]
+    }
+  ]
+}

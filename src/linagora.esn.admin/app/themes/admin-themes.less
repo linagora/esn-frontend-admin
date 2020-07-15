@@ -1,0 +1,39 @@
+admin-themes  {
+  .admin-themes-form {
+    .button-row:not(:empty):not(:last-child) button {
+      .m-b-10;
+    }
+
+    button.btn.admin-themes-color-picker {
+      border: 1px solid @lighterSecondaryTextColor;
+    }
+
+    img.openpaas-logo {
+      display: block;
+      margin: 1rem auto;
+      max-width: 100%;
+      border: 1px solid @lighterSecondaryTextColor;
+      padding: 12px 20px;
+    }
+
+    img.openpaas-logo.admin-themes-logos-logo {
+      height: 100%;
+      background-color: @primaryColor;
+
+      @media (min-width: @screen-md-min) {
+        max-height: 40px;
+      }
+
+      @media (min-width: @screen-xl-min) {
+        max-height: 56px;
+      }
+    }
+
+    img.openpaas-logo.admin-themes-logos-favicon {
+      height: 100%;
+      width: 35px;
+      max-height: 40px;
+      background-color: @darkenBgColor !important; // override dynamic primary background color
+    }
+  }
+}

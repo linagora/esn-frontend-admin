@@ -1,0 +1,74 @@
+@import './test/admin-ldap-test';
+
+admin-ldap {
+  .ldap-empty-container-message {
+    .all-centered;
+
+    height: 70vh;
+    color: @secondaryTextColor;
+    font-size: 1.4em;
+    text-align: center;
+
+    .ldap-empty-icon {
+      color: @accentColor;
+      font-size: 8em;
+      opacity: 0.7;
+    }
+
+    .message {
+      margin: 10px;
+
+
+      .mdi-plus {
+        margin: 0 5px;
+        background: @accentColor;
+        border-radius: 50%;
+        color: @m-white;
+      }
+    }
+  }
+
+  admin-ldap-form {
+    .card {
+      .card-header {
+        background: @darkenBgColor;
+        padding: 10px;
+        margin-bottom: 10px;
+
+        admin-ldap-test {
+          margin-right: 10px;
+        }
+
+        .mdi {
+          font-size: 2em;
+        }
+      }
+
+      .card-body {
+        .toggle-switch .ts-label {
+          font-weight: normal;
+        }
+      }
+    }
+
+    admin-form-multi-input {
+      .button {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+@media (min-width: @screen-md-min){
+  admin-ldap {
+
+    admin-ldap-form {
+
+      admin-form-multi-input {
+        .button {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

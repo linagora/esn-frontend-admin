@@ -1,0 +1,50 @@
+sub-header
+  admin-autoconf-subheader(on-form-submit="$ctrl.save()", form="form")
+
+form(name="form", admin-loading-status)
+  ng-form(name="form")
+    .card
+      .card-header
+        h2 {{ 'IMAP' | translate }}
+      .card-body.card-padding
+        .row
+          .col-xs-6
+            esn-form-group(label="{{ 'Server hostname' | translate }}")
+              input.form-control(type="text", ng-model="$ctrl.account.imap.hostName", name="imapHostName", required)
+          .col-xs-6
+            esn-form-group(label="{{ 'Port' | translate }}")
+              input.form-control(type="number", ng-model="$ctrl.account.imap.port", name="imapPort", required)
+        .row
+          .col-xs-6
+            md-input-container
+              label {{ 'Connection security' | translate }}
+              md-select(name="imapSocket", ng-model="$ctrl.account.imap.socketType",  md-no-asterisk, required)
+                md-option(ng-value="socket.key" ng-repeat="socket in $ctrl.ADMIN_AUTOCONF_SOCKET_TYPES")
+                  | {{ ::socket.label | esnI18n }}
+              .has-error(ng-messages="form.imapSocket.$error")
+                .help-block(ng-message="required") {{ 'This is required' | translate }}
+
+    .card
+      .card-header
+        h2 {{ 'SMTP' | translate }}
+      .card-body.card-padding
+        .row
+          .col-xs-6
+            esn-form-group(label="{{ 'Description' | translate }}")
+              input.form-control(type="text", ng-model="$ctrl.account.smtp.description")
+        .row
+          .col-xs-6
+            esn-form-group(label="{{ 'Server hostname' | translate }}")
+              input.form-control(type="text", ng-model="$ctrl.account.smtp.hostname", name="smtpHostName", required)
+          .col-xs-6
+            esn-form-group(label="{{ 'Port' | translate }}")
+              input.form-control(type="number", ng-model="$ctrl.account.smtp.port", name="smtpPort", required)
+        .row
+          .col-xs-6
+            md-input-container
+              label {{ 'Connection security' | translate }}
+              md-select(name="smtpSocket", ng-model="$ctrl.account.smtp.socketType", md-no-asterisk, required)
+                md-option(ng-value="socket.key" ng-repeat="socket in $ctrl.ADMIN_AUTOCONF_SOCKET_TYPES")
+                  | {{ ::socket.label | esnI18n }}
+              .has-error(ng-messages="form.smtpSocket.$error")
+                .help-block(ng-message="required") {{ 'This is required' | translate }}

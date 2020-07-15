@@ -1,0 +1,12 @@
+.card
+  .row.nomargin
+    .col-md-8.col-xs-12
+      .card-header
+        h2 {{ 'Desktop Preview' | translate }}
+      .card-body
+        admin-themes-preview-desktop(colors="$ctrl.colors", logos="$ctrl.logos")
+    .col-md-4.col-xs-12
+      .card-header
+        h2 {{ 'Mobile Preview' | translate }}
+      .card-body
+        admin-themes-preview-mobile(colors="$ctrl.colors", logos="$ctrl.logos")

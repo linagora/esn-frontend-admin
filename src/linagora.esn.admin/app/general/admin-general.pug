@@ -1,0 +1,9 @@
+sub-header
+  admin-general-subheader(on-form-submit="$ctrl.save()", form="form")
+
+form(name="form", admin-loading-status)
+  .flex-column(ng-if="$ctrl.configs")
+    esn-home-page(home-page="$ctrl.configs.homePage", available-pages="$ctrl.homePages")
+    esn-i18n-language-selector(ng-if='$ctrl.mode === "domain"', language="$ctrl.configs.language", mode='{{::$ctrl.mode}}')
+    esn-business-hours(business-hours="$ctrl.configs.businessHours")
+    esn-datetime(datetime="$ctrl.configs.datetime", mode="{{::$ctrl.mode}}")

@@ -1,0 +1,21 @@
+.card
+  .card-header
+    h2 {{ 'Mail server test' | translate }}
+  .card-body.card-padding
+    form(name="testForm")
+      .row
+        .col-md-6
+          esn-form-group(label="{{ 'Email address' | translate }}", form="testForm")
+            input.form-control.fg-input(type="email", ng-model="$ctrl.mailto", name="email", autocomplete="off", required)
+        .col-md-6
+          button.btn.btn-primary.btn-sm.m-t-5.waves-effect(type="submit", esn-submit="$ctrl.test(testForm)", ng-disabled="testForm.$invalid") {{ 'Test' | translate }}
+      .row
+        .col-md-12(ng-switch="$ctrl.message.status")
+          i(ng-switch-when="isSending")
+            | {{ 'Email sending in progress...' | translate }}
+          i(ng-switch-when="success")
+            | {{ 'Email sent successfully to "%s"' | translate:$ctrl.message.mailto }}
+          i.c-red(ng-switch-when="error")
+            | {{ 'Email sent failed with server error: "%s"' | translate:$ctrl.message.msg }}
+          i.c-red(ng-switch-when="invalidMailConfig")
+            | {{ 'Please check configuration above, you still have invalid data' | translate }}

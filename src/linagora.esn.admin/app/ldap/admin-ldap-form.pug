@@ -1,0 +1,56 @@
+.card(ng-if="!$ctrl.ldapConfig.deleted")
+  .card-header.flex-vertical-centered
+    .col-xs-6
+      h2(ng-show='$ctrl.ldapConfig.name') {{$ctrl.ldapConfig.name}}
+    .col-xs-6.flex-end
+      admin-ldap-test(domain-id="$ctrl.domainId", config="$ctrl.ldapConfig.configuration", disabled="form.$invalid")
+      button.btn.btn-link.btn-default(ng-click="$ctrl.delete(form)", type="button", title="{{ 'Delete' | translate }}")
+        i.mdi.mdi-delete
+  .card-body.card-padding
+    ng-form(role="form", aria-hidden="true", name="form", esn-autocomplete-off)
+      .row
+        .col-xs-12.col-md-6
+          div
+            esn-form-group(label="{{ 'Name' | translate }}")
+              input.form-control(type="text", ng-model='$ctrl.ldapConfig.name', required, name="name")
+            esn-form-group(label="{{ 'URL' | translate }}")
+              input.form-control(type="text", ng-model='$ctrl.ldapConfig.configuration.url', required, name="url")
+        .col-xs-12.col-md-6
+          div
+            esn-form-group(label="{{ 'Admin distinguished name' | translate }}")
+              input.form-control(type="text", ng-model='$ctrl.ldapConfig.configuration.adminDn', autocomplete="off", name="adminDn")
+            esn-form-group(label="{{ 'Admin Password' | translate }}")
+              input.form-control(type="password", ng-model='$ctrl.ldapConfig.configuration.adminPassword', autocomplete="new-password", name="adminPassword")
+        .col-xs-12
+          .group-name {{ 'Usage' | translate }}
+          .form-group.col-md-6.option-field
+            .col-xs-10.field-name {{ 'Authentication' | translate }}
+            .col-xs-2.flex-end
+              toggle-switch(ng-model="$ctrl.ldapConfig.usage.auth", form="form")
+          .form-group.col-md-6.option-field
+            .col-xs-10.field-name {{ 'Search provider' | translate }}
+            .col-xs-2.flex-end
+              toggle-switch(ng-model="$ctrl.ldapConfig.usage.search", form="form")
+          .form-group.col-md-6.option-field
+            .col-xs-10.field-name {{ 'Users auto-provisioning' | translate }}
+            .col-xs-2.flex-end
+              toggle-switch(ng-model="$ctrl.ldapConfig.usage.autoProvisioning", form="form")
+        .col-xs-12
+          .group-name {{ 'Search' | translate }}
+          .col-xs-12.col-md-6
+            esn-form-group(label="{{ 'Search base' | translate }}")
+              input.form-control(type="text", ng-model='$ctrl.ldapConfig.configuration.searchBase', required, name="searchBase")
+          .col-xs-12.col-md-6
+            esn-form-group(label="{{ 'Username field' | translate }}")
+              input.form-control(type="text", ng-model='$ctrl.usernameField', ng-model-options="{ getterSetter: true }", required, name="usernameField")
+        .col-xs-12
+          .group-name {{ 'Mapping' | translate }}
+          admin-form-multi-input(ng-model="$ctrl.ldapConfig.configuration.mapping", available-types="$ctrl.AVAILABLE_KEYS")
+.card-body.card-padding(ng-show="$ctrl.ldapConfig.deleted && $ctrl.ldapConfig.name")
+  .row
+    .col-xs-12
+      .p-t-5.flex-space-between
+        span
+          |  {{ 'You are about to remove the LDAP configuration "%s"' | translate:$ctrl.ldapConfig.name }}
+        a(ng-click='$ctrl.undo()', href='')
+          |  {{ 'Cancel' | translate }}

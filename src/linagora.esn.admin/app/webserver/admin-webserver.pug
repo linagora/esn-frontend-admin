@@ -1,0 +1,21 @@
+sub-header
+  admin-web-subheader(on-form-submit="$ctrl.save()", form="form")
+
+form(name="form", admin-loading-status)
+  .card
+    .card-header
+      h2 {{ 'Proxy settings' | translate }}
+    .card-body.card-padding
+      .row
+        .col-xs-12.col-md-6
+          label.checkbox.checkbox-inline
+            input(type="checkbox", ng-model="$ctrl.config.webserver.proxy.trust")
+            i.input-helper
+            span {{ 'Trust proxy' | translate }}
+    .card-header
+      h2 {{ 'Max size upload' | translate }}
+      small {{ 'This max size upload will be used for  attachments collaborative' | translate }}
+    .card-body.card-padding
+      .row
+        .col-xs-12.col-md-6
+          admin-form-input-bytes(input-value="$ctrl.config.maxSizeUpload", min="1KB", max="50TB", label="{{ 'Max size upload' | translate }}", required="true")

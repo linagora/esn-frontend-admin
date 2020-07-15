@@ -1,0 +1,15 @@
+.row
+  .col-md-4.col-xs-4.lv-title
+    span {{::$ctrl.domain.name}}
+  .col-md-4.col-xs-4.lv-title
+    span {{$ctrl.domain.company_name}}
+  .col-md-4.col-xs-4.lv-title
+    span {{::$ctrl.domain.timestamps.creation | esnDatetime: 'mediumDate'}}
+.lv-actions.actions
+  a(href="", data-toggle="dropdown", aria-expanded="false")
+    i.mdi.mdi-dots-vertical
+  i.mdi.mdi-alert-octagram.error-indicator(ng-if="$ctrl.error")
+  ul.dropdown-menu.dropdown-menu-right
+    li
+      a(href="", ng-click="$ctrl.onEditBtnClick()") {{ 'Edit' | translate }}
+    li(dynamic-directive="admin-domains-list-menu-items")

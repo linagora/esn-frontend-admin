@@ -1,0 +1,30 @@
+.card
+  .card-body
+    infinite-list(load-more-elements='$ctrl.loadMoreElements()')
+      .listview.lv-bordered.lv-lg
+        .lv-header
+          .lv-item.p-0
+            .row
+              .col-md-4.col-xs-4.lv-title
+                span {{ 'Name' | translate }}
+              .col-md-2.col-xs-2.lv-title
+                span {{ 'Type' | translate }}
+              .col-md-6.col-xs-6.lv-title
+                span {{ 'Description' | translate }}
+        .lv-body
+          .lv-item.p-0(ng-repeat="technicalUser in $ctrl.elements track by technicalUser._id")
+            .row
+              .col-md-4.col-xs-4.lv-title
+                span {{ technicalUser.name }}
+              .col-md-2.col-xs-2.lv-title
+                span {{ technicalUser.type }}
+              .col-md-6.col-xs-6.lv-title
+                span {{ technicalUser.description }}
+            .lv-actions.actions
+              a(href="", data-toggle="dropdown", aria-expanded="false")
+                i.mdi.mdi-dots-vertical
+              ul.dropdown-menu.dropdown-menu-right
+                li
+                  a(href="", ng-click="$ctrl.showUpdateModal(technicalUser)") {{ 'Edit' | translate }}
+                li
+                  a(href="", ng-click="$ctrl.showRemoveModal(technicalUser)") {{ 'Remove' | translate }}

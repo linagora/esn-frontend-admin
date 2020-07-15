@@ -1,0 +1,16 @@
+.modal.admin-domains-modal.full-screen
+  form(name="form", ng-submit="$ctrl.update(); $hide()")
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type="button", data-dismiss="modal", aria-label="Close", ng-click="$hide()")
+            span(aria-hidden="true") &times;
+          h4.modal-title {{ 'Edit domain' | translate }}
+        .modal-body
+          admin-domains-form(update-mode="true", domain="$ctrl.domain")
+        .modal-footer.flex
+          .flex-vertical-centered.flex-end
+            button.btn.btn-link(type="button", ng-click="$hide()")
+              | {{ 'Cancel' | translate }}
+            button.btn.btn-primary(type="submit", ng-disabled="form.$pristine || form.$invalid || form.$pending")
+              | {{ 'Save' | translate }}

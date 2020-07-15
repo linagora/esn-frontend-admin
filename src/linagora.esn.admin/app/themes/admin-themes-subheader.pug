@@ -1,0 +1,16 @@
+extends /modules/subheader/responsive-subheader.pug
+
+block left
+  admin-subheader-burger-button
+  span.title.ellipsis
+    |  {{ 'Themes Configuration' | translate }}
+
+block right
+  md-menu-bar
+    md-menu
+      button.btn.btn-link.btn-icon(type="button", ng-click="$mdMenu.open()", title="{{ 'More' | translate }}")
+        i.mdi.mdi-dots-vertical
+      md-menu-content.dm-icon
+        md-button(ng-click="$ctrl.reset()")
+          | {{ 'Reset default theme' | translate }}
+  esn-subheader-save-button(on-click="$ctrl.onFormSubmit()", form="$ctrl.form")

@@ -1,0 +1,8 @@
+.lv-body
+  .lv-item(toggled="true", esn-toggle)
+    .md-button.clickable.flex-start.flex-vertical-centered.block-header
+      h2 {{ 'Elasticsearch' | translate }}
+      i.mdi.mdi-chevron-up
+
+  ul
+    admin-maintenance-elasticsearch-resource(ng-repeat="resource in $ctrl.resources", resource="resource")

@@ -1,0 +1,7 @@
+sub-header
+  admin-users-create-subheader(on-form-submit="$ctrl.save()", form="form")
+
+.card
+  .card-body.card-padding
+    form(name="form")
+      admin-users-full-form(user="$ctrl.user")

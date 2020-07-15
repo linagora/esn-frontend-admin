@@ -1,0 +1,11 @@
+.admin-sidebar
+  .admin-sidebar-close.visible-md
+    a(href='', ng-click='$hide();close()')
+  ul.nav.nav-pills.nav-stacked
+    .listview
+      .lv-body
+        .lv-item.clickable.menu-heading
+          admin-mode-switch
+        admin-sidebar-items(ng-if="$ctrl.displayIn === 'platform'", items="$ctrl.platformPages")
+        admin-sidebar-items(ng-if="$ctrl.displayIn === 'domain'", items="$ctrl.domainPages")
+        div(dynamic-directive="admin-sidebar")

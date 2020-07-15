@@ -1,0 +1,26 @@
+ng-form(name="form", esn-autocomplete-off)
+  .row
+    .col-md-6
+      esn-form-group(ng-if="!$ctrl.updateMode", label="{{ 'Name' | translate }}", pattern-error-message="{{ 'Domain name is invalid' | translate }}", async-validator-error-message="{{ 'That domain is already used. Try another.' | translate }}", async-validator="$ctrl.uniqueDomainName")
+        input.form-control(type="text", ng-model="$ctrl.domain.name", ng-model-options="{ debounce: {'default': 500} }", pattern="^(?!:\/\/)([a-zA-Z0-9-_]+\.)*[a-zA-Z0-9][a-zA-Z0-9-_]+\.[a-zA-Z]{2,11}?", maxlength="255", name="domainName", required)
+      esn-form-group(ng-if="$ctrl.updateMode", label="{{ 'Name' | translate }}")
+        input.form-control(type="text", ng-model="$ctrl.domain.name", name="domainName", disabled)
+    .col-md-6
+      esn-form-group(label="{{ 'Company name' | translate }}")
+        input.form-control(type="text", ng-model="$ctrl.domain.company_name", name="companyName", required)
+  admin-domains-form-hostnames(domain="$ctrl.domain", form="form")
+  div(ng-if="!$ctrl.updateMode")
+    .row
+      .col-xs-6
+        h5 {{ 'Administrator' | translate }}
+    .row.m-t-15
+      .col-md-6
+        esn-email-input(
+          form="form",
+          email="$ctrl.domain.administrator.email",
+          domain-name="$ctrl.domain.name",
+          availability-checker="$ctrl.isEmailAvailable(email)"
+        )
+      .col-md-6
+        esn-form-group(label="{{ 'Password' | translate }}")
+          input.form-control(type="password", ng-model="$ctrl.domain.administrator.password", autocomplete="new-password", required, name="password")

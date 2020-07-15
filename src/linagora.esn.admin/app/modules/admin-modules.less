@@ -1,0 +1,109 @@
+@adminModuleMiniIconSize: 1.2em;
+@adminModuleMiniItemFontSize: 1.2em;
+@adminModuleBorderColor: #DDDDDD;
+
+admin-modules {
+
+  admin-modules-displayer {
+
+    .card {
+      margin-bottom: 0;
+
+      .card-header {
+        .flex-vertical-centered;
+        .flex-space-between;
+
+        font-size: 1.3em;
+        color: @secondaryTextColor;
+        padding: 15px;
+        border-bottom: 1px solid @adminModuleBorderColor;
+
+        .card-header-container {
+          .flex-vertical-centered;
+
+          .icon , img {
+            width: 2.5em;
+            margin-right: 10px;
+          }
+
+          .module-name {
+            .flex-grow;
+            .ellipsis;
+  
+            width: 40%;
+            color: @secondaryTextColor;
+  
+            img {
+              height: 2.5em;
+              margin-right: 10px;
+            }
+            
+            &.unsaved-changes {
+              font-weight: 500;
+              color: @m-black;
+
+              span:after {
+                content: '\0020\002A';
+              }
+            }
+          }
+        }
+
+        .module-toolbar {
+          .flex-end;
+          .flex-vertical-centered;
+          .flex-space-between;
+
+          .admin-modules-set-homepage {
+            .ellipsis;
+
+            padding: 0 15px;
+
+            i {
+              padding-right: 5px;
+            }
+          }
+
+          .admin-modules-disable {
+            .toggle-switch > .ts-label {
+              font-weight: normal;
+            }
+          }
+
+          .admin-modules-features {
+            .ellipsis;
+
+            padding: 0 20px;
+
+            i {
+              font-size: 1.8em;
+            }
+          }
+
+          .mdi-menu-up, .mdi-menu-down {
+            font-size: 1.5em;
+          }
+
+          .home-activated {
+            color: @primaryColor;
+          }
+
+          .no-homepage {
+            color: @m-gray;
+          }
+        }
+      }
+    }
+
+    .admin-form-bottom {
+      padding-right: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid @adminModuleBorderColor;
+
+      a {
+        margin-right: 10px;
+        text-decoration: underline;
+      }
+    }
+  }
+}

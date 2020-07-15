@@ -1,0 +1,20 @@
+ng-form(name='form')
+  .card
+    .card-header
+      div
+        h2
+          i.mdi.mdi-google
+          | {{ 'Google' | translate }}
+        small(ng-if="$ctrl.isEnabled")
+          a.action-link(href="https://console.developers.google.com/", target="_blank") 
+            | {{ 'How to register a Google application?' | translate }}
+      toggle-switch(ng-model="$ctrl.isEnabled", form="form")
+    .card-body.card-padding(ng-if="$ctrl.isEnabled")
+      .row 
+        .col-xs-12.col-md-4
+          esn-form-group(label="{{ 'Client ID' | translate }}")
+            input.form-control(type="text", ng-model="$ctrl.config.client_id", autocomplete="off", name="client_id", required)
+        .col-xs-12.col-md-8
+          esn-form-group(label="{{ 'Client Secret' | translate }}")
+            input.form-control(type="text", ng-model="$ctrl.config.client_secret", autocomplete="off", name="client_secret", required)
+      admin-oauth-usage-options(options="$ctrl.config.usage")

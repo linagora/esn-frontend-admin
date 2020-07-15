@@ -1,0 +1,39 @@
+@enabledColor: #2196F3;
+@disabledColor: #b3b3b3;
+
+.admin-users-states-edit {
+  .state-content {
+    .flex {
+      margin-bottom: 20px;
+
+      .toggle-switch {
+        margin-left: 10px;
+        margin-right: 10px;
+
+        transform: scale3d(.9, .9, 1);
+      }
+
+      .state-enabled {
+        color: @disabledColor;
+
+        &.toggle-active {
+          color: @enabledColor;
+        }
+      }
+
+      .state-disabled {
+        &:not(.toggle-active) {
+          color: @disabledColor;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: @screen-md-min) {
+  .admin-users-state-edit {
+    .modal-body {
+      margin-top: 20px;
+    }
+  }
+}
