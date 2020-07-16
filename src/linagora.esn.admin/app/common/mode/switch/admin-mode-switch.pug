@@ -5,5 +5,5 @@
       span {{ 'Platform administration' | translate }}
       .description {{ 'Any change you make will affect the whole platform' | translate }}
     md-option.admin-mode-switch-item(ng-value="'domain'", ng-selected="!$ctrl.isPlatformMode()")
-      span {{ '%s administration' | translate:$ctrl.currentDomain.name }}
+      span {{ '%s administration' | translate:$ctrl }}
       .description {{ 'Any change you make will affect the whole domain' | translate }}
