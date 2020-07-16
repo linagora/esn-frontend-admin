@@ -1,9 +1,7 @@
-(function() {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
+angular.module('linagora.esn.admin')
 
-    .component('adminResources', {
-      template: require("./admin-resources.pug")
-    });
-})();
+  .component('adminResources', {
+    template: require("./admin-resources.pug")
+  });

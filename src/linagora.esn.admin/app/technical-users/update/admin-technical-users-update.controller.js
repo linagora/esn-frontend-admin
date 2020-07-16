@@ -1,40 +1,40 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminTechnicalUsersUpdateController', adminTechnicalUsersUpdateController);
+require('../admin-technical-users.service.js');
+require('../admin-technical-users.constants.js');
 
-  function adminTechnicalUsersUpdateController(
-    $rootScope,
-    $stateParams,
-    esnTechnicalUserAPIClient,
-    asyncAction,
-    adminTechnicalUsersService,
-    ADMIN_TECHNICAL_USERS_EVENTS,
-    technicalUser
-  ) {
-    var self = this;
+angular.module('linagora.esn.admin')
+  .controller('adminTechnicalUsersUpdateController', adminTechnicalUsersUpdateController);
 
-    self.domainId = $stateParams.domainId;
-    self.technicalUser = technicalUser;
-    self.onEditBtnClick = onEditBtnClick;
+function adminTechnicalUsersUpdateController(
+  $rootScope,
+  $stateParams,
+  esnTechnicalUserAPIClient,
+  asyncAction,
+  adminTechnicalUsersService,
+  ADMIN_TECHNICAL_USERS_EVENTS,
+  technicalUser
+) {
+  var self = this;
 
-    function onEditBtnClick() {
-      return asyncAction({
-        progressing: 'Editing a technical user...',
-        success: 'A technical user has been edited',
-        failure: 'Failed to edit a technical user'
-      }, function() {
-        return _editTechnicalUser();
-      });
-    }
+  self.domainId = $stateParams.domainId;
+  self.technicalUser = technicalUser;
+  self.onEditBtnClick = onEditBtnClick;
 
-    function _editTechnicalUser() {
-      return esnTechnicalUserAPIClient.update(self.domainId, adminTechnicalUsersService.qualifyTechnicalUser(self.technicalUser))
-        .then(function() {
-          $rootScope.$emit(ADMIN_TECHNICAL_USERS_EVENTS.UPDATED, self.technicalUser);
-        });
-    }
+  function onEditBtnClick() {
+    return asyncAction({
+      progressing: 'Editing a technical user...',
+      success: 'A technical user has been edited',
+      failure: 'Failed to edit a technical user'
+    }, function() {
+      return _editTechnicalUser();
+    });
   }
-})(angular);
 
+  function _editTechnicalUser() {
+    return esnTechnicalUserAPIClient.update(self.domainId, adminTechnicalUsersService.qualifyTechnicalUser(self.technicalUser))
+      .then(function() {
+        $rootScope.$emit(ADMIN_TECHNICAL_USERS_EVENTS.UPDATED, self.technicalUser);
+      });
+  }
+}

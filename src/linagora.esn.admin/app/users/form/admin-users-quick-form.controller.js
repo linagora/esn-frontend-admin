@@ -1,44 +1,45 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminUsersQuickFormController', adminUsersQuickFormController);
+require('./admin-users-form.service.js');
+require('../admin-users.service.js');
 
-  function adminUsersQuickFormController(
-    adminUsersFormService,
-    adminUsersService,
-    rejectWithErrorNotification
-  ) {
-    var self = this;
+angular.module('linagora.esn.admin')
+  .controller('adminUsersQuickFormController', adminUsersQuickFormController);
 
-    var USER_TEMPLATE = {
-      accounts: [{
-        type: 'email',
-        emails: []
-      }],
-      domains: [
-        { domain_id: self.domainId }
-      ]
-    };
+function adminUsersQuickFormController(
+  adminUsersFormService,
+  adminUsersService,
+  rejectWithErrorNotification
+) {
+  var self = this;
 
-    self.emailAvailabilityChecker = adminUsersFormService.emailAvailabilityChecker;
-    self.save = save;
+  var USER_TEMPLATE = {
+    accounts: [{
+      type: 'email',
+      emails: []
+    }],
+    domains: [
+      { domain_id: self.domainId }
+    ]
+  };
 
-    self.user = angular.copy(USER_TEMPLATE);
+  self.emailAvailabilityChecker = adminUsersFormService.emailAvailabilityChecker;
+  self.save = save;
 
-    function save(form) {
-      if (form && form.$valid) {
-        return adminUsersService.createMember(self.domainId, self.user)
-          .then(function() {
-            // Reset form state
-            self.user = angular.copy(USER_TEMPLATE);
-            form.$setPristine();
-          });
-      }
+  self.user = angular.copy(USER_TEMPLATE);
 
-      form.$setSubmitted();
-
-      return rejectWithErrorNotification('Form is invalid!');
+  function save(form) {
+    if (form && form.$valid) {
+      return adminUsersService.createMember(self.domainId, self.user)
+        .then(function() {
+          // Reset form state
+          self.user = angular.copy(USER_TEMPLATE);
+          form.$setPristine();
+        });
     }
+
+    form.$setSubmitted();
+
+    return rejectWithErrorNotification('Form is invalid!');
   }
-})(angular);
+}

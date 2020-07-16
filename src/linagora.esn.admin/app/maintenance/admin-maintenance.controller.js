@@ -1,19 +1,20 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminMaintenanceController', adminMaintenanceController);
+require('./admin-maintenance.service.js');
+require('../common/mode/admin-mode.service.js');
 
-  function adminMaintenanceController(adminMaintenanceService, adminModeService) {
-    var self = this;
+angular.module('linagora.esn.admin')
+  .controller('adminMaintenanceController', adminMaintenanceController);
 
-    self.$onInit = $onInit;
+function adminMaintenanceController(adminMaintenanceService, adminModeService) {
+  var self = this;
 
-    function $onInit() {
-      self.mode = adminModeService.getCurrentMode();
-      self.maintenanceModules = adminMaintenanceService.getMaintenanceModules().filter(function(module) {
-        return module.maintenance.displayIn[self.mode];
-      });
-    }
+  self.$onInit = $onInit;
+
+  function $onInit() {
+    self.mode = adminModeService.getCurrentMode();
+    self.maintenanceModules = adminMaintenanceService.getMaintenanceModules().filter(function(module) {
+      return module.maintenance.displayIn[self.mode];
+    });
   }
-})(angular);
+}

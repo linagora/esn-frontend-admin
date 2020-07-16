@@ -1,37 +1,38 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminTechnicalUsersAddController', adminTechnicalUsersAddController);
+require('../admin-technical-users.service.js');
+require('../admin-technical-users.constants.js');
 
-  function adminTechnicalUsersAddController(
-    $rootScope,
-    $stateParams,
-    esnTechnicalUserAPIClient,
-    adminTechnicalUsersService,
-    asyncAction,
-    ADMIN_TECHNICAL_USERS_EVENTS
-  ) {
-    var self = this;
+angular.module('linagora.esn.admin')
+  .controller('adminTechnicalUsersAddController', adminTechnicalUsersAddController);
 
-    self.domainId = $stateParams.domainId;
-    self.onAddBtnClick = onAddBtnClick;
+function adminTechnicalUsersAddController(
+  $rootScope,
+  $stateParams,
+  esnTechnicalUserAPIClient,
+  adminTechnicalUsersService,
+  asyncAction,
+  ADMIN_TECHNICAL_USERS_EVENTS
+) {
+  var self = this;
 
-    function onAddBtnClick() {
-      return asyncAction({
-        progressing: 'Creating a technical user...',
-        success: 'A technical user has been created',
-        failure: 'Failed to create a technical user'
-      }, function() {
-        return _addTechnicalUser();
-      });
-    }
+  self.domainId = $stateParams.domainId;
+  self.onAddBtnClick = onAddBtnClick;
 
-    function _addTechnicalUser() {
-      return esnTechnicalUserAPIClient.add(self.domainId, adminTechnicalUsersService.qualifyTechnicalUser(self.technicalUser))
-        .then(function(createdTechnicalUser) {
-          $rootScope.$emit(ADMIN_TECHNICAL_USERS_EVENTS.ADDED, createdTechnicalUser);
-        });
-    }
+  function onAddBtnClick() {
+    return asyncAction({
+      progressing: 'Creating a technical user...',
+      success: 'A technical user has been created',
+      failure: 'Failed to create a technical user'
+    }, function() {
+      return _addTechnicalUser();
+    });
   }
-})(angular);
+
+  function _addTechnicalUser() {
+    return esnTechnicalUserAPIClient.add(self.domainId, adminTechnicalUsersService.qualifyTechnicalUser(self.technicalUser))
+      .then(function(createdTechnicalUser) {
+        $rootScope.$emit(ADMIN_TECHNICAL_USERS_EVENTS.ADDED, createdTechnicalUser);
+      });
+  }
+}

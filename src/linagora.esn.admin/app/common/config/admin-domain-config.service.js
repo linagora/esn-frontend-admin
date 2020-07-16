@@ -1,60 +1,62 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .factory('adminDomainConfigService', adminDomainConfigService);
+const _ = require('lodash');
 
-  function adminDomainConfigService(adminConfigApi, _) {
-    var DEFAULT_MODULE = 'core';
+require('./admin-config-api.service.js');
 
-    return {
-      get: get,
-      set: set,
-      getMultiple: getMultiple,
-      setMultiple: setMultiple
-    };
+angular.module('linagora.esn.admin')
+  .factory('adminDomainConfigService', adminDomainConfigService);
 
-    function get(domainId, key) {
-      var keys = [key];
+function adminDomainConfigService(adminConfigApi) {
+  var DEFAULT_MODULE = 'core';
 
-      return getMultiple(domainId, keys).then(function(configurations) {
-        return configurations[key];
-      });
-    }
+  return {
+    get: get,
+    set: set,
+    getMultiple: getMultiple,
+    setMultiple: setMultiple
+  };
 
-    function getMultiple(domainId, keys) {
-      var query = [{
-        name: DEFAULT_MODULE,
-        keys: keys
-      }];
+  function get(domainId, key) {
+    var keys = [key];
 
-      return adminConfigApi.get(domainId, query).then(function(modules) {
-        var module = _.find(modules, { name: DEFAULT_MODULE });
-        var configurations = {};
-
-        if (module) {
-          _.forEach(module.configurations, function(config) {
-            configurations[config.name] = config.value;
-          });
-        }
-
-        return configurations;
-      });
-    }
-
-    function set(domainId, key, value) {
-      var configurations = [{ name: key, value: value }];
-
-      return setMultiple(domainId, configurations);
-    }
-
-    function setMultiple(domainId, configurations) {
-      var query = [{
-        name: DEFAULT_MODULE,
-        configurations: configurations
-      }];
-
-      return adminConfigApi.set(domainId, query);
-    }
+    return getMultiple(domainId, keys).then(function(configurations) {
+      return configurations[key];
+    });
   }
-})(angular);
+
+  function getMultiple(domainId, keys) {
+    var query = [{
+      name: DEFAULT_MODULE,
+      keys: keys
+    }];
+
+    return adminConfigApi.get(domainId, query).then(function(modules) {
+      var module = _.find(modules, { name: DEFAULT_MODULE });
+      var configurations = {};
+
+      if (module) {
+        _.forEach(module.configurations, function(config) {
+          configurations[config.name] = config.value;
+        });
+      }
+
+      return configurations;
+    });
+  }
+
+  function set(domainId, key, value) {
+    var configurations = [{ name: key, value: value }];
+
+    return setMultiple(domainId, configurations);
+  }
+
+  function setMultiple(domainId, configurations) {
+    var query = [{
+      name: DEFAULT_MODULE,
+      configurations: configurations
+    }];
+
+    return adminConfigApi.set(domainId, query);
+  }
+}

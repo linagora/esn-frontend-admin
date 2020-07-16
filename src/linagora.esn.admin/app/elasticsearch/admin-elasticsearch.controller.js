@@ -1,7 +1,9 @@
-(function() {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
+require('../app.constants.js');
+require('../common/config/admin-domain-config.service.js');
+
+angular.module('linagora.esn.admin')
 
   .controller('adminElasticsearchController', function($stateParams, adminDomainConfigService, asyncAction, ADMIN_DEFAULT_NOTIFICATION_MESSAGES, ADMIN_LOADING_STATUS) {
     var self = this;
@@ -27,4 +29,3 @@
       return adminDomainConfigService.set(domainId, CONFIG_NAME, self.config);
     }
   });
-})();

@@ -1,35 +1,36 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminWebserverController', adminWebserverController);
+require('../common/config/admin-domain-config.service.js');
+require('../app.constants.js');
 
-  function adminWebserverController(adminDomainConfigService, asyncAction, ADMIN_DEFAULT_NOTIFICATION_MESSAGES, ADMIN_LOADING_STATUS, ADMIN_MODE) {
-    var self = this;
-    var CONFIG_NAME = ['webserver', 'maxSizeUpload'];
+angular.module('linagora.esn.admin')
+  .controller('adminWebserverController', adminWebserverController);
 
-    self.$onInit = $onInit;
-    self.save = save;
+function adminWebserverController(adminDomainConfigService, asyncAction, ADMIN_DEFAULT_NOTIFICATION_MESSAGES, ADMIN_LOADING_STATUS, ADMIN_MODE) {
+  var self = this;
+  var CONFIG_NAME = ['webserver', 'maxSizeUpload'];
 
-    function $onInit() {
-      self.status = ADMIN_LOADING_STATUS.loading;
+  self.$onInit = $onInit;
+  self.save = save;
 
-      adminDomainConfigService.getMultiple(ADMIN_MODE.platform, CONFIG_NAME)
-        .then(function(data) {
-          self.config = data;
-          self.status = ADMIN_LOADING_STATUS.loaded;
-        })
-        .catch(function() {
-          self.status = ADMIN_LOADING_STATUS.error;
-        });
-    }
+  function $onInit() {
+    self.status = ADMIN_LOADING_STATUS.loading;
 
-    function save() {
-      return asyncAction(ADMIN_DEFAULT_NOTIFICATION_MESSAGES, _saveConfiguration);
-    }
-
-    function _saveConfiguration() {
-      return adminDomainConfigService.setMultiple(ADMIN_MODE.platform, [{ name: CONFIG_NAME[0], value: self.config.webserver }, { name: CONFIG_NAME[1], value: self.config.maxSizeUpload }]);
-    }
+    adminDomainConfigService.getMultiple(ADMIN_MODE.platform, CONFIG_NAME)
+      .then(function(data) {
+        self.config = data;
+        self.status = ADMIN_LOADING_STATUS.loaded;
+      })
+      .catch(function() {
+        self.status = ADMIN_LOADING_STATUS.error;
+      });
   }
-})(angular);
+
+  function save() {
+    return asyncAction(ADMIN_DEFAULT_NOTIFICATION_MESSAGES, _saveConfiguration);
+  }
+
+  function _saveConfiguration() {
+    return adminDomainConfigService.setMultiple(ADMIN_MODE.platform, [{ name: CONFIG_NAME[0], value: self.config.webserver }, { name: CONFIG_NAME[1], value: self.config.maxSizeUpload }]);
+  }
+}

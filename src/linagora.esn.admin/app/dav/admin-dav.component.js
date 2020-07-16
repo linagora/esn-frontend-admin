@@ -2,7 +2,7 @@
 
 angular.module('linagora.esn.admin')
 
-.component('adminDav', {
-  template: require("./admin-dav.pug"),
-  controller: 'adminDavController'
-});
+  .component('adminDav', {
+    template: require("./admin-dav.pug"),
+    controller: 'adminDavController'
+  });

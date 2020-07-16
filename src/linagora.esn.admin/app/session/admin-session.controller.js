@@ -1,7 +1,9 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
+require('../common/config/admin-domain-config.service.js');
+require('../app.constants.js');
+
+angular.module('linagora.esn.admin')
 
   .controller('adminSessionController', function(
     $stateParams,
@@ -33,4 +35,3 @@
       return adminDomainConfigService.set(domainId, CONFIG_NAME, self.config);
     }
   });
-})(angular);

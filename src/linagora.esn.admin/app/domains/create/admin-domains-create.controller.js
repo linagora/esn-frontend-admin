@@ -1,17 +1,16 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminDomainsCreateController', adminDomainsCreateController);
+require('../admin-domains.service.js');
 
-  function adminDomainsCreateController(adminDomainsService) {
-    var self = this;
+angular.module('linagora.esn.admin')
+  .controller('adminDomainsCreateController', adminDomainsCreateController);
 
-    self.create = create;
+function adminDomainsCreateController(adminDomainsService) {
+  var self = this;
 
-    function create() {
-      return adminDomainsService.create(self.domain);
-    }
+  self.create = create;
+
+  function create() {
+    return adminDomainsService.create(self.domain);
   }
-
-})(angular);
+}

@@ -1,40 +1,41 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminLoginController', adminGeneralController);
+require('../app.constants.js');
+require('../common/config/admin-domain-config.service.js');
 
-  function adminGeneralController(
-    $stateParams,
-    adminDomainConfigService,
-    asyncAction,
-    ADMIN_DEFAULT_NOTIFICATION_MESSAGES,
-    ADMIN_LOADING_STATUS
-  ) {
-    var self = this;
-    var domainId = $stateParams.domainId;
+angular.module('linagora.esn.admin')
+  .controller('adminLoginController', adminGeneralController);
 
-    self.$onInit = $onInit;
-    self.save = save;
-    self.status = ADMIN_LOADING_STATUS.loading;
+function adminGeneralController(
+  $stateParams,
+  adminDomainConfigService,
+  asyncAction,
+  ADMIN_DEFAULT_NOTIFICATION_MESSAGES,
+  ADMIN_LOADING_STATUS
+) {
+  var self = this;
+  var domainId = $stateParams.domainId;
 
-    function $onInit() {
-      adminDomainConfigService.get(domainId, 'login')
-        .then(function(data) {
-          self.config = data;
-          self.status = ADMIN_LOADING_STATUS.loaded;
-        })
-        .catch(function() {
-          self.status = ADMIN_LOADING_STATUS.error;
-        });
-    }
+  self.$onInit = $onInit;
+  self.save = save;
+  self.status = ADMIN_LOADING_STATUS.loading;
 
-    function save() {
-      return asyncAction(ADMIN_DEFAULT_NOTIFICATION_MESSAGES, _saveConfiguration);
-    }
-
-    function _saveConfiguration() {
-      return adminDomainConfigService.set(domainId, 'login', self.config);
-    }
+  function $onInit() {
+    adminDomainConfigService.get(domainId, 'login')
+      .then(function(data) {
+        self.config = data;
+        self.status = ADMIN_LOADING_STATUS.loaded;
+      })
+      .catch(function() {
+        self.status = ADMIN_LOADING_STATUS.error;
+      });
   }
-})(angular);
+
+  function save() {
+    return asyncAction(ADMIN_DEFAULT_NOTIFICATION_MESSAGES, _saveConfiguration);
+  }
+
+  function _saveConfiguration() {
+    return adminDomainConfigService.set(domainId, 'login', self.config);
+  }
+}
