@@ -51,6 +51,6 @@
     .col-xs-12
       .p-t-5.flex-space-between
         span
-          |  {{ 'You are about to remove the LDAP configuration "%s"' | translate:$ctrl.ldapConfig.name }}
+          |  {{ 'You are about to remove the LDAP configuration "%s"' | translate:$ctrl }}
         a(ng-click='$ctrl.undo()', href='')
           |  {{ 'Cancel' | translate }}
