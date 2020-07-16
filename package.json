@@ -12,7 +12,8 @@
   "license": "AGPLv3",
   "dependencies": {
     "esn-frontend-common-libs": "github:openpaas-suite/esn-frontend-common-libs#main",
-    "esn-frontend-calendar": "github:openpaas-suite/esn-frontend-calendar#main"
+    "esn-frontend-calendar": "github:openpaas-suite/esn-frontend-calendar#main",
+    "esn-frontend-mailto-handler": "github:openpaas-suite/esn-frontend-mailto-handler#main"
   },
   "devDependencies": {
     "command-line-args": "^5.1.1",
