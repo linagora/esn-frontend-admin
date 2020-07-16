@@ -125,7 +125,6 @@ require ('./linagora.esn.admin/app/sidebar/admin-sidebar.js');
 require ('./linagora.esn.admin/app/sidebar/items/admin-sidebar-items.js');
 require ('./linagora.esn.admin/app/subheader/admin-subheader-burger-button.component.js');
 require ('./linagora.esn.admin/app/subheader/admin-subheader-close-button.component.js');
-require ('./linagora.esn.admin/app/subheader/admin-subheader-save-button.component.js');
 require ('./linagora.esn.admin/app/technical-users/add/admin-technical-users-add.controller.js');
 require ('./linagora.esn.admin/app/technical-users/admin-technical-users-subheader.component.js');
 require ('./linagora.esn.admin/app/technical-users/admin-technical-users.component.js');
