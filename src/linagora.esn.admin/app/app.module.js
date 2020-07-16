@@ -3,6 +3,7 @@
 angular.module('linagora.esn.admin', [
   'restangular',
   'colorpicker',
+  'esn.mailto-handler',
   'esn.http',
   'esn.router',
   'esn.core',
