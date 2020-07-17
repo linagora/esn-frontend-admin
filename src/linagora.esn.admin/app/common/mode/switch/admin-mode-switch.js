@@ -1,40 +1,40 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .component('adminModeSwitch', {
-      template: require("./admin-mode-switch.pug"),
-      controller: adminmModeSwitchController
-    });
+require('../admin-mode.service.js');
 
-  function adminmModeSwitchController(session, adminModeService) {
-    var self = this;
+angular.module('linagora.esn.admin')
+  .component('adminModeSwitch', {
+    template: require("./admin-mode-switch.pug"),
+    controller: adminmModeSwitchController
+  });
 
-    self.$onInit = $onInit;
-    self.goToDomainMode = goToDomainMode;
-    self.goToPlatformMode = goToPlatformMode;
-    self.isPlatformMode = isPlatformMode;
-    self.selectedChanged = selectedChanged;
-    self.currentDomain = session.domain;
+function adminmModeSwitchController(session, adminModeService) {
+  var self = this;
 
-    function $onInit() {
-      self.hasTwoAdminRoles = session.user.isPlatformAdmin && session.userIsDomainAdministrator();
-    }
+  self.$onInit = $onInit;
+  self.goToDomainMode = goToDomainMode;
+  self.goToPlatformMode = goToPlatformMode;
+  self.isPlatformMode = isPlatformMode;
+  self.selectedChanged = selectedChanged;
+  self.currentDomain = session.domain;
 
-    function goToDomainMode() {
-      return adminModeService.goToDomainMode();
-    }
-
-    function goToPlatformMode() {
-      return adminModeService.goToPlatformMode();
-    }
-
-    function isPlatformMode() {
-      return adminModeService.isPlatformMode();
-    }
-
-    function selectedChanged() {
-      return self.selectedMode === 'platform' ? goToPlatformMode() : goToDomainMode();
-    }
+  function $onInit() {
+    self.hasTwoAdminRoles = session.user.isPlatformAdmin && session.userIsDomainAdministrator();
   }
-})(angular);
+
+  function goToDomainMode() {
+    return adminModeService.goToDomainMode();
+  }
+
+  function goToPlatformMode() {
+    return adminModeService.goToPlatformMode();
+  }
+
+  function isPlatformMode() {
+    return adminModeService.isPlatformMode();
+  }
+
+  function selectedChanged() {
+    return self.selectedMode === 'platform' ? goToPlatformMode() : goToDomainMode();
+  }
+}

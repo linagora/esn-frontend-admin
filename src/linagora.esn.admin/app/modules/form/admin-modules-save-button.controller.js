@@ -2,16 +2,16 @@
 
 angular.module('linagora.esn.admin')
 
-.controller('adminModulesSaveButtonController', function(rejectWithErrorNotification) {
-  var self = this;
+  .controller('adminModulesSaveButtonController', function(rejectWithErrorNotification) {
+    var self = this;
 
-  self.checkValidThenSubmit = function() {
-    if (self.form && self.form.$valid) {
-      return self.onFormSubmit();
-    }
+    self.checkValidThenSubmit = function() {
+      if (self.form && self.form.$valid) {
+        return self.onFormSubmit();
+      }
 
-    self.form.$setSubmitted();
+      self.form.$setSubmitted();
 
-    return rejectWithErrorNotification('Form is invalid!');
-  };
-});
+      return rejectWithErrorNotification('Form is invalid!');
+    };
+  });

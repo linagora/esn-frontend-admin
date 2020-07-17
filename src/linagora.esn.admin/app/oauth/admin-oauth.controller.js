@@ -1,9 +1,13 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
+const _ = require('lodash');
 
-  .controller('adminOauthController', function($stateParams, adminDomainConfigService, asyncAction, _, ADMIN_DEFAULT_NOTIFICATION_MESSAGES, ADMIN_LOADING_STATUS) {
+require('../common/config/admin-domain-config.service.js');
+require('../app.constants.js');
+
+angular.module('linagora.esn.admin')
+
+  .controller('adminOauthController', function($stateParams, adminDomainConfigService, asyncAction, ADMIN_DEFAULT_NOTIFICATION_MESSAGES, ADMIN_LOADING_STATUS) {
     var self = this;
     var domainId = $stateParams.domainId;
     var CONFIG_NAME = 'oauth';
@@ -46,4 +50,3 @@
       return adminDomainConfigService.set(domainId, CONFIG_NAME, self.config);
     }
   });
-})(angular);

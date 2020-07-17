@@ -1,83 +1,84 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminDomainsListController', adminDomainsListController);
+const _ = require('lodash');
 
-  function adminDomainsListController(
-    $modal,
-    $scope,
-    _,
-    domainAPI,
-    infiniteScrollHelper,
-    ADMIN_DOMAINS_EVENTS
-  ) {
-    var self = this;
-    var DEFAULT_LIMIT = 20;
+require('../admin-domains.constant.js');
 
-    var options = {
-      offset: 0,
-      limit: DEFAULT_LIMIT
-    };
+angular.module('linagora.esn.admin')
+  .controller('adminDomainsListController', adminDomainsListController);
 
-    self.$onInit = $onInit;
-    self.showEditDomainForm = showEditDomainForm;
+function adminDomainsListController(
+  $modal,
+  $scope,
+  domainAPI,
+  infiniteScrollHelper,
+  ADMIN_DOMAINS_EVENTS
+) {
+  var self = this;
+  var DEFAULT_LIMIT = 20;
 
-    function $onInit() {
-      self.loadMoreElements = infiniteScrollHelper(self, _loadNextItems);
-      $scope.$on(ADMIN_DOMAINS_EVENTS.DOMAIN_CREATED, function(event, domain) {
-        _onDomainCreated(domain);
-      });
+  var options = {
+    offset: 0,
+    limit: DEFAULT_LIMIT
+  };
 
-      $scope.$on(ADMIN_DOMAINS_EVENTS.DOMAIN_UPDATED, function(event, updatedDomain) {
-        _onDomainUpdated(updatedDomain);
-      });
-    }
+  self.$onInit = $onInit;
+  self.showEditDomainForm = showEditDomainForm;
 
-    function showEditDomainForm(domain) {
-      var updateDomainModal = $modal({
-        template: require("../update/admin-domains-update.pug"),
-        backdrop: 'static',
-        placement: 'center',
-        controller: 'adminDomainUpdateController',
-        controllerAs: '$ctrl',
-        locals: {
-          domain: domain
-        },
-        show: false
-      });
+  function $onInit() {
+    self.loadMoreElements = infiniteScrollHelper(self, _loadNextItems);
+    $scope.$on(ADMIN_DOMAINS_EVENTS.DOMAIN_CREATED, function(event, domain) {
+      _onDomainCreated(domain);
+    });
 
-      // ensure template has been loaded
-      updateDomainModal.$promise.then(updateDomainModal.show);
-    }
-
-    function _loadNextItems() {
-      options.offset = self.elements.length;
-
-      return domainAPI.list(options)
-        .then(function(response) {
-          return response.data;
-        });
-    }
-
-    function _onDomainCreated(newDomain) {
-      if (!newDomain) {
-        return;
-      }
-
-      self.elements.unshift(newDomain);
-    }
-
-    function _onDomainUpdated(updatedDomain) {
-     if (!updatedDomain || !updatedDomain.id) {
-       return;
-     }
-
-     var index = _.findIndex(self.elements, { id: updatedDomain.id });
-
-     if (index !== -1) {
-       self.elements[index] = updatedDomain;
-     }
-   }
+    $scope.$on(ADMIN_DOMAINS_EVENTS.DOMAIN_UPDATED, function(event, updatedDomain) {
+      _onDomainUpdated(updatedDomain);
+    });
   }
-})(angular);
+
+  function showEditDomainForm(domain) {
+    var updateDomainModal = $modal({
+      template: require("../update/admin-domains-update.pug"),
+      backdrop: 'static',
+      placement: 'center',
+      controller: 'adminDomainUpdateController',
+      controllerAs: '$ctrl',
+      locals: {
+        domain: domain
+      },
+      show: false
+    });
+
+    // ensure template has been loaded
+    updateDomainModal.$promise.then(updateDomainModal.show);
+  }
+
+  function _loadNextItems() {
+    options.offset = self.elements.length;
+
+    return domainAPI.list(options)
+      .then(function(response) {
+        return response.data;
+      });
+  }
+
+  function _onDomainCreated(newDomain) {
+    if (!newDomain) {
+      return;
+    }
+
+    self.elements.unshift(newDomain);
+  }
+
+  function _onDomainUpdated(updatedDomain) {
+    if (!updatedDomain || !updatedDomain.id) {
+      return;
+    }
+
+    var index = _.findIndex(self.elements, { id: updatedDomain.id });
+
+    if (index !== -1) {
+      self.elements[index] = updatedDomain;
+    }
+  }
+}

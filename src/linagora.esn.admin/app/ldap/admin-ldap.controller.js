@@ -1,9 +1,13 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
+const _ = require('lodash');
 
-  .controller('adminLdapController', function($stateParams, $element, $timeout, elementScrollService, adminDomainConfigService, asyncAction, _, ADMIN_DEFAULT_NOTIFICATION_MESSAGES, ADMIN_LOADING_STATUS) {
+require('../common/config/admin-domain-config.service.js');
+require('../app.constants.js');
+
+angular.module('linagora.esn.admin')
+
+  .controller('adminLdapController', function($stateParams, $element, $timeout, elementScrollService, adminDomainConfigService, asyncAction, ADMIN_DEFAULT_NOTIFICATION_MESSAGES, ADMIN_LOADING_STATUS) {
     var self = this;
     var domainId = $stateParams.domainId;
     var CONFIG_NAME = 'ldap';
@@ -37,9 +41,9 @@
       return asyncAction(ADMIN_DEFAULT_NOTIFICATION_MESSAGES, function() {
         return _saveConfiguration(configs);
       })
-      .then(function() {
-        self.configs = configs;
-      });
+        .then(function() {
+          self.configs = configs;
+        });
     }
 
     function addForm() {
@@ -81,4 +85,3 @@
       return adminDomainConfigService.set(domainId, CONFIG_NAME, configs);
     }
   });
-})(angular);

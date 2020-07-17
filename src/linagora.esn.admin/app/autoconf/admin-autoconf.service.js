@@ -1,16 +1,16 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .factory('adminAutoconfService', adminAutoconfService);
+require('../common/admin-restangular.service.js');
 
-  function adminAutoconfService(adminRestangular) {
-    return {
-      save: save
-    };
+angular.module('linagora.esn.admin')
+  .factory('adminAutoconfService', adminAutoconfService);
 
-    function save(domainId, config) {
-      return adminRestangular.all('autoconf').customPUT(config, '', { domain_id: domainId });
-    }
+function adminAutoconfService(adminRestangular) {
+  return {
+    save: save
+  };
+
+  function save(domainId, config) {
+    return adminRestangular.all('autoconf').customPUT(config, '', { domain_id: domainId });
   }
-})(angular);
+}

@@ -1,65 +1,67 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminGeneralController', adminGeneralController);
+const _ = require('lodash');
 
-  function adminGeneralController(
-    $stateParams,
-    adminDomainConfigService,
-    asyncAction,
-    adminModeService,
-    homePageService,
-    _,
-    ADMIN_DEFAULT_NOTIFICATION_MESSAGES,
-    ADMIN_LOADING_STATUS
-  ) {
-    var self = this;
-    var CONFIGURATIONS_LIST = {
-      domain: ['homePage', 'businessHours', 'datetime', 'language'],
-      platform: ['homePage', 'businessHours', 'datetime']
-    };
+require('../app.constants.js');
+require('../common/mode/admin-mode.service.js');
 
-    self.$onInit = $onInit;
-    self.save = save;
-    self.status = ADMIN_LOADING_STATUS.loading;
+angular.module('linagora.esn.admin')
+  .controller('adminGeneralController', adminGeneralController);
 
-    function $onInit() {
-      adminDomainConfigService.getMultiple(
-        $stateParams.domainId,
-        adminModeService.isPlatformMode() ? CONFIGURATIONS_LIST.platform : CONFIGURATIONS_LIST.domain
-      )
-        .then(function(data) {
-          self.mode = adminModeService.getCurrentMode();
-          self.configs = data;
-          self.status = ADMIN_LOADING_STATUS.loaded;
-          self.mode = adminModeService.getCurrentMode();
-        })
-        .catch(function() {
-          self.status = ADMIN_LOADING_STATUS.error;
-        });
+function adminGeneralController(
+  $stateParams,
+  adminDomainConfigService,
+  asyncAction,
+  adminModeService,
+  homePageService,
+  ADMIN_DEFAULT_NOTIFICATION_MESSAGES,
+  ADMIN_LOADING_STATUS
+) {
+  var self = this;
+  var CONFIGURATIONS_LIST = {
+    domain: ['homePage', 'businessHours', 'datetime', 'language'],
+    platform: ['homePage', 'businessHours', 'datetime']
+  };
 
-      self.homePages = homePageService.getHomePageCandidates();
-    }
+  self.$onInit = $onInit;
+  self.save = save;
+  self.status = ADMIN_LOADING_STATUS.loading;
 
-    function save() {
-      return asyncAction(ADMIN_DEFAULT_NOTIFICATION_MESSAGES, _saveConfiguration);
-    }
-
-    function _saveConfiguration() {
-      var qualifiedConfigs = _qualifyConfigs(self.configs);
-
-      return adminDomainConfigService.setMultiple($stateParams.domainId, qualifiedConfigs);
-    }
-
-    function _qualifyConfigs(configs) {
-      var qualifiedConfigs = [];
-
-      _.forEach(configs, function(value, key) {
-        qualifiedConfigs.push({ name: key, value: value });
+  function $onInit() {
+    adminDomainConfigService.getMultiple(
+      $stateParams.domainId,
+      adminModeService.isPlatformMode() ? CONFIGURATIONS_LIST.platform : CONFIGURATIONS_LIST.domain
+    )
+      .then(function(data) {
+        self.mode = adminModeService.getCurrentMode();
+        self.configs = data;
+        self.status = ADMIN_LOADING_STATUS.loaded;
+        self.mode = adminModeService.getCurrentMode();
+      })
+      .catch(function() {
+        self.status = ADMIN_LOADING_STATUS.error;
       });
 
-      return qualifiedConfigs;
-    }
+    self.homePages = homePageService.getHomePageCandidates();
   }
-})(angular);
+
+  function save() {
+    return asyncAction(ADMIN_DEFAULT_NOTIFICATION_MESSAGES, _saveConfiguration);
+  }
+
+  function _saveConfiguration() {
+    var qualifiedConfigs = _qualifyConfigs(self.configs);
+
+    return adminDomainConfigService.setMultiple($stateParams.domainId, qualifiedConfigs);
+  }
+
+  function _qualifyConfigs(configs) {
+    var qualifiedConfigs = [];
+
+    _.forEach(configs, function(value, key) {
+      qualifiedConfigs.push({ name: key, value: value });
+    });
+
+    return qualifiedConfigs;
+  }
+}

@@ -1,31 +1,31 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminMaintenanceElasticsearchController', adminMaintenanceElasticsearchController);
+require('./admin-maintenance-elasticsearch.service.js');
 
-  function adminMaintenanceElasticsearchController(adminMaintenanceElasticsearchService) {
-    var self = this;
+angular.module('linagora.esn.admin')
+  .controller('adminMaintenanceElasticsearchController', adminMaintenanceElasticsearchController);
 
-    self.$onInit = $onInit;
+function adminMaintenanceElasticsearchController(adminMaintenanceElasticsearchService) {
+  var self = this;
 
-    function $onInit() {
-      self.resources = [];
+  self.$onInit = $onInit;
 
-      adminMaintenanceElasticsearchService.getRegisteredResourceTypes()
-        .then(function(response) {
-          angular.forEach(response.data, (function(type) {
-            self.resources.push({
-              type: type,
-              onReindexBtnClick: function() {
-                return adminMaintenanceElasticsearchService.reindex(type);
-              },
-              onReconfigureBtnClick: function() {
-                return adminMaintenanceElasticsearchService.reconfigure(type);
-              }
-            });
-          }));
-        });
-    }
+  function $onInit() {
+    self.resources = [];
+
+    adminMaintenanceElasticsearchService.getRegisteredResourceTypes()
+      .then(function(response) {
+        angular.forEach(response.data, (function(type) {
+          self.resources.push({
+            type: type,
+            onReindexBtnClick: function() {
+              return adminMaintenanceElasticsearchService.reindex(type);
+            },
+            onReconfigureBtnClick: function() {
+              return adminMaintenanceElasticsearchService.reconfigure(type);
+            }
+          });
+        }));
+      });
   }
-})(angular);
+}

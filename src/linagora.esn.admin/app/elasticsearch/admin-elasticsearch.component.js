@@ -1,10 +1,8 @@
-(function() {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
+angular.module('linagora.esn.admin')
 
   .component('adminElasticsearch', {
     template: require("./admin-elasticsearch.pug"),
     controller: 'adminElasticsearchController'
   });
-})();

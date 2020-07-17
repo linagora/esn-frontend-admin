@@ -1,7 +1,8 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
+require('../admin-roles.service.js');
+
+angular.module('linagora.esn.admin')
 
   .controller('adminRolesAutoCompleteController', function(
     $element,
@@ -45,5 +46,3 @@
       });
     }
   });
-})(angular);
-

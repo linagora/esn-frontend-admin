@@ -1,39 +1,38 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminTechnicalUsersRemoveController', adminTechnicalUsersRemoveController);
+require('../admin-technical-users.constants.js');
 
-  function adminTechnicalUsersRemoveController(
-    $rootScope,
-    $stateParams,
-    asyncAction,
-    esnTechnicalUserAPIClient,
-    technicalUser,
-    ADMIN_TECHNICAL_USERS_EVENTS
-  ) {
-    var self = this;
+angular.module('linagora.esn.admin')
+  .controller('adminTechnicalUsersRemoveController', adminTechnicalUsersRemoveController);
 
-    self.domainId = $stateParams.domainId;
-    self.technicalUser = technicalUser;
-    self.onRemoveBtnClick = onRemoveBtnClick;
+function adminTechnicalUsersRemoveController(
+  $rootScope,
+  $stateParams,
+  asyncAction,
+  esnTechnicalUserAPIClient,
+  technicalUser,
+  ADMIN_TECHNICAL_USERS_EVENTS
+) {
+  var self = this;
 
-    function onRemoveBtnClick() {
-      return asyncAction({
-        progressing: 'Removing a technical user...',
-        success: 'A technical user has been removed',
-        failure: 'Failed to remove a technical user'
-      }, function() {
-        return _onRemovedTechnicalUser();
-      });
-    }
+  self.domainId = $stateParams.domainId;
+  self.technicalUser = technicalUser;
+  self.onRemoveBtnClick = onRemoveBtnClick;
 
-    function _onRemovedTechnicalUser() {
-      return esnTechnicalUserAPIClient.remove(self.domainId, technicalUser)
-        .then(function() {
-          $rootScope.$emit(ADMIN_TECHNICAL_USERS_EVENTS.REMOVED, technicalUser._id);
-        });
-     }
+  function onRemoveBtnClick() {
+    return asyncAction({
+      progressing: 'Removing a technical user...',
+      success: 'A technical user has been removed',
+      failure: 'Failed to remove a technical user'
+    }, function() {
+      return _onRemovedTechnicalUser();
+    });
   }
-})(angular);
 
+  function _onRemovedTechnicalUser() {
+    return esnTechnicalUserAPIClient.remove(self.domainId, technicalUser)
+      .then(function() {
+        $rootScope.$emit(ADMIN_TECHNICAL_USERS_EVENTS.REMOVED, technicalUser._id);
+      });
+  }
+}

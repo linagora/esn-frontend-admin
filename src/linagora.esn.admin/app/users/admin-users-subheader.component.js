@@ -1,7 +1,9 @@
-'use strict';
+(function(angular) {
+  'use strict';
 
-angular.module('linagora.esn.admin')
+  angular.module('linagora.esn.admin')
 
-.component('adminUsersSubheader', {
-  template: require("./admin-users-subheader.pug")
-});
+    .component('adminUsersSubheader', {
+      template: require("./admin-users-subheader.pug")
+    });
+})(angular);

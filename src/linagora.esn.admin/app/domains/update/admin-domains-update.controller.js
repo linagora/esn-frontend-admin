@@ -1,19 +1,18 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminDomainUpdateController', adminDomainUpdateController);
+require('../admin-domains.service.js');
 
-  function adminDomainUpdateController($scope, adminDomainsService, domain) {
-    var self = this;
+angular.module('linagora.esn.admin')
+  .controller('adminDomainUpdateController', adminDomainUpdateController);
 
-    self.domain = domain;
+function adminDomainUpdateController($scope, adminDomainsService, domain) {
+  var self = this;
 
-    self.update = update;
+  self.domain = domain;
 
-    function update() {
-      adminDomainsService.update(self.domain);
-    }
+  self.update = update;
+
+  function update() {
+    adminDomainsService.update(self.domain);
   }
-
-})(angular);
+}

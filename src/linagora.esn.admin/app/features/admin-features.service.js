@@ -1,9 +1,10 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
+const _ = require('lodash');
 
-  .factory('adminFeaturesService', function(_, esnFeatureRegistry) {
+angular.module('linagora.esn.admin')
+
+  .factory('adminFeaturesService', function(esnFeatureRegistry) {
     return {
       includeFeaturesMetadata: includeFeaturesMetadata,
       getFeaturesConfigValue: getFeaturesConfigValue
@@ -34,4 +35,3 @@
       return configObject;
     }
   });
-})(angular);

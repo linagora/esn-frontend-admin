@@ -2,10 +2,10 @@
 
 angular.module('linagora.esn.admin')
 
-.component('adminLdapSubheader', {
-  template: require("./admin-ldap-subheader.pug"),
-  bindings: {
-    onFormSubmit: '&',
-    form: '<'
-  }
-});
+  .component('adminLdapSubheader', {
+    template: require("./admin-ldap-subheader.pug"),
+    bindings: {
+      onFormSubmit: '&',
+      form: '<'
+    }
+  });

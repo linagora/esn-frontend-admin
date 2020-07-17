@@ -1,14 +1,14 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('linagora.esn.admin')
-    .controller('adminUsersFullFormController', adminUsersFullFormController);
+require('./admin-users-form.service.js');
 
-  function adminUsersFullFormController(
-    adminUsersFormService
-  ) {
-    var self = this;
+angular.module('linagora.esn.admin')
+  .controller('adminUsersFullFormController', adminUsersFullFormController);
 
-    self.emailAvailabilityChecker = adminUsersFormService.emailAvailabilityChecker;
-  }
-})(angular);
+function adminUsersFullFormController(
+  adminUsersFormService
+) {
+  var self = this;
+
+  self.emailAvailabilityChecker = adminUsersFormService.emailAvailabilityChecker;
+}

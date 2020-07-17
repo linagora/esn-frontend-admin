@@ -2,7 +2,7 @@
 
 angular.module('linagora.esn.admin')
 
-.component('adminLdap', {
-  template: require("./admin-ldap.pug"),
-  controller: 'adminLdapController'
-});
+  .component('adminLdap', {
+    template: require("./admin-ldap.pug"),
+    controller: 'adminLdapController'
+  });

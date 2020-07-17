@@ -2,7 +2,7 @@
 
 angular.module('linagora.esn.admin')
 
-.component('adminUsers', {
-  template: require("./admin-users.pug"),
-  controller: 'adminUsersController'
-});
+  .component('adminUsers', {
+    template: require("./admin-users.pug"),
+    controller: 'adminUsersController'
+  });
