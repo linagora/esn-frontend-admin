@@ -2,6 +2,7 @@ const path = require('path');
 const { accessSync } = require('fs');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 // default: we are building an SPA
 const commonLibsPath = path.resolve(__dirname, 'node_modules', 'esn-frontend-common-libs');
@@ -53,6 +54,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './assets/index.pug',
       filename: './index.html'
+    }),
+    new FaviconsWebpackPlugin({
+      logo: './src/linagora.esn.admin/images/admin-center-icon.svg',
+      prefix: 'admin-assets/',
     }),
   ],
   devServer: {
