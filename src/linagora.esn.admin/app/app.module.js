@@ -5,7 +5,6 @@ angular.module('linagora.esn.admin', [
   'restangular',
   'colorpicker',
   'esn.http',
-  'esn.router',
   'esn.core',
   'esn.session',
   'op.dynamicDirective',
