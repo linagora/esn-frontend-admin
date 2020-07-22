@@ -187,5 +187,4 @@ angular.module('linagora.esn.admin')
       domain: false,
       platform: true
     }
-  }])
-  .constant('MAX_SIZE_UPLOAD_DEFAULT', 104857600);
+  }]);
