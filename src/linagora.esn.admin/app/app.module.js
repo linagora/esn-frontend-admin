@@ -36,6 +36,7 @@ angular.module('linagora.esn.admin', [
 
 require('./app.constants.js');
 require('./app.routes.js');
+require('./app.config.js');
 require('./app.run.js');
 
 require('esn-frontend-common-libs/src/frontend/js/modules/config/config.module.js');
