@@ -72,7 +72,6 @@ require('./autoconf/admin-autoconf.service.js');
 require('./autoconf/admin-autoconf.component.js');
 require('./autoconf/admin-autoconf.constants.js');
 require('./autoconf/admin-autoconf.controller.js');
-require('./common/admin-application-menu.directive.js');
 require('./common/admin-restangular.service.js');
 require('./common/config/admin-config-api.service.js');
 require('./common/config/admin-domain-config.service.js');
