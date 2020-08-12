@@ -158,7 +158,8 @@ angular.module('linagora.esn.admin')
           'root@admin': {
             template: '<admin-general />'
           }
-        }
+        },
+        default: true
       })
       .state('admin.domain.oauth', {
         url: '/oauth',
