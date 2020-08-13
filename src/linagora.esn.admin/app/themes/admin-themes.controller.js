@@ -123,7 +123,7 @@ function adminThemesController(
       } else {
         rejectWithErrorNotification(
           esnI18nService.translate(
-            'Sorry, the image is too heavy. The max image size is %s', [$filter('bytes')(config.maxSizeUpload)]
+            'Sorry, the image is too heavy. The max image size is %s', { maxSizeUpload: $filter('bytes')(config.maxSizeUpload) }
           ).toString(), {});
       }
     });
