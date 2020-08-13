@@ -20,9 +20,9 @@ angular.module('linagora.esn.admin')
 
     function _getNotificationMessages(displayName) {
       return {
-        progressing: esnI18nService.translate('Revoking administration right for %s', displayName),
-        success: esnI18nService.translate('Revoked administration right for %s', displayName),
-        failure: esnI18nService.translate('Failed to revoke administration right for %s', displayName)
+        progressing: esnI18nService.translate('Revoking administration right for %s', { displayName }),
+        success: esnI18nService.translate('Revoked administration right for %s', { displayName }),
+        failure: esnI18nService.translate('Failed to revoke administration right for %s', { displayName })
       };
     }
   });
