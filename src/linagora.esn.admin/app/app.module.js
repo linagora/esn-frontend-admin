@@ -5,6 +5,7 @@ angular.module('linagora.esn.admin', [
   'restangular',
   'colorpicker',
   'material.components.tooltip',
+  'ngTagsInput',
   'esn.http',
   'esn.core',
   'esn.session',
