@@ -75,6 +75,7 @@ module.exports = {
         '/logout',
         '/views',
         '/account/api',
+        '/admin/api',
         '/profile/app',
         '/controlcenter/app',
         '/images',
