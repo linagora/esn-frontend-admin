@@ -4,4 +4,9 @@ angular.module('esnApp')
     session.ready.then(function () {
       ioConnectionManager.connect();
     });
-  });
+  })
+  .run(addTemplateCache);
+
+function addTemplateCache($templateCache) {
+  $templateCache.put('/views/commons/loading.html', require('./app-loading.pug'));
+}
