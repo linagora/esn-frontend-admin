@@ -4,6 +4,7 @@ angular.module('linagora.esn.admin', [
   'esn.mailto-handler',
   'restangular',
   'colorpicker',
+  'material.components.tooltip',
   'esn.http',
   'esn.core',
   'esn.session',
