@@ -19,14 +19,14 @@ describe('The adminUsersListController', function() {
       stop: sinon.spy()
     };
 
-    angular.mock.module(function($provide) {
+    angular.mock.module('linagora.esn.admin',function($provide) {
       $provide.value('memberSearchConfiguration', searchConfMock);
       $provide.value('usSpinnerService', usSpinnerServiceMock);
     });
   });
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_, _domainAPI_) {
       $controller = _$controller_;

@@ -11,7 +11,7 @@ describe('The adminLdapController', function() {
   var CONFIG_NAME = 'ldap';
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     $elementMock = {
       find: function() {}

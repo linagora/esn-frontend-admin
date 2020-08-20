@@ -12,7 +12,7 @@ describe('The adminDomainsCreateController', function() {
   var esnAvailabilityService;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_, _domainAPI_, _esnAvailabilityService_) {
       $controller = _$controller_;

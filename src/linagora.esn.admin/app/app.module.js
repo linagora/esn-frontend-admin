@@ -33,7 +33,8 @@ angular.module('linagora.esn.admin', [
   'esn.file',
   'esn.member',
   'openpaas-logo',
-  'esn.application-menu'
+  'esn.application-menu',
+  'esn.router'
 ]);
 
 require('./app.constants.js');
@@ -41,6 +42,7 @@ require('./app.routes.js');
 require('./app.config.js');
 require('./app.run.js');
 
+require('esn-frontend-common-libs/src/frontend/js/modules/esn.router.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/config/config.module.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/async-action.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/session.js');

@@ -8,8 +8,7 @@ describe('The adminDomainsFormHostnames component', function() {
   var $rootScope, $compile;
 
   beforeEach(function() {
-    module('jadeTemplates');
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
   });
 
   beforeEach(inject(function(_$rootScope_, _$compile_) {

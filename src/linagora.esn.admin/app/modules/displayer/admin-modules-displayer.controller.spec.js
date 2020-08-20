@@ -11,7 +11,7 @@ describe('The adminModulesDisplayerController', function() {
   var ADMIN_DEFAULT_NOTIFICATION_MESSAGES, ADMIN_FORM_EVENT;
 
   beforeEach(function() {
-    module('linagora.esn.admin', function($provide) {
+    angular.mock.module('linagora.esn.admin', function($provide) {
       $provide.value('asyncAction', asyncAction = sinon.spy(function(message, action) {
         return action();
       }));

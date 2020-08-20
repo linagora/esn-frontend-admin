@@ -8,8 +8,10 @@ describe('The adminLdapFormController', function() {
 
   var $rootScope, $scope, $controller;
 
-  beforeEach(module('linagora.esn.admin'));
-
+  beforeEach(function() {
+    angular.mock.module('linagora.esn.admin');
+  });
+  
   beforeEach(inject(function(_$controller_, _$rootScope_) {
     $controller = _$controller_;
     $rootScope = _$rootScope_;

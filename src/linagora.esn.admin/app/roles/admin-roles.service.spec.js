@@ -12,7 +12,7 @@ describe('The adminRolesService', function() {
   var DOMAIN_ID = '123456';
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$rootScope_, _adminRolesService_, _domainAPI_, _attendeeService_, _ADMIN_SEARCH_LIMIT_) {
       $rootScope = _$rootScope_;

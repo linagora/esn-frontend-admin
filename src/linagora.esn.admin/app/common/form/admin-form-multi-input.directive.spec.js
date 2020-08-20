@@ -9,8 +9,7 @@ describe('The adminFormGroup directive', function() {
   var $rootScope, $compile;
 
   beforeEach(function() {
-    module('jadeTemplates');
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$rootScope_, _$compile_) {
       $rootScope = _$rootScope_;

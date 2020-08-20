@@ -10,7 +10,7 @@ describe('The adminMailTestController', function() {
   var adminTestConfigService, adminMailService;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_, _$stateParams_, _adminTestConfigService_, _adminMailService_) {
       $controller = _$controller_;

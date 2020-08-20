@@ -10,13 +10,13 @@ describe('The AdminUsersStatesController', function() {
   var userUtilsMock;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     userUtilsMock = {
       displayNameOf: angular.noop
     };
 
-    module(function($provide) {
+    angular.mock.module(function($provide) {
       $provide.value('userUtils', userUtilsMock);
     });
 

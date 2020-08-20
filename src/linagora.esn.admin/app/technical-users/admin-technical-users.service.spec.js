@@ -7,8 +7,10 @@ var expect = chai.expect;
 describe('The adminTechnicalUsersService service', function() {
   var adminTechnicalUsersService;
 
-  beforeEach(module('linagora.esn.admin'));
-
+  beforeEach(function() {
+    angular.mock.module('linagora.esn.admin');
+  });
+  
   beforeEach(function() {
     angular.mock.inject(function(_adminTechnicalUsersService_) {
       adminTechnicalUsersService = _adminTechnicalUsersService_;

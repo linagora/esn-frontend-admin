@@ -9,11 +9,11 @@ describe('The adminMaintenaceService', function() {
   var adminMaintenanceService, esnModuleRegistryMock;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     esnModuleRegistryMock = {};
 
-    module(function($provide) {
+    angular.mock.module(function($provide) {
       $provide.value('esnModuleRegistry', esnModuleRegistryMock);
     });
 

@@ -11,7 +11,7 @@ describe('The adminDomainUpdateController', function() {
   var domain;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     adminDomainsServiceMock = {};
     domain = {

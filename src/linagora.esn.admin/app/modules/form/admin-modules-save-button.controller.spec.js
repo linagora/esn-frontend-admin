@@ -9,7 +9,7 @@ describe('The adminModulesSaveButton controller', function() {
   var $controller, $rootScope, $scope;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_) {
       $controller = _$controller_;

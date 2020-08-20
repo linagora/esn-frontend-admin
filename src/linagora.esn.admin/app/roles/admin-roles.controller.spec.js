@@ -11,11 +11,11 @@ describe('The adminRolesController', function() {
   var $modalMock;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     $modalMock = sinon.spy();
 
-    module(function($provide) {
+    angular.mock.module(function($provide) {
       $provide.value('$modal', $modalMock);
     });
 

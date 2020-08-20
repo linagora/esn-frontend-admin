@@ -10,8 +10,10 @@ describe('The adminModulesService service', function() {
   var ADMIN_MODE;
   var DOMAIN_ID = 'domain123';
 
-  beforeEach(module('linagora.esn.admin'));
-
+  beforeEach(function() {
+    angular.mock.module('linagora.esn.admin');
+  });
+  
   beforeEach(function() {
     angular.mock.inject(function(_$rootScope_, _adminConfigApi_, _adminModulesService_, _esnModuleRegistry_, _ADMIN_MODE_) {
       $rootScope = _$rootScope_;

@@ -2,8 +2,10 @@
 
 describe('The adminAutoconfService service', function() {
   var $httpBackend, adminAutoconfService;
-
-  beforeEach(module('linagora.esn.admin'));
+  
+  beforeEach(function() {
+    angular.mock.module('linagora.esn.admin');
+  });
 
   beforeEach(inject(function(_$httpBackend_, _adminAutoconfService_) {
     $httpBackend = _$httpBackend_;

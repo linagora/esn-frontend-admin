@@ -16,8 +16,7 @@ describe('The adminThemes component', function() {
   var rejectWithErrorNotification = sinon.spy();
 
   beforeEach(function() {
-    module('jadeTemplates');
-    module('linagora.esn.admin', function($provide) {
+    angular.mock.module('linagora.esn.admin', function($provide) {
       $provide.value('$filter', function() { return _.identity; });
       $provide.value('themesService', {
         forDomain: function() { return themeService; }

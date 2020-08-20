@@ -8,8 +8,7 @@ describe('The adminModeSwitch component', function() {
   var $rootScope, $compile, session;
 
   beforeEach(function() {
-    module('jadeTemplates');
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
   });
 
   beforeEach(inject(function(_$rootScope_, _$compile_, _session_) {
