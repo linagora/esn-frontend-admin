@@ -8,8 +8,10 @@ var expect = chai.expect;
 describe('The adminModeService service', function() {
   var adminModeService, $stateParams, $state, session, ADMIN_MODE;
 
-  beforeEach(module('linagora.esn.admin'));
-
+  beforeEach(function() {
+    angular.mock.module('linagora.esn.admin');
+  });
+  
   beforeEach(inject(function(_$stateParams_, _$state_, _adminModeService_, _session_, _ADMIN_MODE_) {
     $stateParams = _$stateParams_;
     $state = _$state_;

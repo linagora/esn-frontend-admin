@@ -12,18 +12,17 @@ describe('The adminDomainsController', function() {
   var $modalMock;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     $modalMock = sinon.spy();
 
-    module(function($provide) {
+    angular.mock.module(function($provide) {
       $provide.value('$modal', $modalMock);
     });
   });
 
   beforeEach(function() {
-    module('jadeTemplates');
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$rootScope_, _$controller_) {
       $rootScope = _$rootScope_;

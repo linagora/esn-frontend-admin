@@ -12,7 +12,7 @@ describe('The adminUsersFormService', function() {
   var adminUsersFormService;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(
       _$rootScope_,

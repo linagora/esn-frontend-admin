@@ -11,7 +11,7 @@ describe('The adminWebserverController controller', function() {
   var CONFIG_NAME = ['webserver', 'maxSizeUpload'];
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_, _ADMIN_MODE_, _adminDomainConfigService_) {
       $controller = _$controller_;

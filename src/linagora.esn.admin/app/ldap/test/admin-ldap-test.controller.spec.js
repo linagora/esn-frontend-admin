@@ -12,7 +12,7 @@ describe('The adminLdapTestController', function() {
   var ldapConfigMock;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_, _adminTestConfigService_) {
       $controller = _$controller_;

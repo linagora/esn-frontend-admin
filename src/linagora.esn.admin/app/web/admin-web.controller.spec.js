@@ -12,7 +12,7 @@ describe('The adminWebController', function() {
   var CONFIG_NAME = 'web';
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_, _$stateParams_, _adminDomainConfigService_) {
       $controller = _$controller_;

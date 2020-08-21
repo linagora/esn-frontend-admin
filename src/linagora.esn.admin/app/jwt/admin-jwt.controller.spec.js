@@ -13,7 +13,7 @@ describe('The adminJwtController', function() {
   var ADMIN_JWT_DOWNLOAD_FILE_TYPE;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_, _$stateParams_, _adminConfigApi_, _adminDomainConfigService_, _esnFileSaver_, _ADMIN_JWT_DOWNLOAD_FILE_TYPE_) {
       $controller = _$controller_;

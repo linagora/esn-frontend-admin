@@ -20,9 +20,9 @@ describe('The adminTechnicalUsersAddController', function() {
       ]
     };
 
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
-    module(function($provide) {
+    angular.mock.module(function($provide) {
       $provide.value('asyncAction', function(message, action) {
         return action();
       });

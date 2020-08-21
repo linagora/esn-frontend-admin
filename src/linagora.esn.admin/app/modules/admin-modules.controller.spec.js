@@ -23,7 +23,7 @@ describe('The adminModulesController', function() {
   });
 
   beforeEach(function() {
-    module('linagora.esn.admin', function($provide) {
+    angular.mock.module('linagora.esn.admin', function($provide) {
       $provide.value('adminDomainConfigService', adminDomainConfigService);
       $provide.value('adminModulesService', adminModulesService);
     });

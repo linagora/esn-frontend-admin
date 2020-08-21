@@ -10,7 +10,7 @@ describe('The adminUsersCreateController', function() {
   var domainAPI;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_, _$stateParams_, _domainAPI_) {
       $controller = _$controller_;

@@ -9,7 +9,7 @@ describe('The adminUsersStatesService', function() {
   var ADMIN_USER_ACTIONS_MOCK;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     ADMIN_USER_ACTIONS_MOCK = {
       action1: {
@@ -26,7 +26,7 @@ describe('The adminUsersStatesService', function() {
       }
     };
 
-    module(function($provide) {
+    angular.mock.module(function($provide) {
       $provide.constant('ADMIN_USER_ACTIONS', ADMIN_USER_ACTIONS_MOCK);
     });
 

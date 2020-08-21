@@ -10,13 +10,13 @@ describe('The adminRolesAutoCompleteController', function() {
   var elementScrollService, adminRolesService;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     $elementMock = {
       find: function() {}
     };
 
-    module(function($provide) {
+    angular.mock.module(function($provide) {
       $provide.value('$element', $elementMock);
     });
 

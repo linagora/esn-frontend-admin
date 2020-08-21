@@ -10,21 +10,8 @@ describe('The adminModulesDisplayer component', function() {
   var $httpBackend;
 
   beforeEach(function() {
-    module('jadeTemplates');
-    module('linagora.esn.admin', function() {});
-    angular.module('linagora.esn.test', [])
-      .run(function($templateCache) {
-        $templateCache.put('test-config.html', '<ng-form name="form"><input type="text" name="test" ng-model="$ctrl.configurations.test_config.value" /></ng-form>');
-      })
-      .component('testConfig', {
-        // must be templateUrl otherwise the inner form will not be able to
-        // change the parent form's dirty state
-        templateUrl: 'test-config.html',
-        bindings: {
-          configurations: '='
-        }
-      });
-    module('linagora.esn.test');
+    angular.mock.module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.test');
   });
 
   beforeEach(inject(function(_$rootScope_, _$compile_, _$httpBackend_) {
@@ -121,7 +108,7 @@ describe('The adminModulesDisplayer component', function() {
       expect(element.find('admin-modules-save-button button').attr('disabled')).to.equal('disabled');
     });
 
-    it('should be enabled when form is changed', function() {
+    it('should be enabled when form is changed', function(done) {
       var element = initComponent();
 
       element.find('input[name="test"]')
@@ -130,7 +117,14 @@ describe('The adminModulesDisplayer component', function() {
         .trigger('input')
         .trigger('blur');
 
-      expect(element.find('admin-modules-save-button button').attr('disabled')).to.not.exist;
+        setTimeout(function(){
+          try {
+            expect(element.find('admin-modules-save-button button').attr('disabled')).to.not.exist;
+            done();
+          } catch (err) {
+            done(err || new Error('should resolve'));
+          }
+        }, 0);
     });
   });
 });

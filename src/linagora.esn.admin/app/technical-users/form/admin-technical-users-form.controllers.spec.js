@@ -9,7 +9,7 @@ describe('The adminTechnicalUsersFormController', function() {
   var ADMIN_TECHNICAL_USER_TYPES;
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_, _ADMIN_TECHNICAL_USER_TYPES_) {
         $controller = _$controller_;

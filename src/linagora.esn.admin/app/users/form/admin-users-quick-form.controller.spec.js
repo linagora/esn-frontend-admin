@@ -11,7 +11,7 @@ describe('The adminUsersQuickFormController', function() {
   var domainId = '123456';
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_, _domainAPI_) {
       $controller = _$controller_;

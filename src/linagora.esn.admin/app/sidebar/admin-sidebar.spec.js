@@ -8,8 +8,7 @@ describe('The adminSidebar component', function() {
   var $rootScope, $compile, adminModeService;
 
   beforeEach(function() {
-    module('jadeTemplates');
-    module('linagora.esn.admin', function($provide) {
+    angular.mock.module('linagora.esn.admin', function($provide) {
       $provide.constant('ADMIN_PAGES', [{
         id: 'domain',
         name: 'Domain',

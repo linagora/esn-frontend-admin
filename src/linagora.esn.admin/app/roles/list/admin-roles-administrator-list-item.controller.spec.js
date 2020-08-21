@@ -10,8 +10,10 @@ describe('The adminRolesAdministratorListItem', function() {
   var $controller, $rootScope, $stateParams, $scope;
   var adminRolesService, session, userUtils;
 
-  beforeEach(module('linagora.esn.admin'));
-
+  beforeEach(function() {
+    angular.mock.module('linagora.esn.admin');
+  });
+  
   beforeEach(inject(function(_$controller_, _$rootScope_, _$stateParams_, _adminRolesService_, _session_, _userUtils_) {
     $controller = _$controller_;
     $rootScope = _$rootScope_;

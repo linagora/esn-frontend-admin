@@ -10,7 +10,7 @@ describe('The adminFormMultiInput controller', function() {
   var element = {};
 
   beforeEach(function() {
-    module('linagora.esn.admin');
+    angular.mock.module('linagora.esn.admin');
 
     inject(function(_$rootScope_, _$controller_, _$timeout_) {
       $rootScope = _$rootScope_;
