@@ -30,7 +30,8 @@ html.full-height
         60% {
           transform: translateY(-12px);
         }
-      }      
+      }
   body.container-fluid.ng-cloak(ng-app="esnApp", ng-controller="sessionInitESNController", device-detector, ng-class="{ 'grabbable': esnIsDragging }")
     #wrap(ng-include='session.template')
       include ../src/app/app-loading.pug
+    script(src="/admin/env/openpaas.js")
