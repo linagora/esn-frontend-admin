@@ -35,7 +35,8 @@ angular.module('linagora.esn.admin', [
   'openpaas-logo',
   'esn.application-menu',
   'esn.router',
-  'linagora.esn.group'
+  'linagora.esn.group',
+  'esn.inbox-james'
 ]);
 
 require('./app.constants.js');
@@ -72,6 +73,7 @@ require('esn-frontend-common-libs/src/frontend/components/dynamic-directive/src/
 require('esn-frontend-common-libs/src/frontend/js/modules/application-menu.js');
 require('esn-frontend-common-libs/src/frontend/js/constants.js');
 require('esn-frontend-group/src/app/app.module');
+require('esn-frontend-inbox-james/src/app/app.module');
 
 require('./autoconf/subheader/admin-autoconf-subheader.component.js');
 require('./autoconf/admin-autoconf.service.js');
