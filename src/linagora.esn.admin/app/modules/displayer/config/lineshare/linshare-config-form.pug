@@ -1,0 +1,19 @@
+ng-form(name='form')
+  h5 {{ 'Instance URL' | translate }}
+  .configuration-form
+    .backend-url-input
+      esn-form-group(label='{{ "Instance URL" | translate }}')
+        input.form-control(type="url", ng-model="$ctrl.configurations.instanceURL.value", name="instanceURL", required)
+  h5 {{ 'API base path' | translate }}
+  .helper
+    span {{ 'The base path would look like this' | translate }}
+    i http://domain-name/linshare/webservice/rest
+  .configuration-form
+    .backend-url-input
+      esn-form-group(label='{{ "Backend" | translate }}')
+        input.form-control(type="url", ng-model="$ctrl.configurations.apiBasePathBackend.value", name="apiBasePathBackend", required)
+    .frontend-url-input
+      esn-form-group(label='{{ "Frontend" | translate }}')
+        input.form-control(type="url", ng-model="$ctrl.configurations.apiBasePathFrontend.value", name="apiBasePathFrontend", required)
+        
+        

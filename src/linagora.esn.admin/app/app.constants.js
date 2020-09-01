@@ -195,4 +195,5 @@ angular.module('linagora.esn.admin')
       domain: false,
       platform: true
     }
-  }]);
+  }])
+  

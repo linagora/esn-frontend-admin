@@ -1,6 +1,5 @@
 'use strict';
 
-require('./james-config-form.constants');
 require('./james-config-form.controller');
 require('./quota/form/james-quota-form.component');
 require('./quota/displayer/james-quota-displayer.component');

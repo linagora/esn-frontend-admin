@@ -1,3 +1,4 @@
+
 form(name="form")
   .card(ng-init="expanded=false", ng-class="{clickable: $ctrl.configurations}")
     .card-header(ng-click="expanded=!expanded")
@@ -21,3 +22,4 @@ form(name="form")
           a.text-uppercase.flex-vertical-centered(href="", ng-click="$ctrl.reset()")
             |  {{ 'Cancel' | translate }}
           admin-modules-save-button(form="form", on-form-submit="$ctrl.save()")
+          

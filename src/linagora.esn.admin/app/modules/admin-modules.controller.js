@@ -1,10 +1,10 @@
+'use strict';
+
 const _ = require('lodash');
 
 require('./admin-modules.service.js');
 require('../common/config/admin-domain-config.service.js');
-require('../app.constants.js');
-
-'use strict';
+require('./module.constants.js');
 
 angular.module('linagora.esn.admin')
 
