@@ -58,7 +58,7 @@ describe('The adminSidebar component', function() {
 
     var element = initComponent();
 
-    expect(element.find('a.lv-item')).to.have.length(1);
+    expect(element.find('a.lv-item')).to.have.length(2);
     expect(element.find('a.lv-item').html()).to.contain('Domain');
   });
 
@@ -74,7 +74,7 @@ describe('The adminSidebar component', function() {
 
     element.scope().$digest();
 
-    expect(element.find('a.lv-item')).to.have.length(1);
+    expect(element.find('a.lv-item')).to.have.length(2);
     expect(element.find('a.lv-item').html()).to.contain('Domain');
   });
 
