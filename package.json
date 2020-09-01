@@ -50,6 +50,7 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^4.0.2",
     "less-loader": "^6.1.1",
+    "lodash": "~3.10.0",
     "mkdirp": "1.0.4",
     "mocha": "6.2.0",
     "pug": "^3.0.0",

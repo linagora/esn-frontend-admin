@@ -4,7 +4,7 @@ const { merge } = require('webpack-merge');
 const commonWebpackConfig = require('./webpack.commons.js');
 
 const chaiPath = path.resolve(__dirname, 'node_modules', 'chai/chai.js');
-const lodashPath = path.resolve(__dirname, 'node_modules', 'lodash', 'dist', 'lodash.js');
+const lodashPath = path.resolve(__dirname, 'node_modules', 'lodash');
 const i18nLoaderMockPath = path.resolve(__dirname, 'test', 'config', 'mocks', 'i18n-loader.js');
 const momentPath = path.resolve(__dirname, 'node_modules', 'moment', 'moment.js');
 
