@@ -21,7 +21,8 @@ module.exports = merge(commons, {
           path.resolve(__dirname, "src"),
           path.resolve(__dirname, "node_modules/esn-frontend-common-libs"),
           path.resolve(__dirname, "node_modules/esn-frontend-calendar"),
-          path.resolve(__dirname, "node_modules/esn-frontend-mailto-handler")
+          path.resolve(__dirname, "node_modules/esn-frontend-mailto-handler"),
+          path.resolve(__dirname, "node_modules/esn-frontend-group")
         ],
         exclude: [
           path.resolve(__dirname, "node_modules/esn-frontend-common-libs/src/frontend/components"),
