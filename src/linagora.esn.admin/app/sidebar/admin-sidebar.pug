@@ -9,3 +9,4 @@
         admin-sidebar-items(ng-if="$ctrl.displayIn === 'platform'", items="$ctrl.platformPages")
         admin-sidebar-items(ng-if="$ctrl.displayIn === 'domain'", items="$ctrl.domainPages")
         div(dynamic-directive="admin-sidebar")
+        admin-groups-menu-item(display-in="$ctrl.displayIn")
