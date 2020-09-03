@@ -111,19 +111,19 @@ function adminThemesController(
   function onFileSelect(files, destination) {
     var uploadService = fileUploadService.get();
 
-    return esnConfig('core.maxSizeUpload', MAX_SIZE_UPLOAD_DEFAULT).then(function(config) {
+    return esnConfig('core.maxSizeUpload', MAX_SIZE_UPLOAD_DEFAULT).then(function(maxSizeUpload) {
       var file = files[0];
 
-      if (file.size < config.maxSizeUpload) {
+      if (file.size < maxSizeUpload) {
         self.uploadLock[destination] = true;
         _mutatePristine();
         uploadService.addFile(file, true);
         uploadService.start();
-        uploadService.await(_.partialRight(uploadComplete, destination), _.partialRight(uploadError, destination));
+        uploadService.awaitFor(_.partialRight(uploadComplete, destination), _.partialRight(uploadError, destination));
       } else {
         rejectWithErrorNotification(
           esnI18nService.translate(
-            'Sorry, the image is too heavy. The max image size is %s', { maxSizeUpload: $filter('bytes')(config.maxSizeUpload) }
+            'Sorry, the image is too heavy. The max image size is %s', { maxSizeUpload: $filter('bytes')(maxSizeUpload) }
           ).toString(), {});
       }
     });
