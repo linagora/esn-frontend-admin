@@ -45,7 +45,7 @@ describe('The adminModulesDisplayer component', function() {
 
     $httpBackend.expectGET(testModule.icon).respond();
 
-    data = data || { module: testModule};
+    data = data || { module: testModule };
     scope.module = data.module;
 
     var element = $compile('<admin-modules-displayer module="module" />')(scope);
@@ -117,14 +117,14 @@ describe('The adminModulesDisplayer component', function() {
         .trigger('input')
         .trigger('blur');
 
-        setTimeout(function(){
-          try {
-            expect(element.find('admin-modules-save-button button').attr('disabled')).to.not.exist;
-            done();
-          } catch (err) {
-            done(err || new Error('should resolve'));
-          }
-        }, 0);
+      setTimeout(function() {
+        try {
+          expect(element.find('admin-modules-save-button button').attr('disabled')).to.not.exist;
+          done();
+        } catch (err) {
+          done(err || new Error('should resolve'));
+        }
+      }, 0);
     });
   });
 });

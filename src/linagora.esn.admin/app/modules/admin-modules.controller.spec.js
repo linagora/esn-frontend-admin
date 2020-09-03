@@ -11,7 +11,7 @@ describe('The adminModulesController', function() {
 
   beforeEach(function() {
     moduleId = 'linagora.esn.community';
-    modules = [{id: moduleId, name: 'name', configurations: { key: 'key', value: 'value' }}];
+    modules = [{ id: moduleId, name: 'name', configurations: { key: 'key', value: 'value' } }];
     modulesConfig = [];
     adminDomainConfigService = {
       get: sinon.stub(),
@@ -78,7 +78,7 @@ describe('The adminModulesController', function() {
       $rootScope.$digest();
 
       expect(controller.modules[0].enabled).to.be.undefined;
-   });
+    });
 
     it('should set the enabled flag to false if module.enabled is false in configuration', function() {
       modulesConfig.push({

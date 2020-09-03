@@ -97,7 +97,8 @@ describe('The AdminUsersStatesController', function() {
         [
           { name: 'action1', value: 'enabled' },
           { name: 'action2', value: 'disabled' }
-        ]);
+        ]
+      );
     });
 
     it('should apply new states to the user after update states successfully', function() {

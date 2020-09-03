@@ -3,7 +3,7 @@
 
   angular.module('linagora.esn.admin')
     .component('adminGeneral', {
-      template: require("./admin-general.pug"),
+      template: require('./admin-general.pug'),
       controller: 'adminGeneralController'
     });
 })(angular);

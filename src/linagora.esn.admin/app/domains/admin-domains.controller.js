@@ -11,7 +11,7 @@
 
     function openCreateForm() {
       $modal({
-        template: require("./create/admin-domains-create.pug"),
+        template: require('./create/admin-domains-create.pug'),
         backdrop: 'static',
         placement: 'center',
         controllerAs: '$ctrl',

@@ -3,8 +3,8 @@
 
   angular.module('linagora.esn.admin')
 
-  .component('adminMaintenanceElasticsearch', {
-    template: require("./admin-maintenance-elasticsearch.pug"),
-    controller: 'adminMaintenanceElasticsearchController'
-  });
+    .component('adminMaintenanceElasticsearch', {
+      template: require('./admin-maintenance-elasticsearch.pug'),
+      controller: 'adminMaintenanceElasticsearchController'
+    });
 })(angular);

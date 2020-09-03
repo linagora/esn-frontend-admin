@@ -6,7 +6,7 @@ angular.module('linagora.esn.admin')
 
     return {
       restrict: 'E',
-      template: require("./admin-form-multi-input.pug"),
+      template: require('./admin-form-multi-input.pug'),
       controller: 'adminFormMultiInputController',
       controllerAs: '$ctrl',
       scope: {

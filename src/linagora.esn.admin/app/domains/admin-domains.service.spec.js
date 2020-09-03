@@ -52,7 +52,7 @@ describe('The adminDomainsService', function() {
     });
 
     it('should broadcast event with created domain on success', function() {
-      var domain = { name: 'name '};
+      var domain = { name: 'name ' };
       var createdDomain = { id: 123, name: 'name' };
 
       $rootScope.$broadcast = sinon.spy();

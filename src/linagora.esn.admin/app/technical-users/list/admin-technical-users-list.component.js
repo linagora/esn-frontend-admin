@@ -3,9 +3,9 @@
 
   angular.module('linagora.esn.admin')
 
-  .component('adminTechnicalUsersList', {
-    template: require("./admin-technical-users-list.pug"),
-    controller: 'adminTechnicalUsersListController'
-  });
+    .component('adminTechnicalUsersList', {
+      template: require('./admin-technical-users-list.pug'),
+      controller: 'adminTechnicalUsersListController'
+    });
 
 })(angular);

@@ -28,11 +28,11 @@ describe('The adminUsersService', function() {
     var userMock;
 
     beforeEach(function() {
-      userMock = {key: 'value'};
+      userMock = { key: 'value' };
     });
 
     it('should call domainAPI.createMember to create member', function(done) {
-      domainAPI.createMember = sinon.stub().returns($q.when({data: userMock}));
+      domainAPI.createMember = sinon.stub().returns($q.when({ data: userMock }));
       $rootScope.$broadcast = sinon.spy();
 
       adminUsersService.createMember(domainId, userMock)
@@ -51,11 +51,11 @@ describe('The adminUsersService', function() {
       adminDomainConfigService.get = sinon.stub().returns($q.when());
 
       adminUsersService.isUserCreationEnabled(domainId)
-      .then(function(enabled) {
-        expect(enabled).to.be.true;
-        done();
-      })
-      .catch(done);
+        .then(function(enabled) {
+          expect(enabled).to.be.true;
+          done();
+        })
+        .catch(done);
 
       $rootScope.$digest();
     });
@@ -64,54 +64,54 @@ describe('The adminUsersService', function() {
       adminDomainConfigService.get = sinon.stub().returns($q.when({}));
 
       adminUsersService.isUserCreationEnabled(domainId)
-      .then(function(enabled) {
-        expect(enabled).to.be.true;
-        done();
-      })
-      .catch(done);
+        .then(function(enabled) {
+          expect(enabled).to.be.true;
+          done();
+        })
+        .catch(done);
 
       $rootScope.$digest();
     });
 
     it('should return true if ldap configuration.usage.auth is not defined', function(done) {
-      adminDomainConfigService.get = sinon.stub().returns($q.when({usage: {}}));
+      adminDomainConfigService.get = sinon.stub().returns($q.when({ usage: {} }));
 
       adminUsersService.isUserCreationEnabled(domainId)
-      .then(function(enabled) {
-        expect(enabled).to.be.true;
-        done();
-      })
-      .catch(done);
+        .then(function(enabled) {
+          expect(enabled).to.be.true;
+          done();
+        })
+        .catch(done);
 
       $rootScope.$digest();
     });
 
     it('should return false if ldap configuration.usage.auth is true', function(done) {
-      adminDomainConfigService.get = sinon.stub().returns($q.when({usage: {auth: true}}));
+      adminDomainConfigService.get = sinon.stub().returns($q.when({ usage: { auth: true } }));
 
       adminUsersService.isUserCreationEnabled(domainId)
-      .then(function(enabled) {
-        expect(enabled).to.be.false;
-        done();
-      })
-      .catch(done);
+        .then(function(enabled) {
+          expect(enabled).to.be.false;
+          done();
+        })
+        .catch(done);
 
       $rootScope.$digest();
     });
 
     it('should return false if at least one ldap configuration.usage.auth is true', function(done) {
       adminDomainConfigService.get = sinon.stub().returns($q.when([
-        {usage: {auth: false}},
-        {usage: {auth: false}},
-        {usage: {auth: true}}
+        { usage: { auth: false } },
+        { usage: { auth: false } },
+        { usage: { auth: true } }
       ]));
 
       adminUsersService.isUserCreationEnabled(domainId)
-      .then(function(enabled) {
-        expect(enabled).to.be.false;
-        done();
-      })
-      .catch(done);
+        .then(function(enabled) {
+          expect(enabled).to.be.false;
+          done();
+        })
+        .catch(done);
 
       $rootScope.$digest();
     });

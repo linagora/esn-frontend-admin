@@ -4,6 +4,6 @@
   angular.module('linagora.esn.admin')
 
     .component('adminUsersSubheader', {
-      template: require("./admin-users-subheader.pug")
+      template: require('./admin-users-subheader.pug')
     });
 })(angular);

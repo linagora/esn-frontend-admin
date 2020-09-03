@@ -124,7 +124,8 @@ function adminThemesController(
         rejectWithErrorNotification(
           esnI18nService.translate(
             'Sorry, the image is too heavy. The max image size is %s', { maxSizeUpload: $filter('bytes')(maxSizeUpload) }
-          ).toString(), {});
+          ).toString(), {}
+        );
       }
     });
   }
@@ -137,12 +138,17 @@ function adminThemesController(
   function uploadError(error, destination) {
     self.uploadLock[destination] = false;
     rejectWithErrorNotification(
-      esnI18nService.translate('Sorry, we couldn\'t upload the image. Try again later').toString(), {});
+      esnI18nService.translate('Sorry, we couldn\'t upload the image. Try again later').toString(), {}
+    );
     _mutatePristine();
   }
 
   function _mutatePristine() {
-    if (_.any(_.values(self.uploadLock))) { return ($scope.form.$pristine = true); }
+    if (_.any(_.values(self.uploadLock))) {
+      $scope.form.$pristine = true;
+
+      return $scope.form.$pristine;
+    }
     $scope.form.$pristine = true;
     [self.model.colors, self.model.logos].forEach(function(object) {
       for (var originalValuesKey in object.originalValues) { // eslint-disable-line
@@ -182,8 +188,8 @@ function adminThemesController(
   function _createAccessorsAndBackingField(propertyName, modeldestination, value) {
     var backingField = '_' + propertyName;
 
-    self.model[modeldestination].originalValues[backingField] =
-      self.model[modeldestination].newValues[backingField] = value;
+    self.model[modeldestination].originalValues[backingField] = value;
+    self.model[modeldestination].newValues[backingField] = self.model[modeldestination].originalValues[backingField];
 
     Object.defineProperty(self.model[modeldestination], propertyName, {
       get: function() { return self.model[modeldestination].newValues[backingField]; },

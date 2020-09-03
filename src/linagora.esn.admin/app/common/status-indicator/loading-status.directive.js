@@ -8,7 +8,7 @@
   function adminStatusIndicator() {
     return {
       restrict: 'AE',
-      template: require("./loading-status.pug"),
+      template: require('./loading-status.pug'),
       transclude: true
     };
   }

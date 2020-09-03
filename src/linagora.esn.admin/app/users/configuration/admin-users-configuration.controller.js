@@ -2,7 +2,7 @@
 
 const _ = require('lodash');
 
-require('../../common/config/admin-domain-config.service.js')
+require('../../common/config/admin-domain-config.service.js');
 require('../../app.constants.js');
 
 angular.module('linagora.esn.admin')

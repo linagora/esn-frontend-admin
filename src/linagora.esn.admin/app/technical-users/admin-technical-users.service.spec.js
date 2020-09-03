@@ -10,7 +10,7 @@ describe('The adminTechnicalUsersService service', function() {
   beforeEach(function() {
     angular.mock.module('linagora.esn.admin');
   });
-  
+
   beforeEach(function() {
     angular.mock.inject(function(_adminTechnicalUsersService_) {
       adminTechnicalUsersService = _adminTechnicalUsersService_;
@@ -22,7 +22,7 @@ describe('The adminTechnicalUsersService service', function() {
       var technicalUser = {
         name: 'Sabre',
         type: 'dav',
-        data: [{ key: 'a', value: 'b' }, { key: 'c', value: 'd'}]
+        data: [{ key: 'a', value: 'b' }, { key: 'c', value: 'd' }]
       };
 
       var qualifiedTechnicalUser = {

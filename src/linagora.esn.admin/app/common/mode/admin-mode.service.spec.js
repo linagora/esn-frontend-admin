@@ -11,7 +11,7 @@ describe('The adminModeService service', function() {
   beforeEach(function() {
     angular.mock.module('linagora.esn.admin');
   });
-  
+
   beforeEach(inject(function(_$stateParams_, _$state_, _adminModeService_, _session_, _ADMIN_MODE_) {
     $stateParams = _$stateParams_;
     $state = _$state_;

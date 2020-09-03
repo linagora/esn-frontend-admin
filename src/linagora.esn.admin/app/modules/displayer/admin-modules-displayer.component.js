@@ -3,7 +3,7 @@
 angular.module('linagora.esn.admin')
 
   .component('adminModulesDisplayer', {
-    template: require("./admin-modules-displayer.pug"),
+    template: require('./admin-modules-displayer.pug'),
     bindings: {
       module: '=',
       onModuleEnabledStateChange: '&'

@@ -56,7 +56,7 @@ describe('The adminFormMultiInput controller', function() {
     it('should return true if user did not select all options', function() {
       var ctrl = initController();
 
-      $scope.ngModel = {some_key: 'value'};
+      $scope.ngModel = { some_key: 'value' };
       ctrl.availableTypes = ['other_key', 'some_key'];
 
       expect(ctrl.showAddButton()).to.be.true;

@@ -25,7 +25,8 @@ describe('The adminGeneralController', function() {
     });
 
     configuraionsMock = { datetime: 'value' };
-    var homePages = { a: 'a', f: 'f', b: 'b'};
+    var homePages = { a: 'a', f: 'f', b: 'b' };
+
     homePageService.getHomePageCandidates = sinon.stub().returns(homePages);
   });
 

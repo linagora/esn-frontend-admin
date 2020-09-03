@@ -4,7 +4,7 @@
   angular.module('linagora.esn.admin')
 
     .component('adminDomainsFormHostnames', {
-      template: require("./admin-domains-form-hostnames.pug"),
+      template: require('./admin-domains-form-hostnames.pug'),
       bindings: {
         domain: '=',
         form: '<'

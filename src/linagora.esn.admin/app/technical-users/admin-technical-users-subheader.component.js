@@ -3,8 +3,8 @@
 
   angular.module('linagora.esn.admin')
 
-  .component('adminTechnicalUsersSubheader', {
-    template: require("./admin-technical-users-subheader.pug")
-  });
+    .component('adminTechnicalUsersSubheader', {
+      template: require('./admin-technical-users-subheader.pug')
+    });
 
 })(angular);

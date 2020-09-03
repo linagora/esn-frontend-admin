@@ -19,7 +19,7 @@ describe('The adminUsersListController', function() {
       stop: sinon.spy()
     };
 
-    angular.mock.module('linagora.esn.admin',function($provide) {
+    angular.mock.module('linagora.esn.admin', function($provide) {
       $provide.value('memberSearchConfiguration', searchConfMock);
       $provide.value('usSpinnerService', usSpinnerServiceMock);
     });
@@ -47,6 +47,7 @@ describe('The adminUsersListController', function() {
 
   describe('loadMoreElements method', function() {
     var membersMock, searchMock;
+
     beforeEach(function() {
       membersMock = {
         length: 0
@@ -79,6 +80,7 @@ describe('The adminUsersListController', function() {
       };
 
       var controller = initController();
+
       controller.members = membersMock;
       controller.search = searchMock;
 
@@ -87,6 +89,7 @@ describe('The adminUsersListController', function() {
 
     it('should spin when running and stop when finished', function(done) {
       var isSpinning = false;
+
       usSpinnerServiceMock.spin = function(id) {
         expect(id).to.equal('memberSpinner');
         isSpinning = true;
@@ -104,6 +107,7 @@ describe('The adminUsersListController', function() {
       };
 
       var controller = initController();
+
       controller.loadMoreElements();
 
       $scope.$digest();
@@ -111,6 +115,7 @@ describe('The adminUsersListController', function() {
 
     it('should spin when running and stop when error', function(done) {
       var isSpinning = false;
+
       usSpinnerServiceMock.spin = function(id) {
         expect(id).to.equal('memberSpinner');
         isSpinning = true;
@@ -126,6 +131,7 @@ describe('The adminUsersListController', function() {
       };
 
       var controller = initController();
+
       controller.loadMoreElements();
 
       $scope.$digest();

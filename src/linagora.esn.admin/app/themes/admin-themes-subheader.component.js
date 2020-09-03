@@ -4,7 +4,7 @@
   angular.module('linagora.esn.admin')
 
     .component('adminThemesSubheader', {
-      template: require("./admin-themes-subheader.pug"),
+      template: require('./admin-themes-subheader.pug'),
       bindings: {
         onFormSubmit: '&',
         form: '<',

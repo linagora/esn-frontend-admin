@@ -51,8 +51,8 @@ describe('The adminFeaturesController', function() {
 
   describe('The save fn', function() {
     it('should call adminFeaturesService.getFeaturesConfigValue to get savable config object', function() {
-      var expectedConfig = {feature1: true};
-      var featuresMetadata = [{name: 'feature1'}];
+      var expectedConfig = { feature1: true };
+      var featuresMetadata = [{ name: 'feature1' }];
 
       adminDomainConfigService.get = function() {
         return $q.when(configurationsMock);

@@ -3,10 +3,10 @@
 
   angular.module('linagora.esn.admin')
 
-  .component('adminMaintenanceElasticsearchResource', {
-    template: require("./admin-maintenance-elasticsearch-resource.pug"),
-    bindings: {
-      resource: '<'
-    }
-  });
+    .component('adminMaintenanceElasticsearchResource', {
+      template: require('./admin-maintenance-elasticsearch-resource.pug'),
+      bindings: {
+        resource: '<'
+      }
+    });
 })(angular);

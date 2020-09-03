@@ -47,7 +47,7 @@ describe('The adminRolesAddFormController', function() {
     });
 
     it('should call adminRolesService.addAdministrators to add new administrators', function(done) {
-      var newAdministrators = [{id: 'admin3'}];
+      var newAdministrators = [{ id: 'admin3' }];
 
       adminRolesService.addAdministrators = sinon.stub().returns($q.when());
 

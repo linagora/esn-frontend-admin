@@ -12,9 +12,9 @@ describe('The adminTechnicalUsersFormController', function() {
     angular.mock.module('linagora.esn.admin');
 
     inject(function(_$controller_, _$rootScope_, _ADMIN_TECHNICAL_USER_TYPES_) {
-        $controller = _$controller_;
-        $rootScope = _$rootScope_;
-        ADMIN_TECHNICAL_USER_TYPES = _ADMIN_TECHNICAL_USER_TYPES_;
+      $controller = _$controller_;
+      $rootScope = _$rootScope_;
+      ADMIN_TECHNICAL_USER_TYPES = _ADMIN_TECHNICAL_USER_TYPES_;
     });
   });
 
@@ -37,7 +37,7 @@ describe('The adminTechnicalUsersFormController', function() {
         name: '',
         type: '',
         description: '',
-        data: [{ key: '', value: ''}]
+        data: [{ key: '', value: '' }]
       });
     });
 
@@ -97,11 +97,11 @@ describe('The adminTechnicalUsersFormController', function() {
         }
       };
 
-    var controller = initController(bindings);
+      var controller = initController(bindings);
 
-    controller.onRemoveBtnClick(1);
+      controller.onRemoveBtnClick(1);
 
-    expect(controller.technicalUser.data).to.deep.equal([
+      expect(controller.technicalUser.data).to.deep.equal([
         { key: 'key1', value: 'value1' },
         { key: 'key3', value: 'value3' }
       ]);

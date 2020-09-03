@@ -32,4 +32,4 @@ angular.module('linagora.esn.admin')
       },
       link: link
     };
-  });  
+  });

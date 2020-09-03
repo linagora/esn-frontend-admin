@@ -3,6 +3,6 @@
 angular.module('linagora.esn.admin')
 
   .component('adminModules', {
-    template: require("./admin-modules.pug"),
+    template: require('./admin-modules.pug'),
     controller: 'adminModulesController'
   });

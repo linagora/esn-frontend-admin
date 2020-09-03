@@ -27,7 +27,7 @@ angular.module('esn.async-action', [])
       return $q.reject();
     };
   });
-angular.module('esn.core', [])
+angular.module('esn.core', []);
 angular.module('esn.people', [])
   .factory('esnPeopleAPI', function() {
     return {};
@@ -112,4 +112,4 @@ angular.module('linagora.esn.test', [])
     bindings: {
       configurations: '='
     }
-});
+  });

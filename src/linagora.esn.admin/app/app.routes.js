@@ -20,7 +20,7 @@ angular.module('linagora.esn.admin')
     $stateProvider
       .state('admin', {
         url: '/admin',
-        template: require("./app.pug"),
+        template: require('./app.pug'),
         resolve: {
           isAdmin: function($location, session) {
             return session.ready.then(function() {

@@ -27,7 +27,7 @@ angular.module('linagora.esn.admin')
 
     self.openAddForm = function() {
       $modal({
-        template: require("./add/admin-roles-add.pug"),
+        template: require('./add/admin-roles-add.pug'),
         backdrop: 'static',
         placement: 'center',
         controllerAs: '$ctrl',

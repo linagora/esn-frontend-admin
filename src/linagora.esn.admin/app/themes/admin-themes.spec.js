@@ -26,22 +26,22 @@ describe('The adminThemes component', function() {
         return $q.when(defaultValue);
       });
 
-      $provide.value('fileUploadService', {get: function() { return fileUploadService; }});
-      $provide.value('esnI18nService', {translate: function(value) {return value;}});
+      $provide.value('fileUploadService', { get: function() { return fileUploadService; } });
+      $provide.value('esnI18nService', { translate: function(value) {return value;} });
       $provide.value('rejectWithErrorNotification', rejectWithErrorNotification);
 
       $provide.constant('MAX_SIZE_UPLOAD_DEFAULT', 104857600);
 
       $provide.constant('ADMIN_THEMES_COLOR_VARIABLES', [
-        {apiVariable: 'primaryColor', displayText: 'Primary color', default: '#2196F3'},
-        {apiVariable: 'secondaryColor', displayText: 'Secondary color', default: '#FFC107'},
-        {apiVariable: 'bodyBgColor', displayText: 'Background color', default: '#f7f7f7'},
-        {apiVariable: 'textColor', displayText: 'Text color', default: '#ffffff'}
+        { apiVariable: 'primaryColor', displayText: 'Primary color', default: '#2196F3' },
+        { apiVariable: 'secondaryColor', displayText: 'Secondary color', default: '#FFC107' },
+        { apiVariable: 'bodyBgColor', displayText: 'Background color', default: '#f7f7f7' },
+        { apiVariable: 'textColor', displayText: 'Text color', default: '#ffffff' }
       ]);
 
       $provide.constant('ADMIN_THEMES_LOGO_VARIABLES', [
-        {apiVariable: 'logo', displayText: 'Logo', default: '/images/white-logo.svg'},
-        {apiVariable: 'favicon', displayText: 'Favicon', default: '/images/white-logo.svg'}
+        { apiVariable: 'logo', displayText: 'Logo', default: '/images/white-logo.svg' },
+        { apiVariable: 'favicon', displayText: 'Favicon', default: '/images/white-logo.svg' }
       ]);
     });
   });
@@ -65,7 +65,7 @@ describe('The adminThemes component', function() {
         bodyBgColor: '#000', primaryColor: '#FB1',
         secondaryColor: '#9FD397', textColor: '#68036B'
       },
-      logos: {logo: '/images/indeed.png', favicon: '/images/halp.png'}
+      logos: { logo: '/images/indeed.png', favicon: '/images/halp.png' }
     }));
 
     fileUploadService = {
@@ -78,9 +78,9 @@ describe('The adminThemes component', function() {
 
   function initController() {
     $scope = $rootScope.$new();
-    $scope.form = {$pristine: false};
+    $scope.form = { $pristine: false };
 
-    var controller = $controller('adminThemesController', {$scope: $scope});
+    var controller = $controller('adminThemesController', { $scope: $scope });
 
     $scope.$digest();
 
@@ -116,8 +116,8 @@ describe('The adminThemes component', function() {
         });
 
         expect(target.model.logos).to.eql({
-          newValues: {_logo: '/images/white-logo.svg', _favicon: '/images/white-logo.svg'},
-          originalValues: {_logo: '/images/white-logo.svg', _favicon: '/images/white-logo.svg'}
+          newValues: { _logo: '/images/white-logo.svg', _favicon: '/images/white-logo.svg' },
+          originalValues: { _logo: '/images/white-logo.svg', _favicon: '/images/white-logo.svg' }
         });
 
         done();
@@ -134,7 +134,7 @@ describe('The adminThemes component', function() {
           bodyBgColor: '#000', primaryColor: '#FB1',
           secondaryColor: '#9FD397', textColor: '#68036B'
         },
-        logos: {logo: '/images/indeed.png', favicon: '/images/halp.png'}
+        logos: { logo: '/images/indeed.png', favicon: '/images/halp.png' }
       }));
 
       target.$onInit().then(function() {
@@ -150,8 +150,8 @@ describe('The adminThemes component', function() {
         });
 
         expect(target.model.logos).to.eql({
-          newValues: {_logo: '/images/indeed.png', _favicon: '/images/halp.png'},
-          originalValues: {_logo: '/images/indeed.png', _favicon: '/images/halp.png'}
+          newValues: { _logo: '/images/indeed.png', _favicon: '/images/halp.png' },
+          originalValues: { _logo: '/images/indeed.png', _favicon: '/images/halp.png' }
         });
 
         done();
@@ -163,7 +163,7 @@ describe('The adminThemes component', function() {
     it('should set the loading status to `loaded` when request has succeeded', function(done) {
       var target = initController();
 
-      themeService.getTheme.returns($q.when({colors: {}, logos: {}}));
+      themeService.getTheme.returns($q.when({ colors: {}, logos: {} }));
 
       target.$onInit().then(function() {
         expect(target.status).to.eq(ADMIN_LOADING_STATUS.loaded);
@@ -202,12 +202,12 @@ describe('The adminThemes component', function() {
         target.save().then(function() {
           expect(themeService.saveTheme).to.have.been.calledWith({
             colors: [
-              {key: 'primaryColor', value: '#FB1'},
-              {key: 'secondaryColor', value: '#50079F'},
-              {key: 'bodyBgColor', value: '#9EBDB7'},
-              {key: 'textColor', value: '#000'}
+              { key: 'primaryColor', value: '#FB1' },
+              { key: 'secondaryColor', value: '#50079F' },
+              { key: 'bodyBgColor', value: '#9EBDB7' },
+              { key: 'textColor', value: '#000' }
             ],
-            logos: {logo: '/images/indeed.png', favicon: '/images/halp.png'}
+            logos: { logo: '/images/indeed.png', favicon: '/images/halp.png' }
           });
           done();
         });
@@ -265,7 +265,7 @@ describe('The adminThemes component', function() {
     it('should display an error when the file is too big', function(done) {
       var target = initController();
 
-      target.onFileSelect([{size: 1000000000}]).then(function() {
+      target.onFileSelect([{ size: 1000000000 }]).then(function() {
         expect(rejectWithErrorNotification).to.have.been
           .calledWith('Sorry, the image is too heavy. The max image size is %s', sinon.match.object);
         done();
@@ -276,7 +276,7 @@ describe('The adminThemes component', function() {
 
     it('should upload the file', function(done) {
       var target = initController();
-      var file = {size: 12};
+      var file = { size: 12 };
 
       target.uploadLock.logo = false;
 
@@ -295,7 +295,7 @@ describe('The adminThemes component', function() {
       var target = initController();
 
       target.uploadLock.logo = true;
-      target.onFileSelect([{size: 12}], 'logo').then(function() {
+      target.onFileSelect([{ size: 12 }], 'logo').then(function() {
         expect(target.uploadLock.logo).to.be.true;
         // Calls `onFileSelect`'s `uploadError` callback
         fileUploadService.awaitFor.args[0][1]('error');
@@ -312,10 +312,10 @@ describe('The adminThemes component', function() {
       var target = initController();
 
       target.uploadLock.logo = true;
-      target.onFileSelect([{size: 12}], 'logo').then(function() {
+      target.onFileSelect([{ size: 12 }], 'logo').then(function() {
         expect(target.uploadLock.logo).to.be.true;
         // Calls `onFileSelect`'s `uploadError` callback
-        fileUploadService.awaitFor.args[0][0]([{response: {data: {_id: 'cf41352a-600c-40c2-9510-1035d6e34b2d'}}}]);
+        fileUploadService.awaitFor.args[0][0]([{ response: { data: { _id: 'cf41352a-600c-40c2-9510-1035d6e34b2d' } } }]);
         expect(target.uploadLock.logo).to.be.false;
         expect(target.model.logos.logo).to.eq('cf41352a-600c-40c2-9510-1035d6e34b2d');
         done();

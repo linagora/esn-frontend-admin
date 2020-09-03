@@ -26,7 +26,7 @@ describe('The adminLdapTestController', function() {
   function initController(scope) {
     $scope = scope || $rootScope.$new();
 
-    var controller = $controller('adminLdapTestController', { $scope: $scope }, {domainId: DOMAIN_ID, ldapConfig: ldapConfigMock});
+    var controller = $controller('adminLdapTestController', { $scope: $scope }, { domainId: DOMAIN_ID, ldapConfig: ldapConfigMock });
 
     $scope.$digest();
 
@@ -37,7 +37,7 @@ describe('The adminLdapTestController', function() {
     it('should set message.status is error if failed to connect to LDAP server', function(done) {
       var controller = initController();
 
-      adminTestConfigService.testAccessLdap = sinon.stub().returns($q.reject({ data: {error: {details: 'Something error'}} }));
+      adminTestConfigService.testAccessLdap = sinon.stub().returns($q.reject({ data: { error: { details: 'Something error' } } }));
 
       var expectMessage = {
         status: 'error',

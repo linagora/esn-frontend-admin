@@ -5,7 +5,7 @@ require('../common/mode/admin-mode.service.js');
 
 angular.module('linagora.esn.admin')
   .component('adminSidebar', {
-    template: require("./admin-sidebar.pug"),
+    template: require('./admin-sidebar.pug'),
     controller: adminSidebarController
   });
 

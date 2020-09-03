@@ -56,6 +56,7 @@ describe('The adminUsersQuickFormController', function() {
       };
 
       var controller = initController();
+
       domainAPI.createMember = sinon.stub().returns($q.when());
 
       controller.save(form).catch(function() {
@@ -91,7 +92,8 @@ describe('The adminUsersQuickFormController', function() {
       };
 
       var controller = initController();
-      domainAPI.createMember = sinon.stub().returns($q.when({data: 'value'}));
+
+      domainAPI.createMember = sinon.stub().returns($q.when({ data: 'value' }));
       controller.user = userMock;
 
       controller.save(form).then(function() {

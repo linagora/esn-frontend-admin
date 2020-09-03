@@ -3,8 +3,8 @@
 
   angular.module('linagora.esn.admin')
 
-  .component('adminSession', {
-    template: require("./admin-session.pug"),
-    controller: 'adminSessionController'
-  });
+    .component('adminSession', {
+      template: require('./admin-session.pug'),
+      controller: 'adminSessionController'
+    });
 })(angular);

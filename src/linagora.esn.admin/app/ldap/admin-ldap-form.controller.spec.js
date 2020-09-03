@@ -11,7 +11,7 @@ describe('The adminLdapFormController', function() {
   beforeEach(function() {
     angular.mock.module('linagora.esn.admin');
   });
-  
+
   beforeEach(inject(function(_$controller_, _$rootScope_) {
     $controller = _$controller_;
     $rootScope = _$rootScope_;
@@ -52,11 +52,11 @@ describe('The adminLdapFormController', function() {
 
       var controller = initController(null, bindings);
 
-      expect(controller.ldapConfig.configuration).to.deep.equal({config1: 'value1', config2: 'value2'});
+      expect(controller.ldapConfig.configuration).to.deep.equal({ config1: 'value1', config2: 'value2' });
     });
 
     it('should return default usage values when creating a new ldap config', function() {
-      var bindings = { ldapConfig: {}};
+      var bindings = { ldapConfig: {} };
 
       var defaultUsageValues = {
         auth: true,
@@ -97,7 +97,7 @@ describe('The adminLdapFormController', function() {
 
       var controller = initController(null, bindings);
 
-      expect(controller.ldapConfig.usage).to.deep.equal({auth: false, search: false, autoProvisioning: true});
+      expect(controller.ldapConfig.usage).to.deep.equal({ auth: false, search: false, autoProvisioning: true });
     });
   });
 
