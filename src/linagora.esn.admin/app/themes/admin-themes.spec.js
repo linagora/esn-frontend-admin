@@ -23,7 +23,7 @@ describe('The adminThemes component', function() {
       });
 
       $provide.value('esnConfig', function(key, defaultValue) {
-        return $q.when({maxSizeUpload: defaultValue});
+        return $q.when(defaultValue);
       });
 
       $provide.value('fileUploadService', {get: function() { return fileUploadService; }});
@@ -71,7 +71,7 @@ describe('The adminThemes component', function() {
     fileUploadService = {
       addFile: sinon.spy(),
       start: sinon.spy(),
-      await: sinon.spy()
+      awaitFor: sinon.spy()
     };
     rejectWithErrorNotification.reset();
   });
@@ -283,7 +283,7 @@ describe('The adminThemes component', function() {
       target.onFileSelect([file], 'logo').then(function() {
         expect(fileUploadService.addFile).to.have.been.calledWith(file, true);
         expect(fileUploadService.start).to.have.been.called;
-        expect(fileUploadService.await).to.have.been.calledWith(sinon.match.func, sinon.match.func);
+        expect(fileUploadService.awaitFor).to.have.been.calledWith(sinon.match.func, sinon.match.func);
         expect(target.uploadLock.logo).to.be.true;
         done();
       });
@@ -298,7 +298,7 @@ describe('The adminThemes component', function() {
       target.onFileSelect([{size: 12}], 'logo').then(function() {
         expect(target.uploadLock.logo).to.be.true;
         // Calls `onFileSelect`'s `uploadError` callback
-        fileUploadService.await.args[0][1]('error');
+        fileUploadService.awaitFor.args[0][1]('error');
         expect(target.uploadLock.logo).to.be.false;
         expect(rejectWithErrorNotification).to.have.been
           .calledWith('Sorry, we couldn\'t upload the image. Try again later', sinon.match.object);
@@ -315,7 +315,7 @@ describe('The adminThemes component', function() {
       target.onFileSelect([{size: 12}], 'logo').then(function() {
         expect(target.uploadLock.logo).to.be.true;
         // Calls `onFileSelect`'s `uploadError` callback
-        fileUploadService.await.args[0][0]([{response: {data: {_id: 'cf41352a-600c-40c2-9510-1035d6e34b2d'}}}]);
+        fileUploadService.awaitFor.args[0][0]([{response: {data: {_id: 'cf41352a-600c-40c2-9510-1035d6e34b2d'}}}]);
         expect(target.uploadLock.logo).to.be.false;
         expect(target.model.logos.logo).to.eq('cf41352a-600c-40c2-9510-1035d6e34b2d');
         done();
