@@ -64,11 +64,11 @@ describe('The adminSessionController', function() {
       adminDomainConfigService.set = sinon.stub().returns($q.when());
       controller.config.key = 'new value';
       controller.save()
-      .then(function() {
-        expect(adminDomainConfigService.set).to.have.been.calledWith($stateParams.domainId, CONFIG_NAME, controller.config);
-        done();
-      })
-      .catch(done);
+        .then(function() {
+          expect(adminDomainConfigService.set).to.have.been.calledWith($stateParams.domainId, CONFIG_NAME, controller.config);
+          done();
+        })
+        .catch(done);
 
       $scope.$digest();
     });

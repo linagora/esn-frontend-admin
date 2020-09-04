@@ -1,5 +1,3 @@
-const Restangular = require('restangular');
-
 'use strict';
 
 angular.module('linagora.esn.admin')

@@ -3,7 +3,7 @@
 
   angular.module('linagora.esn.admin')
     .component('adminUsersStates', {
-      template: require("./admin-users-states.pug"),
+      template: require('./admin-users-states.pug'),
       bindings: {
         user: '='
       },

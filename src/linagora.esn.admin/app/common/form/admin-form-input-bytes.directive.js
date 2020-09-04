@@ -1,6 +1,6 @@
 'use strict';
 
-require('../form/admin-form.constant.js');
+require('./admin-form.constant.js');
 
 angular.module('linagora.esn.admin')
   .directive('adminFormInputBytes', function(ADMIN_FORM_EVENT) {
@@ -150,7 +150,7 @@ angular.module('linagora.esn.admin')
 
     return {
       restrict: 'E',
-      template: require("./admin-form-input-bytes.pug"),
+      template: require('./admin-form-input-bytes.pug'),
       scope: {
         inputUnit: '@',
         inputValue: '=',

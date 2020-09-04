@@ -51,7 +51,7 @@ describe('The adminUsersCreateController', function() {
     it('shoud call domainAPI.createMember to create member of domain', function(done) {
       var controller = initController();
 
-      domainAPI.createMember = sinon.stub().returns($q.when({data: 'value'}));
+      domainAPI.createMember = sinon.stub().returns($q.when({ data: 'value' }));
       controller.user = userMock;
 
       controller.save().then(function() {

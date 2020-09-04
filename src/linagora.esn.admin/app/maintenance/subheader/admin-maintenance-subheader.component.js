@@ -3,7 +3,7 @@
 
   angular.module('linagora.esn.admin')
 
-  .component('adminMaintenanceSubheader', {
-    template: require("./admin-maintenance-subheader.pug")
-  });
+    .component('adminMaintenanceSubheader', {
+      template: require('./admin-maintenance-subheader.pug')
+    });
 })(angular);

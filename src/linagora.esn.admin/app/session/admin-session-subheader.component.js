@@ -3,11 +3,11 @@
 
   angular.module('linagora.esn.admin')
 
-  .component('adminSessionSubheader', {
-    template: require("./admin-session-subheader.pug"),
-    bindings: {
-      onFormSubmit: '&',
-      form: '<'
-    }
-  });
+    .component('adminSessionSubheader', {
+      template: require('./admin-session-subheader.pug'),
+      bindings: {
+        onFormSubmit: '&',
+        form: '<'
+      }
+    });
 })(angular);

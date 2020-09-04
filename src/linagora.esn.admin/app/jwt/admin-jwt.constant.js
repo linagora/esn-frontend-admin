@@ -29,6 +29,5 @@ angular.module('linagora.esn.admin')
   }, {
     name: 'ES512',
     description: 'ECDSA using P-521 curve and SHA-512 hash algorithm'
-  }]
-  )
+  }])
   .constant('ADMIN_JWT_DOWNLOAD_FILE_TYPE', 'text/plain');

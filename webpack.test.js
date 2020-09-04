@@ -14,7 +14,7 @@ module.exports = merge(commonWebpackConfig, {
   devtool: 'source-map',
   output: {
     filename: 'bundle-test.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist')
   },
   plugins: [
     new webpack.NormalModuleReplacementPlugin(
@@ -29,14 +29,14 @@ module.exports = merge(commonWebpackConfig, {
   ],
   module: {
     rules: [
-      { 
+      {
         test: /\.run.js$/,
         loader: 'ignore-loader',
         include: [
           path.resolve(__dirname, 'node_modules/esn-frontend-common-libs/src/frontend/js/modules/header/header-featureflip.run.js')
         ]
       }
-    ],
-  },
+    ]
+  }
 });
 

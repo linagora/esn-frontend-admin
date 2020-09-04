@@ -21,28 +21,28 @@ describe('The adminMailService', function() {
   describe('The getTransportType fn', function() {
 
     it('should return Local transport type if config object has module in transport attribute', function() {
-      var config = { transport: {module: 'module', key: 'value'} };
+      var config = { transport: { module: 'module', key: 'value' } };
       var transportType = adminMailService.getTransportType(config, ADMIN_MAIL_TRANSPORT_TYPES);
 
       expect(transportType).to.equal(ADMIN_MAIL_TRANSPORT_TYPES.local);
     });
 
     it('should return SMTP transport type if config object has host and port attribute in config attribute', function() {
-      var config = { transport: {key: 'value', config: {host: '', port: 25} } };
+      var config = { transport: { key: 'value', config: { host: '', port: 25 } } };
       var transportType = adminMailService.getTransportType(config, ADMIN_MAIL_TRANSPORT_TYPES);
 
       expect(transportType).to.equal(ADMIN_MAIL_TRANSPORT_TYPES.smtp);
     });
 
     it('should return Gmail transport type if config has service equal gmail', function() {
-      var config = { transport: {key: 'value', config: {service: 'gmail'} } };
+      var config = { transport: { key: 'value', config: { service: 'gmail' } } };
       var transportType = adminMailService.getTransportType(config, ADMIN_MAIL_TRANSPORT_TYPES);
 
       expect(transportType).to.equal(ADMIN_MAIL_TRANSPORT_TYPES.gmail);
     });
 
     it('should return Local transport type if config has service but service no equal gmail', function() {
-      var config = { transport: {key: 'value', config: {service: 'nogmail'} } };
+      var config = { transport: { key: 'value', config: { service: 'nogmail' } } };
       var transportType = adminMailService.getTransportType(config, ADMIN_MAIL_TRANSPORT_TYPES);
 
       expect(transportType).to.equal(ADMIN_MAIL_TRANSPORT_TYPES.local);

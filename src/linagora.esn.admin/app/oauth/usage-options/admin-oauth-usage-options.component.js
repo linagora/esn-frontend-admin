@@ -3,10 +3,10 @@
 
   angular.module('linagora.esn.admin')
 
-  .component('adminOauthUsageOptions', {
-    template: require("./admin-oauth-usage-options.pug"),
-    bindings: {
-      options: '='
-    }
-  });
+    .component('adminOauthUsageOptions', {
+      template: require('./admin-oauth-usage-options.pug'),
+      bindings: {
+        options: '='
+      }
+    });
 })(angular);

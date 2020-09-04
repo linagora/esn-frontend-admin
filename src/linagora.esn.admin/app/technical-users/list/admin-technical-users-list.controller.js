@@ -55,7 +55,7 @@ angular.module('linagora.esn.admin')
 
     function showUpdateModal(technicalUser) {
       $modal({
-        template: require("../update/admin-technical-users-update.pug"),
+        template: require('../update/admin-technical-users-update.pug'),
         backdrop: 'static',
         placement: 'center',
         controllerAs: '$ctrl',
@@ -68,7 +68,7 @@ angular.module('linagora.esn.admin')
 
     function showRemoveModal(technicalUser) {
       $modal({
-        template: require("../remove/admin-technical-users-remove.pug"),
+        template: require('../remove/admin-technical-users-remove.pug'),
         backdrop: 'static',
         placement: 'center',
         controllerAs: '$ctrl',

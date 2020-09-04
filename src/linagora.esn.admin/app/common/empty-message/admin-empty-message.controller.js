@@ -3,7 +3,7 @@
 
   angular.module('linagora.esn.admin')
 
-  .controller('adminEmptyMessageController', adminEmptyMessageController);
+    .controller('adminEmptyMessageController', adminEmptyMessageController);
 
   function adminEmptyMessageController() {
     var self = this;

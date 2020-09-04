@@ -84,7 +84,7 @@ describe('The adminLdapController', function() {
     var configMock;
 
     beforeEach(function() {
-      configMock = [{name: 'test'}];
+      configMock = [{ name: 'test' }];
 
       adminDomainConfigService.get = function() {
         return $q.when(configMock);
@@ -116,7 +116,7 @@ describe('The adminLdapController', function() {
 
       ctrl.save().then(function() {
         expect(adminDomainConfigService.set).to.have.been.calledOnce;
-        expect(ctrl.configs).to.deep.equal([{name: 'ldap2'}]);
+        expect(ctrl.configs).to.deep.equal([{ name: 'ldap2' }]);
         done();
       });
 
@@ -184,7 +184,7 @@ describe('The adminLdapController', function() {
     it('should show empty message if all empty LDAP configuration form have been deleted', function() {
       var controller = initController();
 
-      controller.configs = [{deleted: true}];
+      controller.configs = [{ deleted: true }];
       var isShowEmptyMessage = controller.showEmptyMessage(controller.configs);
 
       expect(isShowEmptyMessage).to.be.true;
@@ -193,7 +193,7 @@ describe('The adminLdapController', function() {
     it('should not show empty message if all LDAP configuration forms those contain a form that is not empty have been deleted', function() {
       var controller = initController();
 
-      controller.configs = [{name: 'some name', deleted: true}];
+      controller.configs = [{ name: 'some name', deleted: true }];
       var isShowEmptyMessage = controller.showEmptyMessage(controller.configs);
 
       expect(isShowEmptyMessage).to.not.be.true;
@@ -202,7 +202,7 @@ describe('The adminLdapController', function() {
     it('should not show empty message if having a LDAP configuration form has not been deleted', function() {
       var controller = initController();
 
-      controller.configs = [{deleted: false}];
+      controller.configs = [{ deleted: false }];
       var isShowEmptyMessage = controller.showEmptyMessage(controller.configs);
 
       expect(isShowEmptyMessage).to.not.be.true;

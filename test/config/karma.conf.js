@@ -33,7 +33,7 @@ module.exports = function(config) {
     },
     reporters: ['spec'],
     preprocessors: {
-      'src/index.test.js': ['webpack'],
+      'src/index.test.js': ['webpack']
     },
 
     webpack: webpackConfig,
@@ -43,7 +43,7 @@ module.exports = function(config) {
       'karma-mocha',
       'karma-webpack',
       'karma-spec-reporter',
-      'karma-sinon-chai',
+      'karma-sinon-chai'
     ]
   });
 };

@@ -3,11 +3,11 @@
 
   angular.module('linagora.esn.admin')
 
-  .component('adminLoginSubheader', {
-    template: require("./admin-login-subheader.pug"),
-    bindings: {
-      onFormSubmit: '&',
-      form: '<'
-    }
-  });
+    .component('adminLoginSubheader', {
+      template: require('./admin-login-subheader.pug'),
+      bindings: {
+        onFormSubmit: '&',
+        form: '<'
+      }
+    });
 })(angular);

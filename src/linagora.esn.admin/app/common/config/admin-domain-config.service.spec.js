@@ -15,7 +15,7 @@ describe('The adminDomainConfigService service', function() {
   beforeEach(function() {
     angular.mock.module('linagora.esn.admin');
   });
-  
+
   beforeEach(function() {
     angular.mock.inject(function(_$rootScope_, _adminDomainConfigService_, _adminConfigApi_) {
       $rootScope = _$rootScope_;
@@ -158,8 +158,8 @@ describe('The adminDomainConfigService service', function() {
     it('should resolve a list configurations when they are found', function(done) {
       var keys = ['a', 'b'];
       var configurations = [
-        {name: 'a', value: 'value a' },
-        {name: 'b', value: 'value b' }
+        { name: 'a', value: 'value a' },
+        { name: 'b', value: 'value b' }
       ];
       var expectResult = { a: 'value a', b: 'value b' };
 
@@ -213,8 +213,8 @@ describe('The adminDomainConfigService service', function() {
   describe('The setMultiple fn', function() {
     it('should update multiple configurations by sending the right parameters to adminConfigApi', function(done) {
       var configurations = [
-        {name: 'a', value: 'value a' },
-        {name: 'b', value: 'value b' }
+        { name: 'a', value: 'value a' },
+        { name: 'b', value: 'value b' }
       ];
       var expectedQuery = [{
         name: DEFAULT_MODULE,

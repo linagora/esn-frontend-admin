@@ -3,6 +3,6 @@
 angular.module('linagora.esn.admin')
 
   .component('adminDav', {
-    template: require("./admin-dav.pug"),
+    template: require('./admin-dav.pug'),
     controller: 'adminDavController'
   });

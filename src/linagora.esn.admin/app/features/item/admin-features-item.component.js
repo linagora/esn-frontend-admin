@@ -3,7 +3,7 @@
 
   angular.module('linagora.esn.admin')
     .component('adminFeaturesItem', {
-      template: require("./admin-features-item.pug"),
+      template: require('./admin-features-item.pug'),
       bindings: {
         feature: '='
       }

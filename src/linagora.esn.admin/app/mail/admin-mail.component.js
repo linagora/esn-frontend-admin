@@ -3,6 +3,6 @@
 angular.module('linagora.esn.admin')
 
   .component('adminMail', {
-    template: require("./admin-mail.pug"),
+    template: require('./admin-mail.pug'),
     controller: 'adminMailController'
   });

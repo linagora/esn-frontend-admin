@@ -67,7 +67,7 @@ describe('The adminTechnicalUsersAddController', function() {
 
     it('should emit onAddedTechnicalUser if success to add a technical user', function(done) {
       var bindings = {
-          technicalUser: technicalUser
+        technicalUser: technicalUser
       };
 
       var createdTechnicalUser = {};
@@ -84,7 +84,7 @@ describe('The adminTechnicalUsersAddController', function() {
           done();
         })
         .catch(function(err) {
-            done(err || new Error('should resolve'));
+          done(err || new Error('should resolve'));
         });
 
       $rootScope.$digest();
@@ -92,7 +92,7 @@ describe('The adminTechnicalUsersAddController', function() {
 
     it('should reject if failed to add new technical user', function(done) {
       var bindings = {
-          technicalUser: technicalUser
+        technicalUser: technicalUser
       };
 
       esnTechnicalUserAPIClient.add = sinon.stub().returns($q.reject(new Error('something wrong')));

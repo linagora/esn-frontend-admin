@@ -25,7 +25,7 @@ describe('The adminRolesService', function() {
 
   describe('The getAdministrators fn', function() {
     it('should call domainAPI.getAdministrators', function(done) {
-      domainAPI.getAdministrators = sinon.stub().returns($q.when({data: []}));
+      domainAPI.getAdministrators = sinon.stub().returns($q.when({ data: [] }));
 
       adminRolesService.init(DOMAIN_ID);
 
@@ -46,7 +46,7 @@ describe('The adminRolesService', function() {
       adminRolesService.init(DOMAIN_ID);
 
       domainAPI.getAdministrators = function() {
-        return $q.when({data: []});
+        return $q.when({ data: [] });
       };
       domainAPI.addAdministrators = sinon.stub().returns($q.when());
 

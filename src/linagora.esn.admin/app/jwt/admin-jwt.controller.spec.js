@@ -125,7 +125,7 @@ describe('The adminJwtController', function() {
         privateKey: 'privateKey'
       };
 
-      adminConfigApi.generateJwtKeyPair = sinon.stub().returns($q.when({data: data}));
+      adminConfigApi.generateJwtKeyPair = sinon.stub().returns($q.when({ data: data }));
 
       var controller = initController();
       var form = { $setDirty: angular.noop };

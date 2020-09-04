@@ -47,11 +47,11 @@ describe('The adminTechnicalUsersListController', function() {
     });
 
     it('should call infiniteScrollHelper with correct arguments when ELEMENTS_PER_REQUEST constant is undefined', function() {
-        ELEMENTS_PER_REQUEST_MOCK = undefined;
-        initController();
+      ELEMENTS_PER_REQUEST_MOCK = undefined;
+      initController();
 
-        expect(infiniteScrollHelperMock).to.have.been.called;
-        expect(infiniteScrollHelperMock.getCall(0).args[3] === 20).to.be.true;
+      expect(infiniteScrollHelperMock).to.have.been.called;
+      expect(infiniteScrollHelperMock.getCall(0).args[3] === 20).to.be.true;
     });
   });
 });

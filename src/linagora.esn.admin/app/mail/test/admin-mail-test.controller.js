@@ -1,6 +1,6 @@
 'use strict';
 
-require('../../mail/admin-mail.service.js')
+require('../admin-mail.service.js');
 require('../../common/config/admin-test-config.service.js');
 
 angular.module('linagora.esn.admin')

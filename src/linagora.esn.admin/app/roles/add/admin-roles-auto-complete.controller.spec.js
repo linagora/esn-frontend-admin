@@ -47,8 +47,8 @@ describe('The adminRolesAutoCompleteController', function() {
 
       var controller = initController();
 
-      expect(controller.excludes).to.include({id: 'admin1', objectType: 'user'});
-      expect(controller.excludes).to.include({id: 'admin2', objectType: 'user'});
+      expect(controller.excludes).to.include({ id: 'admin1', objectType: 'user' });
+      expect(controller.excludes).to.include({ id: 'admin2', objectType: 'user' });
 
       $scope.$digest();
     });

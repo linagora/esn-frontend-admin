@@ -37,45 +37,45 @@ angular.module('linagora.esn.admin')
 
       switch (transportType) {
 
-        case 'Local':
-          config.transport = {
-            module: mailConfig.transport.module,
-            config: {
-              dir: transportConfig.dir,
-              browser: transportConfig.browser || false
-            }
-          };
-          break;
+      case 'Local':
+        config.transport = {
+          module: mailConfig.transport.module,
+          config: {
+            dir: transportConfig.dir,
+            browser: transportConfig.browser || false
+          }
+        };
+        break;
 
-        case 'SMTP':
-          transportConfig.tls = transportConfig.tls || {};
-          config.transport = {
-            config: {
-              host: transportConfig.host,
-              secure: transportConfig.secure || false,
-              tls: {
-                rejectUnauthorized: transportConfig.tls.rejectUnauthorized || false
-              },
-              port: transportConfig.port,
-              auth: qualifyAuthConfig(transportConfig.auth)
-            }
-          };
-          break;
+      case 'SMTP':
+        transportConfig.tls = transportConfig.tls || {};
+        config.transport = {
+          config: {
+            host: transportConfig.host,
+            secure: transportConfig.secure || false,
+            tls: {
+              rejectUnauthorized: transportConfig.tls.rejectUnauthorized || false
+            },
+            port: transportConfig.port,
+            auth: qualifyAuthConfig(transportConfig.auth)
+          }
+        };
+        break;
 
-        case 'Gmail':
-          config.transport = {
-            config: {
-              service: 'gmail',
-              auth: {
-                user: transportConfig.auth.user,
-                pass: transportConfig.auth.pass
-              }
+      case 'Gmail':
+        config.transport = {
+          config: {
+            service: 'gmail',
+            auth: {
+              user: transportConfig.auth.user,
+              pass: transportConfig.auth.pass
             }
-          };
-          break;
+          }
+        };
+        break;
 
-        default:
-          config = mailConfig;
+      default:
+        config = mailConfig;
       }
 
       return config;

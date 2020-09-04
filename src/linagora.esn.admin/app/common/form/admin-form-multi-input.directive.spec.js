@@ -23,7 +23,7 @@ describe('The adminFormGroup directive', function() {
 
   function initDirective(scope, template) {
     scope = scope || $rootScope.$new();
-    scope.ngModel = {some_key: 'value'};
+    scope.ngModel = { some_key: 'value' };
     scope.availableTypes = ['some_key', 'other_key'];
 
     var element = $compile(template)(scope);
@@ -47,7 +47,7 @@ describe('The adminFormGroup directive', function() {
 
     expect(addField).to.have.been.called;
     expect(input.length).to.equal(2);
-    expect(ctrl.fields).to.deep.equal([{type: 'some_key', value: 'value'}, {type: 'other_key', value: ''}]);
+    expect(ctrl.fields).to.deep.equal([{ type: 'some_key', value: 'value' }, { type: 'other_key', value: '' }]);
   });
 
   it('should focus on the last field added', function(done) {

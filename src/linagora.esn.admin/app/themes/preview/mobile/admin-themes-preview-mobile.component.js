@@ -3,7 +3,7 @@
 
   angular.module('linagora.esn.admin')
     .component('adminThemesPreviewMobile', {
-      template: require("./admin-themes-preview-mobile.pug"),
+      template: require('./admin-themes-preview-mobile.pug'),
       bindings: {
         colors: '<',
         logos: '<'

@@ -102,7 +102,7 @@ describe('The adminTechnicalUsersRemoveController', function() {
           done();
         });
 
-    $rootScope.$digest();
+      $rootScope.$digest();
     });
   });
 

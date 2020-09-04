@@ -41,7 +41,7 @@ describe('The adminModulesDisplayerController', function() {
 
   describe('The save fn', function() {
     it('should call adminConfigApi.set to save configuration', function(done) {
-      var module = {name: 'linagora.esn.unifiedinbox', configurations: [{ name: 'some_configs', value: 'some_value' }, { name: 'view' }, { name: 'api' }, { name: 'uploadUrl' }, { name: 'downloadUrl' }, { name: 'isJmapSendingEnabled' }, { name: 'composer.attachments' }, { name: 'maxSizeUpload' }, { name: 'swipeRightAction' }, { name: 'drafts' }]};
+      var module = { name: 'linagora.esn.unifiedinbox', configurations: [{ name: 'some_configs', value: 'some_value' }, { name: 'view' }, { name: 'api' }, { name: 'uploadUrl' }, { name: 'downloadUrl' }, { name: 'isJmapSendingEnabled' }, { name: 'composer.attachments' }, { name: 'maxSizeUpload' }, { name: 'swipeRightAction' }, { name: 'drafts' }] };
       var ctrl = initController(module);
       var moduleConfig = [{
         name: 'linagora.esn.unifiedinbox',
@@ -64,7 +64,7 @@ describe('The adminModulesDisplayerController', function() {
     });
 
     it('should make the form pristine and broadcast form submit event on success', function() {
-      var module = {name: 'linagora.esn.unifiedinbox', configurations: [{ name: 'view' }, { name: 'api', value: 'some_value'}, { name: 'uploadUrl' }, { name: 'downloadUrl' }, { name: 'isJmapSendingEnabled' }, { name: 'composer.attachments' }, { name: 'maxSizeUpload' }, { name: 'swipeRightAction' }]};
+      var module = { name: 'linagora.esn.unifiedinbox', configurations: [{ name: 'view' }, { name: 'api', value: 'some_value' }, { name: 'uploadUrl' }, { name: 'downloadUrl' }, { name: 'isJmapSendingEnabled' }, { name: 'composer.attachments' }, { name: 'maxSizeUpload' }, { name: 'swipeRightAction' }] };
       var ctrl = initController(module);
 
       adminModulesService.set = sinon.stub().returns($q.when());
@@ -83,7 +83,8 @@ describe('The adminModulesDisplayerController', function() {
     it('should run through all post save handlers', function() {
       var module = {
         name: 'linagora.esn.unifiedinbox',
-        configurations: [{ name: 'view' }]};
+        configurations: [{ name: 'view' }]
+      };
       var ctrl = initController(module);
       var postSaveHandler1 = sinon.spy();
       var postSaveHandler2 = sinon.spy();
@@ -107,7 +108,7 @@ describe('The adminModulesDisplayerController', function() {
   describe('The reset fn', function() {
 
     it('should make the form pristine', function() {
-      var module = {name: 'linagora.esn.unifiedinbox', configurations: [{ name: 'some_configs', value: 'some_value' }, { name: 'view' }, { name: 'api' }, { name: 'uploadUrl' }, { name: 'downloadUrl' }, { name: 'isJmapSendingEnabled' }, { name: 'composer.attachments' }, { name: 'maxSizeUpload' }, { name: 'swipeRightAction' }]};
+      var module = { name: 'linagora.esn.unifiedinbox', configurations: [{ name: 'some_configs', value: 'some_value' }, { name: 'view' }, { name: 'api' }, { name: 'uploadUrl' }, { name: 'downloadUrl' }, { name: 'isJmapSendingEnabled' }, { name: 'composer.attachments' }, { name: 'maxSizeUpload' }, { name: 'swipeRightAction' }] };
       var ctrl = initController(module);
 
       $scope.form = {
@@ -120,7 +121,7 @@ describe('The adminModulesDisplayerController', function() {
     });
 
     it('should broadcast admin:form:reset', function() {
-      var module = {name: 'linagora.esn.unifiedinbox', configurations: [{ name: 'view', value: 'some_value' }, { name: 'api' }, { name: 'uploadUrl' }, { name: 'downloadUrl' }, { name: 'isJmapSendingEnabled' }, { name: 'composer.attachments' }, { name: 'maxSizeUpload' }, { name: 'swipeRightAction' }]};
+      var module = { name: 'linagora.esn.unifiedinbox', configurations: [{ name: 'view', value: 'some_value' }, { name: 'api' }, { name: 'uploadUrl' }, { name: 'downloadUrl' }, { name: 'isJmapSendingEnabled' }, { name: 'composer.attachments' }, { name: 'maxSizeUpload' }, { name: 'swipeRightAction' }] };
       var ctrl = initController(module);
 
       $scope.form = {

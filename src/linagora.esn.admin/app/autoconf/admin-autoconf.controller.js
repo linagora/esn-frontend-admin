@@ -1,7 +1,5 @@
 'use strict';
 
-const _ = require('lodash');
-
 require('./admin-autoconf.constants.js');
 require('./admin-autoconf.service.js');
 require('../common/config/admin-domain-config.service.js');

@@ -4,7 +4,7 @@ require('../admin-mode.service.js');
 
 angular.module('linagora.esn.admin')
   .component('adminModeSwitch', {
-    template: require("./admin-mode-switch.pug"),
+    template: require('./admin-mode-switch.pug'),
     controller: adminmModeSwitchController
   });
 

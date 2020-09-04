@@ -38,7 +38,7 @@ function adminDomainsListController(
 
   function showEditDomainForm(domain) {
     var updateDomainModal = $modal({
-      template: require("../update/admin-domains-update.pug"),
+      template: require('../update/admin-domains-update.pug'),
       backdrop: 'static',
       placement: 'center',
       controller: 'adminDomainUpdateController',

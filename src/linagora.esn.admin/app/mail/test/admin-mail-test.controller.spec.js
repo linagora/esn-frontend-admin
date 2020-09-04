@@ -60,7 +60,7 @@ describe('The adminMailTestController', function() {
 
     it('should call adminTestConfigService.testSendEmail to test configuration', function(done) {
       var controller = initController();
-      var res = { config: { data: { to: ''} } };
+      var res = { config: { data: { to: '' } } };
 
       adminTestConfigService.testSendEmail = sinon.stub().returns($q.when(res));
       controller.test(form).then(function() {
@@ -76,7 +76,7 @@ describe('The adminMailTestController', function() {
 
     it('should push out failed message if wrong configuration information', function() {
       var controller = initController();
-      var err = {data: { error: {} } };
+      var err = { data: { error: {} } };
 
       adminTestConfigService.testSendEmail = sinon.stub().returns($q.reject(err));
       controller.test(form).catch(function() {
