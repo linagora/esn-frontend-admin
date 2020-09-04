@@ -117,8 +117,8 @@ module.exports = {
         test: require.resolve('jmap-draft-client/dist/jmap-draft-client.js'),
         loader: 'expose-loader',
         options: {
-          exposes: 'jmapDraft',
-        },
+          exposes: 'jmapDraft'
+        }
       },
       /*
       for esn-frontend-common-libs

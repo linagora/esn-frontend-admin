@@ -5,7 +5,7 @@
 var expect = chai.expect;
 
 describe('The adminThemes component', function() {
-  var $controller, $rootScope, $scope, $q;
+  var $controller, $rootScope, $scope;
   var ADMIN_LOADING_STATUS;
   var fileUploadService;
   var themeService = {
@@ -49,12 +49,10 @@ describe('The adminThemes component', function() {
   beforeEach(inject(function(
     _$controller_,
     _$rootScope_,
-    _$q_,
     _ADMIN_LOADING_STATUS_
   ) {
     $controller = _$controller_;
     $rootScope = _$rootScope_;
-    $q = _$q_;
     ADMIN_LOADING_STATUS = _ADMIN_LOADING_STATUS_;
   }));
 

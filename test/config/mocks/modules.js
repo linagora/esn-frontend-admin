@@ -37,6 +37,9 @@ angular.module('esn.http', [])
     return {
       redirectToLogin: angular.noop
     };
+  })
+  .factory('esnRestangular', function() {
+    return {};
   });
 angular.module('esn.domain', [])
   .factory('domainAPI', function() {
@@ -83,11 +86,6 @@ angular.module('esn.i18n', ['pascalprecht.translate'])
 angular.module('esn.datetime', [])
   .filter('esnDatetime', function() {
     return function(input) { return input; };
-  });
-
-angular.module('esn.configuration', [])
-  .factory('esnConfigApi', function() {
-    return {};
   });
 
 angular.module('esn.availability', [])

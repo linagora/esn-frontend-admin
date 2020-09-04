@@ -33,7 +33,9 @@ module.exports = merge(commonWebpackConfig, {
         test: /\.run.js$/,
         loader: 'ignore-loader',
         include: [
-          path.resolve(__dirname, 'node_modules/esn-frontend-common-libs/src/frontend/js/modules/header/header-featureflip.run.js')
+          path.resolve(__dirname, 'node_modules/esn-frontend-common-libs/src/frontend/js/modules/header/header-featureflip.run.js'),
+          path.resolve(__dirname, 'node_modules/esn-frontend-inbox/src/esn.inbox.libs/app/services/jmap-client-provider/jmap-client-provider.run.js'),
+          path.resolve(__dirname, 'node_modules/esn-frontend-inbox/src/linagora.esn.james/app/app.run.js')
         ]
       }
     ]
