@@ -18,7 +18,8 @@
     "esn-frontend-calendar": "github:openpaas-suite/esn-frontend-calendar#main",
     "esn-frontend-common-libs": "github:openpaas-suite/esn-frontend-common-libs#main",
     "esn-frontend-mailto-handler": "github:openpaas-suite/esn-frontend-mailto-handler#main",
-    "esn-frontend-group": "github:openpaas-suite/esn-frontend-group#main"
+    "esn-frontend-group": "github:openpaas-suite/esn-frontend-group#main",
+    "esn-frontend-inbox-james": "github:openpaas-suite/esn-frontend-inbox-james#main"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",

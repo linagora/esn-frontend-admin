@@ -91,7 +91,8 @@ module.exports = {
         '/unifiedinbox/api',
         '/calendar/app',
         '/linagora.esn.resource/api',
-        '/group/api'
+        '/group/api',
+        '/james/api'
       ],
       target: OPENPAAS_URL,
       disableHostCheck: true,
@@ -102,6 +103,23 @@ module.exports = {
   },
   module: {
     rules: [
+      /*
+      for linagora.esn.unifiedinbox
+
+      can be removed after using a require for jmapDraft instead of a global $window.jmapDraft
+
+        .factory('jmapDraft', function($window) {
+          return $window.jmapDraft;
+        })
+
+      */
+      {
+        test: require.resolve('jmap-draft-client/dist/jmap-draft-client.js'),
+        loader: 'expose-loader',
+        options: {
+          exposes: 'jmapDraft'
+        }
+      },
       /*
       for esn-frontend-common-libs
 
