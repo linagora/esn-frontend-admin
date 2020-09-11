@@ -16,7 +16,7 @@ form(name="form")
           toggle-switch(ng-disabled="!$ctrl.module.disableable", title="{{ 'Not available for this module' | translate }}")
     .card-body
       .form(ng-if="$ctrl.configurations", ng-show="expanded")
-        admin-modules-form(template="$ctrl.module.config.template", configurations="$ctrl.configurations", mode="{{$ctrl.mode}}", available-modes="$ctrl.availableModes")
+        admin-modules-form(template="$ctrl.module.config.template", configurations="$ctrl.configurations", mode="{{$ctrl.mode}}", available-modes="$ctrl.availableModes", register-post-save-handler="$ctrl.registerPostSaveHandler")
         .flex-end.admin-form-bottom
           a.text-uppercase.flex-vertical-centered(href="", ng-click="$ctrl.reset()")
             |  {{ 'Cancel' | translate }}
