@@ -36,7 +36,8 @@ angular.module('linagora.esn.admin', [
   'esn.application-menu',
   'esn.router',
   'linagora.esn.group',
-  'esn.inbox-james'
+  'esn.inbox-james',
+  'esn.api-client'
 ]);
 
 require('./app.constants.js');
@@ -72,6 +73,7 @@ require('esn-frontend-common-libs/src/frontend/components/openpaas-logo/openpaas
 require('esn-frontend-common-libs/src/frontend/components/dynamic-directive/src/dynamic-directive.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/application-menu.js');
 require('esn-frontend-common-libs/src/frontend/js/constants.js');
+require('esn-frontend-common-libs/src/frontend/js/modules/esn.api-client');
 require('esn-frontend-group/src/app/app.module');
 require('esn-frontend-inbox-james/src/app/app.module');
 
@@ -160,7 +162,7 @@ require('./modules/admin-modules.controller.js');
 require('./modules/admin-modules.service.js');
 require('./modules/displayer/admin-modules-displayer.component.js');
 require('./modules/displayer/admin-modules-displayer.controller.js');
-require('./modules/form/admin-modules-form.directive.js');
+require('./modules/form/admin-modules-form.component');
 require('./modules/form/admin-modules-save-button.component.js');
 require('./modules/form/admin-modules-save-button.controller.js');
 require('./modules/subheader/admin-modules-subheader.component.js');
