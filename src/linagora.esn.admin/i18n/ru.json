@@ -258,5 +258,9 @@
   "Failed to remove a technical user": "Не удалось удалить технического пользователя»",
   "Editing a technical user...": "Редактирование технического пользователя ...",
   "A technical user has been edited": "Технический пользователь был отредактирован",
-  "Failed to edit a technical user": "Не удалось отредактировать технического пользователя"
+  "Failed to edit a technical user": "Не удалось отредактировать технического пользователя",
+  "Synchronize domain members address book": "Синхронизировать адресную книгу членов домена",
+  "Synchronize domain members address books for entire platform": "Синхронизация адресных книг членов домена для всей платформы",
+  "Submitting request...": "Отправка запроса...",
+  "Contact": "Контакт"
 }

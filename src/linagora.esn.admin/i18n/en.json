@@ -258,5 +258,9 @@
   "Failed to remove a technical user": "Failed to remove a technical user",
   "Editing a technical user...": "Editing a technical user...",
   "A technical user has been edited": "A technical user has been edited",
-  "Failed to edit a technical user": "Failed to edit a technical user"
+  "Failed to edit a technical user": "Failed to edit a technical user",
+  "Synchronize domain members address book": "Synchronize domain members address book",
+  "Synchronize domain members address books for entire platform": "Synchronize domain members address books for entire platform",
+  "Submitting request...": "Submitting request...",
+  "Contact": "Contact"
 }

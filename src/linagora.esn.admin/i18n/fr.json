@@ -258,5 +258,9 @@
   "Failed to remove a technical user": "Impossible de supprimer un utilisateur technique",
   "Editing a technical user...": "Edition d'un utilisateur technique ...",
   "A technical user has been edited": "Un utilisateur technique a été modifié",
-  "Failed to edit a technical user": "Impossible de modifier un utilisateur technique"
+  "Failed to edit a technical user": "Impossible de modifier un utilisateur technique",
+  "Synchronize domain members address book": "Synchroniser le carnet d'adresses des membres du domaine",
+  "Synchronize domain members address books for entire platform": "Synchronisez les carnets d'adresses des membres du domaine pour l'ensemble de la plate-forme",
+  "Submitting request...": "Soumettre la requête...",
+  "Contact": "Contact"
 }

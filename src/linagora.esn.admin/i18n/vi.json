@@ -258,5 +258,9 @@
   "Failed to remove a technical user": "Xóa người dùng kĩ thuật thất bại",
   "Editing a technical user...": "Đang chỉnh sửa một người dùng kĩ thuật",
   "A technical user has been edited": "Đã chỉnh sửa một người dùng kĩ thuật",
-  "Failed to edit a technical user": "Chỉnh sửa người dùng kĩ thuật thất bại"
+  "Failed to edit a technical user": "Chỉnh sửa người dùng kĩ thuật thất bại",
+  "Synchronize domain members address book": "Đồng bộ sổ liên lạc thành viên miền",
+  "Synchronize domain members address books for entire platform": "Đồng bộ tất cả sổ liên lạc thành viên miền trên hệ thống",
+  "Submitting request...": "Đang gửi yêu cầu...",
+  "Contact": "Danh bạ"
 }
