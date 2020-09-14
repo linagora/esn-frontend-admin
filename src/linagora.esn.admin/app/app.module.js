@@ -157,6 +157,9 @@ require('./maintenance/elasticsearch/admin-maintenance-elasticsearch.service.js'
 require('./maintenance/elasticsearch/resource/admin-maintenance-elasticsearch-resource.component.js');
 require('./maintenance/module/admin-maintenance-module.directive.js');
 require('./maintenance/subheader/admin-maintenance-subheader.component.js');
+require('./maintenance/contact/admin-maintenance-contact.component');
+require('./maintenance/contact/domain-members/admin-maintenance-contact-domain-members.component');
+require('./maintenance/contact/domain-members/admin-maintenance-contact-domain-members.controller');
 require('./modules/admin-modules.component.js');
 require('./modules/admin-modules.controller.js');
 require('./modules/admin-modules.service.js');

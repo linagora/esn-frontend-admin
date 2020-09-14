@@ -3,6 +3,8 @@ sub-header
 
 admin-maintenance-elasticsearch(ng-if="$ctrl.mode === 'platform'")
 
+admin-maintenance-contact
+
 .lv-body(ng-repeat="module in $ctrl.maintenanceModules", module="module")
   .lv-item(toggled="true", esn-toggle)
     .md-button.clickable.flex-start.flex-vertical-centered.block-header
