@@ -1,4 +1,5 @@
 'use strict';
+
 require('./inbox-config-form.constants');
 require('./inbox-config-form.controller');
 require('./disable-local-copy/inbox-config-form-disable-local-copy.pug');

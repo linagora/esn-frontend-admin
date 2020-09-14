@@ -3,7 +3,6 @@
 require('./inbox-config-form.constants.js');
 const inboxAPi = require('esn-api-client/src/api/inbox');
 
-
 angular.module('linagora.esn.admin')
   .controller('InboxConfigFormController', InboxConfigFormController);
 
@@ -91,7 +90,6 @@ function InboxConfigFormController(
         originalConfigs = angular.copy(self.forwardingConfigs);
       })
       .catch(function(err) {
-        console.log('err',err);
         self.forwardingConfigs = angular.copy(originalConfigs);
 
         return $q.reject(err);
