@@ -3,11 +3,4 @@ sub-header
 
 admin-maintenance-elasticsearch(ng-if="$ctrl.mode === 'platform'")
 
-.lv-body(ng-repeat="module in $ctrl.maintenanceModules", module="module")
-  .lv-item(toggled="true", esn-toggle)
-    .md-button.clickable.flex-start.flex-vertical-centered.block-header
-      h2 {{::module.title}}
-      i.mdi.mdi-chevron-up
-
-  ul.p-l-0
-    admin-maintenance-module(template='module.maintenance.template')
+admin-maintenance-contact

@@ -84,6 +84,7 @@ module.exports = {
         '/user-status/app/bubble/',
         '/user-status/api',
         '/contact/app',
+        '/contact/api',
         '/contact/images',
         '/dav/api',
         '/unifiedinbox/views',

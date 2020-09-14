@@ -6,7 +6,7 @@
 const jamesApi = require('esn-api-client/src/api/james');
 const { expect } = chai;
 
-describe.only('The jamesConfigFormController', function() {
+describe('The jamesConfigFormController', function() {
   let $controller, $rootScope, $scope;
   let session, jamesApiClient;
   let sandbox;
