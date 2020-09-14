@@ -262,5 +262,10 @@
   "Synchronize domain members address book": "Synchronize domain members address book",
   "Synchronize domain members address books for entire platform": "Synchronize domain members address books for entire platform",
   "Submitting request...": "Submitting request...",
-  "Contact": "Contact"
+  "Contact": "Contact",
+  "Synchronizing domains...": "Synchronizing domains...",
+  "Domains synchronized": "Domains synchronized",
+  "Failed to synchronize domains": "Failed to synchronize domains",
+  "James": "James",
+  "Synchronize domains in OpenPaaS with James": "Synchronize domains in OpenPaaS with James"
 }

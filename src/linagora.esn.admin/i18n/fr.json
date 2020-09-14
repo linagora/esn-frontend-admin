@@ -262,5 +262,10 @@
   "Synchronize domain members address book": "Synchroniser le carnet d'adresses des membres du domaine",
   "Synchronize domain members address books for entire platform": "Synchronisez les carnets d'adresses des membres du domaine pour l'ensemble de la plate-forme",
   "Submitting request...": "Soumettre la requête...",
-  "Contact": "Contact"
+  "Contact": "Contact",
+  "Synchronizing domains...": "Domaines de synchronisation ...",
+  "Domains synchronized": "Domaines synchronisé",
+  "Failed to synchronize domains": "Échec de la synchronisation du domaines",
+  "James": "James",
+  "Synchronize domains in OpenPaaS with James": "Synchroniser les domaines dans OpenPaaS avec James"
 }

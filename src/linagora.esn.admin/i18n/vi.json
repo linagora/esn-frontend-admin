@@ -262,5 +262,10 @@
   "Synchronize domain members address book": "Đồng bộ sổ liên lạc thành viên miền",
   "Synchronize domain members address books for entire platform": "Đồng bộ tất cả sổ liên lạc thành viên miền trên hệ thống",
   "Submitting request...": "Đang gửi yêu cầu...",
-  "Contact": "Danh bạ"
+  "Contact": "Danh bạ",
+  "Synchronizing domains...": "Đang đồng bộ tên miền...",
+  "Domains synchronized": "Đã đồng bộ tên miền",
+  "Failed to synchronize domains": "Đồng bộ tên miền thất bại",
+  "James": "James",
+  "Synchronize domains in OpenPaaS with James": "Đồng bộ hóa các tên miền trong OpenPaaS với James"
 }
