@@ -20,8 +20,8 @@
     "esn-frontend-mailto-handler": "github:openpaas-suite/esn-frontend-mailto-handler#main",
     "esn-frontend-group": "github:openpaas-suite/esn-frontend-group#main",
     "esn-frontend-inbox-james": "github:openpaas-suite/esn-frontend-inbox-james#main",
-    "esn-frontend-contacts": "git@github.com:OpenPaaS-Suite/esn-frontend-contacts.git#main",
-    "esn-frontend-inbox": "git@github.com:OpenPaaS-Suite/esn-frontend-inbox.git#main"
+    "esn-frontend-contacts": "git@github.com:OpenPaaS-Suite/esn-frontend-contacts.git#main"
+   
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",

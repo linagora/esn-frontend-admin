@@ -1,7 +1,8 @@
 'use strict';
 
 require('./inbox-config-form.constants.js');
-const inboxForwardingClient = require('esn-frontend-inbox/src/esn.inbox.libs/app/services/forwarding/inbox-forwardings-api-client.service');
+const inboxAPi = require('esn-api-client/src/api/inbox');
+
 
 angular.module('linagora.esn.admin')
   .controller('InboxConfigFormController', InboxConfigFormController);
@@ -11,11 +12,15 @@ function InboxConfigFormController(
   $stateParams,
   $q,
   $modal,
-  INBOX_CONFIG_EVENTS
+  INBOX_CONFIG_EVENTS,
+  esnApiClient
 
 ) {
   var self = this;
   var originalConfigs;
+
+  const inboxAPiClient = inboxAPi.default(esnApiClient);
+
 
   self.$onInit = $onInit;
   self.onForwardingChange = onForwardingChange;
@@ -81,11 +86,12 @@ function InboxConfigFormController(
       isLocalCopyEnabled: self.forwardingConfigs.isLocalCopyEnabled.value
     };
 
-    return inboxForwardingClient.updateForwardingConfigurations($stateParams.domainId, configurations)
+    return inboxAPiClient.inboxForwarding.updateForwardingConfigurations($stateParams.domainId, configurations)
       .then(function() {
         originalConfigs = angular.copy(self.forwardingConfigs);
       })
       .catch(function(err) {
+        console.log('err',err);
         self.forwardingConfigs = angular.copy(originalConfigs);
 
         return $q.reject(err);

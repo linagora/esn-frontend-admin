@@ -39,7 +39,6 @@ angular.module('linagora.esn.admin', [
   'linagora.esn.group',
   'esn.inbox-james',
   'esn.api-client',
-  'esn.inbox.libs',
   'esn.contact.libs',
   'linagora.esn.davproxy'
 ]);
@@ -50,7 +49,6 @@ require('./app.run.js');
 require('./app.module-registry.run.js');
 
 require('esn-frontend-contacts/src/linagora.esn.davproxy/js/app');
-require('esn-frontend-inbox/src/esn.inbox.libs/app/app.module.js');
 require('esn-frontend-contacts/src/esn.contact.libs/app/app.module.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/esn.router.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/config/config.module.js');
@@ -110,7 +108,7 @@ require('./modules/displayer/config/inbox/inbox-config-form.component.js');
 require('./modules/displayer/config/inbox/inbox-config-form.constants.js');
 require('./modules/displayer/config/inbox/inbox-config-form.controller.js');
 require('./modules/displayer/config/calendar/calendar-config-form.component.js');
-require('./modules/displayer/config/lineshare/linshare-config-form-component.js');
+require('./modules/displayer/config/linshare/linshare-config-form-component.js');
 require('./modules/displayer/config/contact/contact-config-form.component.js');
 require('./modules/displayer/config/contact/domain-addressbook/contact-config-domain-addressbook.component.js');
 require('./modules/displayer/config/contact/domain-addressbook/contact-config-domain-addressbook.controller.js');
