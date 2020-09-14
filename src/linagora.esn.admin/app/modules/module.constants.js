@@ -1,23 +1,23 @@
- 
+
 'use strict';
 
 angular.module('linagora.esn.admin')
 
- .constant('CAL_MODULE_METADATA', {
-   id: 'linagora.esn.calendar',
-   title: 'Calendar',
-   icon: require('!!file-loader!../../../../assets/calendar-icon.svg').default,
-   config: {
-     template: 'calendar-config-form',
-     displayIn: {
-       user: false,
-       domain: true,
-       platform: true
-     }
-   },
-   disableable: true,
-   isDisplayedByDefault: true
- })
+  .constant('CAL_MODULE_METADATA', {
+    id: 'linagora.esn.calendar',
+    title: 'Calendar',
+    icon: require('!!file-loader!../../../../assets/calendar-icon.svg').default,
+    config: {
+      template: 'calendar-config-form',
+      displayIn: {
+        user: false,
+        domain: true,
+        platform: true
+      }
+    },
+    disableable: true,
+    isDisplayedByDefault: true
+  })
   .constant('INBOX_MODULE_METADATA', {
     id: 'linagora.esn.unifiedinbox',
     title: 'Unified Inbox',
@@ -82,16 +82,16 @@ angular.module('linagora.esn.admin')
     isDisplayedByDefault: false
   })
 
-   .constant('JAMES_MODULE_METADATA', {
-     id: 'linagora.esn.james',
-     title: 'James',
-     icon: require('!!file-loader!../../../../assets/james-icon.svg').default,
-     config: {
-       template: 'james-config-form',
-       displayIn: {
-         user: false,
-         domain: true,
-         platform: true
-       }
-     }
-   });
+  .constant('JAMES_MODULE_METADATA', {
+    id: 'linagora.esn.james',
+    title: 'James',
+    icon: require('!!file-loader!../../../../assets/james-icon.svg').default,
+    config: {
+      template: 'james-config-form',
+      displayIn: {
+        user: false,
+        domain: true,
+        platform: true
+      }
+    }
+  });

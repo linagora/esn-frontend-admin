@@ -3,7 +3,6 @@
 require('./inbox-config-form.constants.js');
 const inboxForwardingClient = require('esn-frontend-inbox/src/esn.inbox.libs/app/services/forwarding/inbox-forwardings-api-client.service');
 
-
 angular.module('linagora.esn.admin')
   .controller('InboxConfigFormController', InboxConfigFormController);
 
@@ -13,7 +12,7 @@ function InboxConfigFormController(
   $q,
   $modal,
   INBOX_CONFIG_EVENTS
-  
+
 ) {
   var self = this;
   var originalConfigs;
@@ -21,8 +20,6 @@ function InboxConfigFormController(
   self.$onInit = $onInit;
   self.onForwardingChange = onForwardingChange;
   self.onLocalCopyChange = onLocalCopyChange;
-
-
 
   function $onInit() {
     // only domain admin can configure forwarding configurations
@@ -46,7 +43,7 @@ function InboxConfigFormController(
     self.forwardingConfigs.isLocalCopyEnabled.value = self.forwardingConfigs.forwarding.value;
     if (originalConfigs.forwarding.value && !self.forwardingConfigs.forwarding.value) {
       $modal({
-        template: require("./disable-forwarding/inbox-config-form-disable-forwarding.pug"),
+        template: require('./disable-forwarding/inbox-config-form-disable-forwarding.pug'),
         backdrop: 'static',
         placement: 'center',
         controller: 'InboxConfigFormDisableForwardingController',
@@ -58,7 +55,7 @@ function InboxConfigFormController(
   function onLocalCopyChange() {
     if (originalConfigs.isLocalCopyEnabled.value && !self.forwardingConfigs.isLocalCopyEnabled.value) {
       $modal({
-        template: require("./disable-local-copy/inbox-config-form-disable-local-copy.pug"),
+        template: require('./disable-local-copy/inbox-config-form-disable-local-copy.pug'),
         backdrop: 'static',
         placement: 'center',
         controller: 'InboxConfigFormDisableLocalCopyController',
@@ -85,13 +82,13 @@ function InboxConfigFormController(
     };
 
     return inboxForwardingClient.updateForwardingConfigurations($stateParams.domainId, configurations)
-              .then(function() {
-                originalConfigs = angular.copy(self.forwardingConfigs);
-              })
-              .catch(function(err) {
-                self.forwardingConfigs = angular.copy(originalConfigs);
+      .then(function() {
+        originalConfigs = angular.copy(self.forwardingConfigs);
+      })
+      .catch(function(err) {
+        self.forwardingConfigs = angular.copy(originalConfigs);
 
-                return $q.reject(err);
-              });
+        return $q.reject(err);
+      });
   }
 }

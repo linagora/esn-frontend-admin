@@ -1,5 +1,5 @@
 
-const contactAddressbookService= require('esn-frontend-contacts/src/esn.contact.libs/app/addressBook/addressbook.service');
+const contactAddressbookService = require('esn-frontend-contacts/src/esn.contact.libs/app/addressBook/addressbook.service');
 
 (function(angular) {
   'use strict';

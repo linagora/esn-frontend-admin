@@ -48,9 +48,9 @@ function adminConfigApi($q, adminRestangular, esnConfigApi, ADMIN_MODE) {
     if (domainId !== ADMIN_MODE.platform) {
       return esnConfigApi.inspectDomainConfigurations(domainId, modules);
     }
+
     return esnConfigApi.inspectPlatformConfigurations(modules);
   }
-  
 
   function generateJwtKeyPair() {
     return adminRestangular
