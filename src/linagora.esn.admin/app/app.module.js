@@ -150,7 +150,6 @@ require('./mail/transport/admin-mail-local.component.js');
 require('./mail/transport/admin-mail-smtp.component.js');
 require('./maintenance/admin-maintenance.component.js');
 require('./maintenance/admin-maintenance.controller.js');
-require('./maintenance/admin-maintenance.service.js');
 require('./maintenance/elasticsearch/admin-maintenance-elasticsearch.component.js');
 require('./maintenance/elasticsearch/admin-maintenance-elasticsearch.controller.js');
 require('./maintenance/elasticsearch/admin-maintenance-elasticsearch.service.js');
