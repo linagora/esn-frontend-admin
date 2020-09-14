@@ -159,6 +159,8 @@ require('./maintenance/subheader/admin-maintenance-subheader.component.js');
 require('./maintenance/contact/admin-maintenance-contact.component');
 require('./maintenance/contact/domain-members/admin-maintenance-contact-domain-members.component');
 require('./maintenance/contact/domain-members/admin-maintenance-contact-domain-members.controller');
+require('./maintenance/james/admin-maintenance-james.component');
+require('./maintenance/james/admin-maintenance-james.controller');
 require('./modules/admin-modules.component.js');
 require('./modules/admin-modules.controller.js');
 require('./modules/admin-modules.service.js');

@@ -262,5 +262,10 @@
   "Synchronize domain members address book": "Синхронизировать адресную книгу членов домена",
   "Synchronize domain members address books for entire platform": "Синхронизация адресных книг членов домена для всей платформы",
   "Submitting request...": "Отправка запроса...",
-  "Contact": "Контакт"
+  "Contact": "Контакт",
+  "Synchronizing domains...": "Синхронизация доменов ...",
+  "Domains synchronized": "Домены синхронизированы",
+  "Failed to synchronize domains": "Не удалось синхронизировать домены",
+  "James": "James",
+  "Synchronize domains in OpenPaaS with James": "Синхронизируйте домены в OpenPaaS с James"
 }

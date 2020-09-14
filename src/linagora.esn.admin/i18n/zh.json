@@ -262,5 +262,10 @@
   "Synchronize domain members address book": "同步域成员地址簿",
   "Synchronize domain members address books for entire platform": "同步整个平台的域成员通讯录",
   "Submitting request...": "提交要求...",
-  "Contact": "联系"
+  "Contact": "联系",
+  "Synchronizing domains...": "域同步中…",
+  "Domains synchronized": "域同步完成",
+  "Failed to synchronize domains": "域同步失败",
+  "James": "James",
+  "Synchronize domains in OpenPaaS with James": "将OpenPaaS内的域与James同步"
 }
