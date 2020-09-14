@@ -7,4 +7,4 @@ angular.module('linagora.esn.admin')
       configurations: '='
     }
   });
-
+  

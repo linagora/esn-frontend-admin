@@ -94,3 +94,4 @@ angular.module('linagora.esn.admin')
       }
     }
   });
+  

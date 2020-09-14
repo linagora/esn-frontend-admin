@@ -16,3 +16,4 @@ angular.module('linagora.esn.admin')
       registerPostSaveHandler: '<'
     }
   });
+  
