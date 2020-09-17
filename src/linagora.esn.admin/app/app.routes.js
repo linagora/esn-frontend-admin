@@ -17,6 +17,12 @@ angular.module('linagora.esn.admin')
       });
     });
 
+    $urlRouterProvider.when('/admin/:domainId', function($state, $location, session) {
+      session.ready.then(function() {
+        $state.go('admin.domain.general');
+      });
+    });
+
     $stateProvider
       .state('admin', {
         url: '/admin',
@@ -31,13 +37,6 @@ angular.module('linagora.esn.admin')
       })
       .state('admin.domain', {
         url: '/:domainId',
-        deepStateRedirect: {
-          default: 'admin.domain.general',
-          params: true,
-          fn: function() {
-            return true;
-          }
-        },
         resolve: {
           isAdmin: function($location, session) {
             return session.ready.then(function() {
