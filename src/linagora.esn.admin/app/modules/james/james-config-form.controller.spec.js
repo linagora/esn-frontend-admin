@@ -28,7 +28,6 @@ describe('The jamesConfigFormController', function() {
     angular.mock.inject(function(
       _$controller_,
       _$rootScope_,
-      _$q_,
       _session_
     ) {
       $controller = _$controller_;
