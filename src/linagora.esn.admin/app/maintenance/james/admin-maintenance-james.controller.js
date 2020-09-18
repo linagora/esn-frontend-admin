@@ -1,16 +1,13 @@
 'use strict';
 
-const jamesApi = require('esn-api-client/src/api/james');
-
 angular.module('linagora.esn.james')
   .controller('adminMaintenanceJamesController', adminMaintenanceJamesController);
 
 function adminMaintenanceJamesController(
   asyncAction,
-  esnApiClient
+  jamesApiClient
 ) {
   const self = this;
-  const jamesApiClient = jamesApi.default(esnApiClient);
 
   self.synchronizeDomains = synchronizeDomains;
 

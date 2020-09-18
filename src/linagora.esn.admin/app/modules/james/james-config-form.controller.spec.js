@@ -3,49 +3,37 @@
 /* global chai: false */
 /* global sinon: false */
 
-const jamesApi = require('esn-api-client/src/api/james');
 const { expect } = chai;
 
 describe('The jamesConfigFormController', function() {
   let $controller, $rootScope, $scope;
-  let session, jamesApiClient;
-  let sandbox;
+  let session, jamesApiClientMock;
 
   beforeEach(function() {
-    angular.mock.module('linagora.esn.admin');
-    angular.mock.module('esn.configuration', function($provide) {
-      $provide.value('esnConfig', function() {});
-    });
-
-    angular.mock.inject(function(
-      _$controller_,
-      _$rootScope_,
-      _$q_,
-      _session_
-    ) {
-      $controller = _$controller_;
-      $rootScope = _$rootScope_;
-      session = _session_;
-    });
-  });
-
-  beforeEach(function() {
-    sandbox = sinon.sandbox.create();
-
-    jamesApiClient = {
+    jamesApiClientMock = {
       getDomainQuota: sinon.stub().returns($q.when({ count: 10, size: 10000 })),
       setDomainQuota: sinon.stub().returns($q.when()),
       getPlatformQuota: sinon.stub().returns($q.when({ count: 50, size: 50000 })),
       setPlatformQuota: sinon.stub().returns($q.when())
     };
 
-    sandbox.stub(jamesApi, 'default', function() {
-      return jamesApiClient;
+    angular.mock.module('linagora.esn.admin');
+    angular.mock.module('esn.configuration', function($provide) {
+      $provide.value('esnConfig', function() {});
     });
-  });
+    angular.mock.module(function($provide) {
+      $provide.factory('jamesApiClient', function() { return jamesApiClientMock; });
+    });
 
-  afterEach(function() {
-    sandbox.restore();
+    angular.mock.inject(function(
+      _$controller_,
+      _$rootScope_,
+      _session_
+    ) {
+      $controller = _$controller_;
+      $rootScope = _$rootScope_;
+      session = _session_;
+    });
   });
 
   function initController(scope) {
@@ -115,8 +103,8 @@ describe('The jamesConfigFormController', function() {
       controller.connectionStatus = 'foo';
 
       postSaveHandler().then(function() {
-        expect(jamesApiClient.setPlatformQuota).to.not.have.been.called;
-        expect(jamesApiClient.setDomainQuota).to.not.have.been.called;
+        expect(jamesApiClientMock.setPlatformQuota).to.not.have.been.called;
+        expect(jamesApiClientMock.setDomainQuota).to.not.have.been.called;
         done();
       });
 
@@ -128,7 +116,7 @@ describe('The jamesConfigFormController', function() {
       controller.config = { quota: { count: 10, size: 12 } };
 
       postSaveHandler().then(function() {
-        expect(jamesApiClient.setPlatformQuota).to.have.been.calledWith(controller.config.quota);
+        expect(jamesApiClientMock.setPlatformQuota).to.have.been.calledWith(controller.config.quota);
         done();
       });
 
@@ -144,7 +132,7 @@ describe('The jamesConfigFormController', function() {
       controller.mode = 'domain';
 
       postSaveHandler().then(function() {
-        expect(jamesApiClient.setDomainQuota).to.have.been.calledWith(domain._id, controller.config.quota);
+        expect(jamesApiClientMock.setDomainQuota).to.have.been.calledWith(domain._id, controller.config.quota);
         done();
       });
 
@@ -156,7 +144,7 @@ describe('The jamesConfigFormController', function() {
       controller.config = { quota: { count: 0, size: -100 } };
 
       postSaveHandler().then(function() {
-        expect(jamesApiClient.setPlatformQuota).to.have.been.calledWith({ count: null, size: null });
+        expect(jamesApiClientMock.setPlatformQuota).to.have.been.calledWith({ count: null, size: null });
         done();
       });
 
@@ -200,7 +188,7 @@ describe('The jamesConfigFormController', function() {
     it('should call James API to get config and assign to controller on success', function() {
       var controller = initController();
 
-      jamesApiClient.getPlatformQuota = sinon.stub().returns($q.when({ size: 11, count: 12 }));
+      jamesApiClientMock.getPlatformQuota = sinon.stub().returns($q.when({ size: 11, count: 12 }));
       controller.onServerUrlChange(form);
 
       $rootScope.$digest();
@@ -215,7 +203,7 @@ describe('The jamesConfigFormController', function() {
       controller.$onInit();
 
       controller.mode = 'domain';
-      jamesApiClient.getDomainQuota = sinon.stub().returns($q.when({ size: 11, count: 12 }));
+      jamesApiClientMock.getDomainQuota = sinon.stub().returns($q.when({ size: 11, count: 12 }));
       controller.onServerUrlChange(form);
 
       $rootScope.$digest();
@@ -228,7 +216,7 @@ describe('The jamesConfigFormController', function() {
     it('should qualify quota configuration before assigning to controller', function() {
       var controller = initController();
 
-      jamesApiClient.getPlatformQuota = sinon.stub().returns($q.when({ size: -11, count: -12 }));
+      jamesApiClientMock.getPlatformQuota = sinon.stub().returns($q.when({ size: -11, count: -12 }));
       controller.onServerUrlChange(form);
 
       $rootScope.$digest();
@@ -239,7 +227,7 @@ describe('The jamesConfigFormController', function() {
     it('should set connectionStatus error on failure', function() {
       var controller = initController();
 
-      jamesApiClient.getPlatformQuota = sinon.stub().returns($q.reject(new Error('an_error')));
+      jamesApiClientMock.getPlatformQuota = sinon.stub().returns($q.reject(new Error('an_error')));
       controller.onServerUrlChange(form);
 
       $rootScope.$digest();

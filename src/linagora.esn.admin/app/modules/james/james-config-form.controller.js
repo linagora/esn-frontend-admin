@@ -1,7 +1,5 @@
 'use strict';
 
-const jamesApi = require('esn-api-client/src/api/james');
-
 angular.module('linagora.esn.admin')
   .controller('jamesConfigFormController', jamesConfigFormController);
 
@@ -15,10 +13,9 @@ function jamesConfigFormController(
   $q,
   session,
   jamesQuotaHelpers,
-  esnApiClient
+  jamesApiClient
 ) {
   const self = this;
-  const jamesApiClient = jamesApi.default(esnApiClient);
 
   self.$onInit = $onInit;
   self.onServerUrlChange = onServerUrlChange;
