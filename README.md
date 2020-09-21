@@ -20,6 +20,8 @@ cp .env.example .env
     ...
   ]
   ```
+  
+- **HIDE_GLOBAL_SEARCH**: A string that has value `true` or `false`. You can use this to hide/show the global search box
 
 Then, launch the dev server on http://localhost:9900:
 
