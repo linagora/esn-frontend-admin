@@ -231,5 +231,13 @@ angular.module('linagora.esn.admin')
             template: '<admin-session />'
           }
         }
+      })
+      .state('admin.domain.oidc', {
+        url: '/oidc',
+        views: {
+          'root@admin': {
+            template: '<admin-oidc />'
+          }
+        }
       });
   });

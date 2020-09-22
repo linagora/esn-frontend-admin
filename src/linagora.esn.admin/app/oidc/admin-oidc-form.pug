@@ -1,0 +1,26 @@
+.card(ng-if="!$ctrl.oidcConfig.deleted")
+  .card-header.flex-vertical-centered
+    .col-xs-6
+      h2(ng-show='$ctrl.oidcConfig.client_id') {{$ctrl.oidcConfig.client_id}}
+    .col-xs-6.flex-end
+      button.btn.btn-link.btn-default(ng-click="$ctrl.delete(form)", type="button", title="{{ 'Delete' | translate }}")
+        i.mdi.mdi-delete
+  .card-body.card-padding
+    ng-form(role="form", aria-hidden="true", name="form", esn-autocomplete-off)
+      .row
+        .col-xs-12
+          div
+            esn-form-group(label="{{ 'Client ID' | translate }}")
+              input.form-control(type="text", ng-model='$ctrl.oidcConfig.client_id', required, name="client_id")
+            esn-form-group(label="{{ 'Client Secret' | translate }}")
+              input.form-control(type="text", ng-model='$ctrl.oidcConfig.client_secret', required, name="client_secret")
+            esn-form-group(label="{{ 'Issuer URL' | translate }}")
+              input.form-control(type="text", ng-model='$ctrl.oidcConfig.issuer_url', required, name="issuer_url")
+.card-body.card-padding(ng-show="$ctrl.oidcConfig.deleted && $ctrl.oidcConfig.client_id")
+  .row
+    .col-xs-12
+      .p-t-5.flex-space-between
+        span
+          |  {{ 'You are about to remove the OpenID Connect configuration' | translate:$ctrl }}
+        a(ng-click='$ctrl.undo()', href='')
+          |  {{ 'Cancel' | translate }}

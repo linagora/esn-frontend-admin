@@ -267,5 +267,9 @@
   "Domains synchronized": "Домены синхронизированы",
   "Failed to synchronize domains": "Не удалось синхронизировать домены",
   "James": "James",
-  "Synchronize domains in OpenPaaS with James": "Синхронизируйте домены в OpenPaaS с James"
+  "Synchronize domains in OpenPaaS with James": "Синхронизируйте домены в OpenPaaS с James",
+  "Issuer URL": "URL-адрес эмитента",
+  "You are about to remove the OpenID Connect configuration": "Вы собираетесь удалить конфигурацию OpenID Connect",
+  "OpenID Connect Configuration": "конфигурации OpenID Connect",
+  "No OpenID Connect configuration, click": "Нет конфигурации OpenID Connect, нажмите"
 }

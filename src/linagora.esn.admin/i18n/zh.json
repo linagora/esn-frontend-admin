@@ -267,5 +267,9 @@
   "Domains synchronized": "域同步完成",
   "Failed to synchronize domains": "域同步失败",
   "James": "James",
-  "Synchronize domains in OpenPaaS with James": "将OpenPaaS内的域与James同步"
+  "Synchronize domains in OpenPaaS with James": "将OpenPaaS内的域与James同步",
+  "Issuer URL": "发行人网址",
+  "You are about to remove the OpenID Connect configuration": "您将要删除OpenID Connect配置",
+  "OpenID Connect Configuration": "OpenID Connect配置",
+  "No OpenID Connect configuration, click": "没有OpenID Connect配置，请单击"
 }
