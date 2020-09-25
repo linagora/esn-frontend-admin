@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('linagora.esn.admin', [
+  'ct.ui.router.extras.dsr',
   'esn.mailto-handler',
   'restangular',
   'colorpicker',
