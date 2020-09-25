@@ -55,7 +55,9 @@ describe('The adminDomainsService', function() {
       var domain = { name: 'name ' };
       var createdDomain = { id: 123, name: 'name' };
 
-      $rootScope.$broadcast = sinon.spy();
+      $rootScope.$broadcast = sinon.spy(function() {
+        return true;
+      });
       domainAPI.create = sinon.stub().returns($q.when({ data: createdDomain }));
 
       adminDomainsService.create(domain);
@@ -81,7 +83,9 @@ describe('The adminDomainsService', function() {
     it('should broadcast event with updated domain on success', function() {
       var modifiedDomain = { name: 'modified' };
 
-      $rootScope.$broadcast = sinon.spy();
+      $rootScope.$broadcast = sinon.spy(function() {
+        return true;
+      });
       domainAPI.update = sinon.stub().returns($q.when());
 
       adminDomainsService.update(modifiedDomain);
