@@ -132,6 +132,14 @@ angular.module('linagora.esn.admin')
       platform: true
     }
   }, {
+    id: 'oidc',
+    name: 'OpenID Connect',
+    icon: 'mdi-openid',
+    displayIn: {
+      domain: false,
+      platform: true
+    }
+  }, {
     id: 'oauth',
     name: 'Social connections',
     icon: 'mdi-twitter',

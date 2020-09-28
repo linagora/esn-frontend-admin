@@ -267,5 +267,9 @@
   "Domains synchronized": "Domains synchronized",
   "Failed to synchronize domains": "Failed to synchronize domains",
   "James": "James",
-  "Synchronize domains in OpenPaaS with James": "Synchronize domains in OpenPaaS with James"
+  "Synchronize domains in OpenPaaS with James": "Synchronize domains in OpenPaaS with James",
+  "Issuer URL": "Issuer URL",
+  "You are about to remove the OpenID Connect configuration": "You are about to remove the OpenID Connect configuration",
+  "OpenID Connect Configuration": "OpenID Connect Configuration",
+  "No OpenID Connect configuration, click": "No OpenID Connect configuration, click"
 }

@@ -1,0 +1,14 @@
+sub-header
+  admin-oidc-subheader(on-form-submit="$ctrl.save()", form="form")
+
+form(name="form", admin-loading-status)
+  .oidc-empty-container-message(ng-if="$ctrl.showEmptyMessage($ctrl.configs)")
+    .message
+      .oidc-empty-icon.mdi.mdi-openid
+      div
+        | {{ 'No OpenID Connect configuration, click' | translate }}
+        span.mdi.mdi-plus
+        | {{ 'to add a new one!' | translate }}
+  .card(ng-repeat="config in $ctrl.configs")
+    admin-oidc-form(oidc-config="config")
+fab(icon="plus", ng-click="$ctrl.addForm()")

@@ -229,7 +229,7 @@
   "Time to live": "Durée de vie",
   "The secret used to sign the session ID cookie, change this will log all users out": "Le secret utilisé pour signer le cookie de session ID, changer ceci va déconnecter  tous les utilisateurs",
   "The number of milliseconds until the session ID cookie becomes invalid": "Le nombre de millisecondes avant que le cookie de session ID devienne invalide",
-  "More": "Plus", 
+  "More": "Plus",
   "Reset default theme": "Réinitialiser le thème par défaut",
   "Not available for this module": "Non disponilble pour ce module",
   "Switch mode between platform and domain administration": "Basculez entre les modes d'administration de la plate-forme et du domaine",
@@ -267,5 +267,9 @@
   "Domains synchronized": "Domaines synchronisé",
   "Failed to synchronize domains": "Échec de la synchronisation du domaines",
   "James": "James",
-  "Synchronize domains in OpenPaaS with James": "Synchroniser les domaines dans OpenPaaS avec James"
+  "Synchronize domains in OpenPaaS with James": "Synchroniser les domaines dans OpenPaaS avec James",
+  "Issuer URL": "Issuer URL",
+  "You are about to remove the OpenID Connect configuration": "Vous vous apprêtez à retirer la configuration OpenID Connect",
+  "OpenID Connect Configuration": "Configuration OpenID Connect",
+  "No OpenID Connect configuration, click": "Pas de configuration OpenID Connect, cliquez sur"
 }
