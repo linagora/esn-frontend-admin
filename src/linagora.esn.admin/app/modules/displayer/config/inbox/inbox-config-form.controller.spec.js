@@ -12,9 +12,8 @@ describe('The InboxConfigFormController controller', function() {
 
   beforeEach(function() {
 
-
     angular.mock.module('linagora.esn.admin');
- 
+
     angular.mock.inject(function(
       _$rootScope_,
       _$controller_,
@@ -28,19 +27,19 @@ describe('The InboxConfigFormController controller', function() {
     });
   });
 
-beforeEach(function(){
-sandbox=sinon.sandbox.create();
-  inboxAPiMock={
-    updateForwardingConfigurations: sinon.stub().returns(Promise.resolve())
-  }
-
-  sandbox.stub(inboxAPi, 'default', function () {
-    return {
-        inboxForwarding: inboxAPiMock
+  beforeEach(function() {
+    sandbox = sinon.sandbox.create();
+    inboxAPiMock = {
+      updateForwardingConfigurations: sinon.stub().returns(Promise.resolve())
     };
+
+    sandbox.stub(inboxAPi, 'default', function() {
+      return {
+        inboxForwarding: inboxAPiMock
+      };
+    });
   });
-});
-  afterEach(function () {
+  afterEach(function() {
     sandbox.restore();
   });
 
@@ -59,7 +58,6 @@ sandbox=sinon.sandbox.create();
     controller.mode = 'domain';
 
     controller.registerPostSaveHandler = sinon.spy();
-
 
     $scope.$digest();
 
@@ -120,7 +118,6 @@ sandbox=sinon.sandbox.create();
         forwarding: controller.forwardingConfigs.forwarding.value,
         isLocalCopyEnabled: controller.forwardingConfigs.isLocalCopyEnabled.value
       };
-
 
       postSaveHandler().then(function() {
         expect(inboxAPiMock.updateForwardingConfigurations).to.have.been.calledWith($stateParams.domainId, configs);

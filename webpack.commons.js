@@ -104,7 +104,6 @@ module.exports = {
   },
   module: {
     rules: [
-  
       /*
       for linagora.esn.unifiedinbox
 

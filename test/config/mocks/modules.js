@@ -41,9 +41,9 @@ angular.module('esn.http', [])
   .factory('esnRestangular', function() {
     return {};
   })
-  .factory('httpConfigurer',function(){
-    return {}
-  })
+  .factory('httpConfigurer', function() {
+    return {};
+  });
 angular.module('esn.domain', [])
   .factory('domainAPI', function() {
     return {};
@@ -91,8 +91,8 @@ angular.module('esn.datetime', [])
     return function(input) { return input; };
   })
   .factory('esnDatetimeService', function() {
-    return {}
-  })
+    return {};
+  });
 
 angular.module('esn.availability', [])
   .factory('esnAvailabilityService', function() {
