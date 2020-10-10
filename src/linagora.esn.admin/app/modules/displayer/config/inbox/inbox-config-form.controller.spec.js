@@ -4,27 +4,44 @@
 /* global sinon: false */
 
 var expect = chai.expect;
+const inboxAPi = require('esn-api-client/src/api/inbox');
 
 describe('The InboxConfigFormController controller', function() {
-  var $rootScope, $controller, $scope, $stateParams;
-  var INBOX_CONFIG_EVENTS, inboxForwardingClient;
+  let $rootScope, $controller, $scope, $stateParams;
+  let INBOX_CONFIG_EVENTS, inboxAPiMock, sandbox;
 
   beforeEach(function() {
-    angular.mock.module('linagora.esn.admin');
 
+
+    angular.mock.module('linagora.esn.admin');
+ 
     angular.mock.inject(function(
       _$rootScope_,
       _$controller_,
       _$stateParams_,
-      _inboxForwardingClient_,
       _INBOX_CONFIG_EVENTS_
     ) {
       $rootScope = _$rootScope_;
       $controller = _$controller_;
       $stateParams = _$stateParams_;
-      inboxForwardingClient = _inboxForwardingClient_;
       INBOX_CONFIG_EVENTS = _INBOX_CONFIG_EVENTS_;
     });
+  });
+
+beforeEach(function(){
+sandbox=sinon.sandbox.create();
+  inboxAPiMock={
+    updateForwardingConfigurations: sinon.stub().returns(Promise.resolve())
+  }
+
+  sandbox.stub(inboxAPi, 'default', function () {
+    return {
+        inboxForwarding: inboxAPiMock
+    };
+  });
+});
+  afterEach(function () {
+    sandbox.restore();
   });
 
   function initController() {
@@ -41,9 +58,8 @@ describe('The InboxConfigFormController controller', function() {
     };
     controller.mode = 'domain';
 
-    controller.adminModulesDisplayerController = {
-      registerPostSaveHandler: sinon.spy()
-    };
+    controller.registerPostSaveHandler = sinon.spy();
+
 
     $scope.$digest();
 
@@ -64,7 +80,7 @@ describe('The InboxConfigFormController controller', function() {
 
       controller.$onInit();
 
-      expect(controller.adminModulesDisplayerController.registerPostSaveHandler)
+      expect(controller.registerPostSaveHandler)
         .to.have.been.calledWith(sinon.match.func);
     });
 
@@ -75,7 +91,7 @@ describe('The InboxConfigFormController controller', function() {
       controller.$onInit();
 
       expect(controller.forwardingConfigs).to.be.undefined;
-      expect(controller.adminModulesDisplayerController.registerPostSaveHandler)
+      expect(controller.registerPostSaveHandler)
         .to.not.have.been.called;
     });
   });
@@ -86,7 +102,7 @@ describe('The InboxConfigFormController controller', function() {
 
     beforeEach(function() {
       controller = initController();
-      controller.adminModulesDisplayerController.registerPostSaveHandler = function(handler) {
+      controller.registerPostSaveHandler = function(handler) {
         postSaveHandler = handler;
       };
       controller.configurations = {
@@ -98,17 +114,16 @@ describe('The InboxConfigFormController controller', function() {
       $rootScope.$digest();
     });
 
-    it('should call inboxForwardingClient.updateForwardingConfigurations to update forwarding configurations', function(done) {
+    it('should call inboxApi.updateForwardingConfigurations to update forwarding configurations', function(done) {
       $stateParams.domainId = 'domain-id';
       var configs = {
         forwarding: controller.forwardingConfigs.forwarding.value,
         isLocalCopyEnabled: controller.forwardingConfigs.isLocalCopyEnabled.value
       };
 
-      inboxForwardingClient.updateForwardingConfigurations = sinon.stub().returns($q.when());
 
       postSaveHandler().then(function() {
-        expect(inboxForwardingClient.updateForwardingConfigurations).to.have.been.calledWith($stateParams.domainId, configs);
+        expect(inboxAPiMock.updateForwardingConfigurations).to.have.been.calledWith($stateParams.domainId, configs);
         done();
       });
 
@@ -119,7 +134,7 @@ describe('The InboxConfigFormController controller', function() {
       controller.forwardingConfigs.forwarding.value = !controller.configurations.forwarding.value;
       controller.forwardingConfigs.isLocalCopyEnabled.value = !controller.configurations.isLocalCopyEnabled.value;
 
-      inboxForwardingClient.updateForwardingConfigurations = sinon.stub().returns($q.when());
+      inboxAPiMock.updateForwardingConfigurations = sinon.stub().returns($q.when());
 
       postSaveHandler().then(function() {
         expect(controller.forwardingConfigs.forwarding.value).to.equal(!controller.configurations.forwarding.value);
@@ -128,7 +143,7 @@ describe('The InboxConfigFormController controller', function() {
         controller.forwardingConfigs.forwarding.value = controller.configurations.forwarding.value;
         controller.forwardingConfigs.isLocalCopyEnabled.value = controller.configurations.isLocalCopyEnabled.value;
 
-        inboxForwardingClient.updateForwardingConfigurations = sinon.stub().returns($q.reject('update failed'));
+        inboxAPiMock.updateForwardingConfigurations = sinon.stub().returns($q.reject('update failed'));
 
         postSaveHandler().catch(function() {
           expect(controller.forwardingConfigs.forwarding.value).to.equal(!controller.configurations.forwarding.value);

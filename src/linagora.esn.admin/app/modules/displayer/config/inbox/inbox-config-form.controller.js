@@ -20,7 +20,6 @@ function InboxConfigFormController(
 
   const inboxAPiClient = inboxAPi.default(esnApiClient);
 
-
   self.$onInit = $onInit;
   self.onForwardingChange = onForwardingChange;
   self.onLocalCopyChange = onLocalCopyChange;
@@ -90,7 +89,6 @@ function InboxConfigFormController(
         originalConfigs = angular.copy(self.forwardingConfigs);
       })
       .catch(function(err) {
-        console.log('err',err);
         self.forwardingConfigs = angular.copy(originalConfigs);
 
         return $q.reject(err);

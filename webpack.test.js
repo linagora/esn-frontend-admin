@@ -36,8 +36,12 @@ module.exports = merge(commonWebpackConfig, {
           path.resolve(__dirname, 'node_modules/esn-frontend-common-libs/src/frontend/js/modules/header/header-featureflip.run.js'),
           path.resolve(__dirname, 'node_modules/esn-frontend-inbox/src/esn.inbox.libs/app/services/jmap-client-provider/jmap-client-provider.run.js'),
           path.resolve(__dirname, 'node_modules/esn-frontend-inbox-james/src/app/deleted-messages/restore-button/inbox-james-deleted-messages-restore-button.run.js'),
-          path.resolve(__dirname, 'node_modules/esn-frontend-inbox/src/linagora.esn.james/app/app.run.js')
+          path.resolve(__dirname, 'node_modules/esn-frontend-inbox/src/linagora.esn.james/app/app.run.js'),
+          path.resolve(__dirname, './src/linagora.esn.admin/app/app.module-registry.run.js')
+
         ]
+       
+
       }
     ]
   }

@@ -6,21 +6,27 @@ var expect = chai.expect;
 
 describe('The ContactConfigDomainAddressbookController controller', function() {
   var $rootScope, $controller, $stateParams;
-  var contactAddressbookService;
+  var contactAddressbookServiceMock;
 
   beforeEach(function() {
+
+    contactAddressbookServiceMock = {
+      getAddressbookByBookName: sinon.stub().returns(Promise.resolve()),
+      createGroupAddressbook: sinon.stub().returns(Promise.resolve())
+    };
     angular.mock.module('linagora.esn.admin');
 
+    angular.mock.module(function($provide) {
+      $provide.value('contactAddressbookService', contactAddressbookServiceMock);
+    });
     angular.mock.inject(function(
       _$rootScope_,
       _$controller_,
-      _$stateParams_,
-      _contactAddressbookService_
+      _$stateParams_
     ) {
       $controller = _$controller_;
       $stateParams = _$stateParams_;
       $rootScope = _$rootScope_;
-      contactAddressbookService = _contactAddressbookService_;
     });
   });
 
@@ -28,9 +34,7 @@ describe('The ContactConfigDomainAddressbookController controller', function() {
     var $scope = $rootScope.$new();
     var controller = $controller('ContactConfigDomainAddressbookController', { $scope: $scope });
 
-    controller.adminModulesDisplayerController = {
-      registerPostSaveHandler: sinon.spy()
-    };
+    controller.registerPostSaveHandler = sinon.spy();
 
     $rootScope.$digest();
 
@@ -41,13 +45,15 @@ describe('The ContactConfigDomainAddressbookController controller', function() {
     it('should set state to "loading"', function() {
       var controller = initController();
 
+      controller.registerPostSaveHandler = sinon.spy();
+
       controller.$onInit();
 
       expect(controller.state).to.equal('loading');
     });
 
     it('should register post save handler if domain address book is not exist', function() {
-      contactAddressbookService.getAddressbookByBookName = sinon.stub().returns($q.reject({ status: 404 }));
+      contactAddressbookServiceMock.getAddressbookByBookName = sinon.stub().returns($q.reject({ status: 404 }));
       var controller = initController();
 
       controller.$onInit();
@@ -56,12 +62,12 @@ describe('The ContactConfigDomainAddressbookController controller', function() {
 
       expect(controller.state).to.equal('success');
       expect(controller.isDomainAddressbookEnabled).to.be.false;
-      expect(controller.adminModulesDisplayerController.registerPostSaveHandler)
+      expect(controller.registerPostSaveHandler)
         .to.have.been.calledWith(sinon.match.func);
     });
 
     it('should register post save handler if success to get domain address book', function() {
-      contactAddressbookService.getAddressbookByBookName = sinon.stub().returns($q.when({ state: 'enabled' }));
+      contactAddressbookServiceMock.getAddressbookByBookName = sinon.stub().returns($q.when({ state: 'enabled' }));
       var controller = initController();
 
       controller.$onInit();
@@ -70,12 +76,12 @@ describe('The ContactConfigDomainAddressbookController controller', function() {
 
       expect(controller.state).to.equal('success');
       expect(controller.isDomainAddressbookEnabled).to.be.true;
-      expect(controller.adminModulesDisplayerController.registerPostSaveHandler)
+      expect(controller.registerPostSaveHandler)
         .to.have.been.calledWith(sinon.match.func);
     });
 
     it('should set state to "error" without registering post save handler if failed to get domain address book', function() {
-      contactAddressbookService.getAddressbookByBookName = sinon.stub().returns($q.reject({ status: 'not-404' }));
+      contactAddressbookServiceMock.getAddressbookByBookName = sinon.stub().returns($q.reject({ status: 'not-404' }));
       var controller = initController();
 
       controller.$onInit();
@@ -84,7 +90,7 @@ describe('The ContactConfigDomainAddressbookController controller', function() {
 
       expect(controller.state).to.equal('error');
       expect(controller.isDomainAddressbookEnabled).to.be.undefined;
-      expect(controller.adminModulesDisplayerController.registerPostSaveHandler)
+      expect(controller.registerPostSaveHandler)
         .to.not.have.been.called;
     });
   });
@@ -96,22 +102,22 @@ describe('The ContactConfigDomainAddressbookController controller', function() {
     beforeEach(function() {
       controller = initController();
 
-      controller.adminModulesDisplayerController.registerPostSaveHandler = function(handler) {
+      controller.registerPostSaveHandler = function(handler) {
         postSaveHandler = handler;
       };
     });
 
     it('should call contactAddressbookService.createGroupAddressbook to create domain address book', function(done) {
       $stateParams.domainId = 'domain-id';
-      contactAddressbookService.getAddressbookByBookName = sinon.stub().returns($q.reject({ status: 404 }));
+      contactAddressbookServiceMock.getAddressbookByBookName = sinon.stub().returns($q.reject({ status: 404 }));
 
       controller.$onInit();
       $rootScope.$digest();
 
-      contactAddressbookService.createGroupAddressbook = sinon.stub().returns($q.when());
+      contactAddressbookServiceMock.createGroupAddressbook = sinon.stub().returns($q.when());
 
       postSaveHandler().then(function() {
-        expect(contactAddressbookService.createGroupAddressbook).to.have.been.calledWith({
+        expect(contactAddressbookServiceMock.createGroupAddressbook).to.have.been.calledWith({
           id: 'dab',
           name: 'Domain address book'
         }, $stateParams.domainId);
@@ -123,15 +129,15 @@ describe('The ContactConfigDomainAddressbookController controller', function() {
     });
 
     it('should call contactAddressbookService.updateAddressbook to update state of domain address book', function(done) {
-      contactAddressbookService.getAddressbookByBookName = sinon.stub().returns($q.when({ state: 'enabled' }));
+      contactAddressbookServiceMock.getAddressbookByBookName = sinon.stub().returns($q.when({ state: 'enabled' }));
 
       controller.$onInit();
       $rootScope.$digest();
 
-      contactAddressbookService.updateAddressbook = sinon.stub().returns($q.when());
+      contactAddressbookServiceMock.updateAddressbook = sinon.stub().returns($q.when());
       controller.isDomainAddressbookEnabled = false;
       postSaveHandler().then(function() {
-        expect(contactAddressbookService.updateAddressbook).to.have.been.calledWith({
+        expect(contactAddressbookServiceMock.updateAddressbook).to.have.been.calledWith({
           state: 'disabled'
         });
 
@@ -142,12 +148,12 @@ describe('The ContactConfigDomainAddressbookController controller', function() {
     });
 
     it('should revert if failed to update state of domain address book', function(done) {
-      contactAddressbookService.getAddressbookByBookName = sinon.stub().returns($q.when({ state: 'enabled' }));
+      contactAddressbookServiceMock.getAddressbookByBookName = sinon.stub().returns($q.when({ state: 'enabled' }));
 
       controller.$onInit();
       $rootScope.$digest();
 
-      contactAddressbookService.updateAddressbook = sinon.stub().returns($q.reject(new Error('update failed')));
+      contactAddressbookServiceMock.updateAddressbook = sinon.stub().returns($q.reject(new Error('update failed')));
       controller.isDomainAddressbookEnabled = false;
       postSaveHandler().catch(function() {
         expect(controller.isDomainAddressbookEnabled).to.be.true;
