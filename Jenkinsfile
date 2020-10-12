@@ -2,7 +2,7 @@ pipeline {
   agent none
 
   stages {
-    stage('Install packages & Lint & run tests') {
+    stage('Install packages & lint & run tests') {
       agent {
         dockerfile {
           filename 'Dockerfile'
@@ -14,6 +14,12 @@ pipeline {
         sh 'npm install -f'
         sh 'npm run lint'
         sh 'npm run test'
+      }
+
+      post {
+        always {
+          deleteDir() /* clean up our workspace */
+        }
       }
     }
 
