@@ -40,6 +40,9 @@ angular.module('esn.http', [])
   })
   .factory('esnRestangular', function() {
     return {};
+  })
+  .factory('httpConfigurer', function() {
+    return {};
   });
 angular.module('esn.domain', [])
   .factory('domainAPI', function() {
@@ -86,6 +89,9 @@ angular.module('esn.i18n', ['pascalprecht.translate'])
 angular.module('esn.datetime', [])
   .filter('esnDatetime', function() {
     return function(input) { return input; };
+  })
+  .factory('esnDatetimeService', function() {
+    return {};
   });
 
 angular.module('esn.availability', [])

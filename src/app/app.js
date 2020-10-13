@@ -14,4 +14,5 @@ require('esn-frontend-common-libs/src/frontend/js/modules/material/material.modu
 
 require('./app.config');
 require('./app.run');
+
 require('../linagora.esn.admin/app/app.module');

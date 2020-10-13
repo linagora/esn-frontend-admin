@@ -5,3 +5,4 @@ require('esn-frontend-mailto-handler/src/index.js');
 
 require('./app/app');
 require('./all.less');
+

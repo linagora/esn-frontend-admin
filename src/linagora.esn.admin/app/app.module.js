@@ -38,14 +38,18 @@ angular.module('linagora.esn.admin', [
   'esn.router',
   'linagora.esn.group',
   'esn.inbox-james',
-  'esn.api-client'
+  'esn.api-client',
+  'esn.contact.libs',
+  'linagora.esn.davproxy'
 ]);
-
 require('./app.constants.js');
 require('./app.routes.js');
 require('./app.config.js');
 require('./app.run.js');
+require('./app.module-registry.run.js');
 
+require('esn-frontend-contacts/src/linagora.esn.davproxy/js/app');
+require('esn-frontend-contacts/src/esn.contact.libs/app/app.module.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/esn.router.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/config/config.module.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/async-action.js');
@@ -63,7 +67,6 @@ require('esn-frontend-common-libs/src/frontend/js/modules/infinite-list/infinite
 require('esn-frontend-common-libs/src/frontend/js/modules/home-page/home-page.module.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/file-saver.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/scroll.js');
-require('esn-frontend-common-libs/src/frontend/js/modules/module-registry/module-registry.module.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/user/user.module.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/attendee/attendee.module.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/themes/themes.module.js');
@@ -99,6 +102,16 @@ require('./common/status-indicator/loading-status.directive.js');
 require('./dav/admin-dav-subheader.component.js');
 require('./dav/admin-dav.component.js');
 require('./dav/admin-dav.controller.js');
+require('./modules/displayer/config/inbox/disable-forwarding/inbox-config-form-disable-forwarding.controller.js');
+require('./modules/displayer/config/inbox/disable-local-copy/inbox-config-form-disable-local-copy.controller.js');
+require('./modules/displayer/config/inbox/inbox-config-form.component.js');
+require('./modules/displayer/config/inbox/inbox-config-form.constants.js');
+require('./modules/displayer/config/inbox/inbox-config-form.controller.js');
+require('./modules/displayer/config/calendar/calendar-config-form.component.js');
+require('./modules/displayer/config/linshare/linshare-config-form-component.js');
+require('./modules/displayer/config/contact/contact-config-form.component.js');
+require('./modules/displayer/config/contact/domain-addressbook/contact-config-domain-addressbook.component.js');
+require('./modules/displayer/config/contact/domain-addressbook/contact-config-domain-addressbook.controller.js');
 require('./domains/admin-domains.component.js');
 require('./domains/admin-domains.constant.js');
 require('./domains/admin-domains.controller.js');
@@ -167,7 +180,7 @@ require('./modules/admin-modules.controller.js');
 require('./modules/admin-modules.service.js');
 require('./modules/displayer/admin-modules-displayer.component.js');
 require('./modules/displayer/admin-modules-displayer.controller.js');
-require('./modules/form/admin-modules-form.component');
+require('./modules/form/admin-modules-form.component.js');
 require('./modules/form/admin-modules-save-button.component.js');
 require('./modules/form/admin-modules-save-button.controller.js');
 require('./modules/subheader/admin-modules-subheader.component.js');
