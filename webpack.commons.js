@@ -52,6 +52,7 @@ module.exports = {
       DOMPurify: 'dompurify', // for unifiedinbox
       localforage: 'localforage' // for calendar
     }),
+    new webpack.IgnorePlugin({ resourceRegExp: /openpaas\.js$/, contextRegExp: /env$/ }),
     /*
      * To transform assets/index.pug to an HTML file, with webpack autoimporting the "main.js" bundle
      */
@@ -72,6 +73,10 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'node_modules', 'socket.io-client', 'dist', 'socket.io.js'),
           to: 'socket.io/socket.io.js'
+        },
+        {
+          from: path.resolve(__dirname, 'env', 'openpaas.js'),
+          to: 'env'
         }
       ]
     })
