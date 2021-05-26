@@ -77,6 +77,10 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'env', 'openpaas.js'),
           to: 'env'
+        },
+        {
+          from: path.resolve(__dirname, 'src', 'linagora.esn.admin', 'images', 'logo-tiny.png'),
+          to: 'images'
         }
       ]
     })
