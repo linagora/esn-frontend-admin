@@ -75,7 +75,9 @@ angular.module('esn.module-registry', [])
   });
 angular.module('esn.feature-registry', [])
   .factory('esnFeatureRegistry', function() {
-    return {};
+    return {
+      add: angular.noop
+    };
   });
 angular.module('esn.i18n', ['pascalprecht.translate'])
   .filter('esnI18n', function() {
