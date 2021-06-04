@@ -121,6 +121,7 @@ module.exports = {
       ],
       target: OPENPAAS_URL,
       disableHostCheck: true,
+      historyApiFallback: true,
       secure: false,
       changeOrigin: true,
       withCredentials: true
