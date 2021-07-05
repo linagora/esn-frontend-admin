@@ -30,7 +30,7 @@ pipeline {
       }
       steps {
         script {
-          def dockerImage = docker.build 'linagora/esn-frontend-admin'
+          def dockerImage = docker.build('linagora/esn-frontend-admin', '--pull --no-cache .')
           docker.withRegistry('', 'dockerHub') {
             dockerImage.push('main')
           }
@@ -53,7 +53,7 @@ pipeline {
       }
       steps {
         script {
-          def dockerImage = docker.build 'linagora/esn-frontend-admin'
+          def dockerImage = docker.build('linagora/esn-frontend-admin', '--pull --no-cache .')
           docker.withRegistry('', 'dockerHub') {
             dockerImage.push(env.TAG_NAME)
           }
