@@ -239,5 +239,12 @@ angular.module('linagora.esn.admin')
             template: '<admin-oidc />'
           }
         }
+      })
+      .state('home', {
+        onEnter: function($state, $timeout) {
+          $timeout(() => {
+            $state.go('admin');
+          });
+        }
       });
   });
