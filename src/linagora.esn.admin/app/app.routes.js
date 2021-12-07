@@ -5,6 +5,10 @@ angular.module('linagora.esn.admin')
   .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when('/admin', function($state, $location, session, adminModeService) {
       session.ready.then(function() {
+        if (!session.userIsDomainAdministrator() || !session.user.isPlatformAdmin) {
+          return $location.path('/accessdenied');
+        }
+
         if (session.userIsDomainAdministrator()) {
           return adminModeService.goToDomainMode();
         }
@@ -18,6 +22,10 @@ angular.module('linagora.esn.admin')
     });
 
     $stateProvider
+      .state('accessdenied', {
+        url: '/accessdenied',
+        template: require('./common/access-denied/access-denied.pug')
+      })
       .state('admin', {
         url: '/admin',
         template: require('./app.pug'),

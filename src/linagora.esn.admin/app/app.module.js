@@ -97,6 +97,7 @@ require('./common/form/admin-form.constant.js');
 require('./common/mode/admin-mode.service.js');
 require('./common/mode/switch/admin-mode-switch.js');
 require('./common/status-indicator/loading-status.directive.js');
+require('./common/access-denied/access-denied.component.js');
 require('./dav/admin-dav-subheader.component.js');
 require('./dav/admin-dav.component.js');
 require('./dav/admin-dav.controller.js');

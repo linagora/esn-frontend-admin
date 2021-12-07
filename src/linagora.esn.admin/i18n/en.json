@@ -270,6 +270,7 @@
   "Synchronize domains in OpenPaaS with James": "Synchronize domains in OpenPaaS with James",
   "Issuer URL": "Issuer URL",
   "You are about to remove the OpenID Connect configuration": "You are about to remove the OpenID Connect configuration",
+  "You do not have permission to access this application": "You do not have permission to access this application",
   "OpenID Connect Configuration": "OpenID Connect Configuration",
   "No OpenID Connect configuration, click": "No OpenID Connect configuration, click"
 }

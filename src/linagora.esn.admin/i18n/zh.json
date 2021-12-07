@@ -270,6 +270,7 @@
   "Synchronize domains in OpenPaaS with James": "将OpenPaaS内的域与James同步",
   "Issuer URL": "发行人网址",
   "You are about to remove the OpenID Connect configuration": "您将要删除OpenID Connect配置",
+  "You do not have permission to access this application": "您无权访问此应用程序",
   "OpenID Connect Configuration": "OpenID Connect配置",
   "No OpenID Connect configuration, click": "没有OpenID Connect配置，请单击"
 }
