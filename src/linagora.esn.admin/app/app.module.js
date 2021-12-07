@@ -39,8 +39,7 @@ angular.module('linagora.esn.admin', [
   'linagora.esn.group',
   'esn.inbox-james',
   'esn.api-client',
-  'esn.contact.libs',
-  'linagora.esn.davproxy'
+  'esn.contact.libs'
 ]);
 require('./app.constants.js');
 require('./app.routes.js');
@@ -48,7 +47,6 @@ require('./app.config.js');
 require('./app.run.js');
 require('./app.module-registry.run.js');
 
-require('esn-frontend-contacts/src/linagora.esn.davproxy/js/app');
 require('esn-frontend-contacts/src/esn.contact.libs/app/app.module.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/esn.router.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/config/config.module.js');
