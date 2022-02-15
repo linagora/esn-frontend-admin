@@ -270,6 +270,7 @@
   "Synchronize domains in OpenPaaS with James": "Синхронизируйте домены в OpenPaaS с James",
   "Issuer URL": "URL-адрес эмитента",
   "You are about to remove the OpenID Connect configuration": "Вы собираетесь удалить конфигурацию OpenID Connect",
+  "You do not have permission to access this application": "У вас нет разрешения на доступ к этому приложению",
   "OpenID Connect Configuration": "конфигурации OpenID Connect",
   "No OpenID Connect configuration, click": "Нет конфигурации OpenID Connect, нажмите"
 }

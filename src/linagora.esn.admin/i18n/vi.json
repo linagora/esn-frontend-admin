@@ -271,5 +271,6 @@
   "Issuer URL": "URL nhà cung cấp",
   "You are about to remove the OpenID Connect configuration": "Bạn chuẩn bị xóa cấu hình OpenID Connect",
   "OpenID Connect Configuration": "Cấu hình OpenID Connect",
-  "No OpenID Connect configuration, click": "Chưa có cấu hình OpenID Connect nào, bấm"
+  "No OpenID Connect configuration, click": "Chưa có cấu hình OpenID Connect nào, bấm",
+  "You do not have permission to access this application": "Bạn không có quyền truy cập ứng dụng này"
 }
