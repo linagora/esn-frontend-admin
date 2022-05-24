@@ -42,7 +42,9 @@ angular.module('esn.http', [])
     return {};
   })
   .factory('httpConfigurer', function() {
-    return {};
+    return {
+      manageRestangular: angular.noop
+    };
   });
 angular.module('esn.domain', [])
   .factory('domainAPI', function() {
