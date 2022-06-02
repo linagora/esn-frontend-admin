@@ -119,3 +119,12 @@ angular.module('linagora.esn.test', [])
       configurations: '='
     }
   });
+
+angular.module('esn.authentication', [])
+  .factory('tokenAPI', function() {
+    return {
+      getWebToken() {
+        return $q.when({ data: 'jwt' });
+      }
+    };
+  });
